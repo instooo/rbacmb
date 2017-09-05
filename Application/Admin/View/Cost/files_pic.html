@@ -1,0 +1,70 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/Realtime/pay_list">媒体管理</a>
+        </li>
+        <li>附件添加</li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+	
+<div id="ManagerRight" class="ManagerRightShow">
+	<div id="count_body" style="margin-top: 20px;">
+		<form>
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody> 
+					<input type="hidden" class="id" name="id" value="<{$id}>">
+					<tr><td>图片类型：</td><td><input type="radio" name="type" value="ht" checked/>合同<input type="radio" name="type" value="fp"/>发票</td></tr>
+					<tr><td>文件上传：</td><td>
+					<input class="type-file" name="uploads[]" size="30" type="file" multiple/></td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="dosubmit" id="dosubmit" value="上传" class="manager-btn s-btn search-btn">
+                            <span id="tips" style="display: none"></span>
+                        </td>
+                    </tr>			
+                </tbody>
+            </table>
+        </form>
+	</div>
+</div>
+<script src="__JS__/laydate/laydate.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#dosubmit').live('click',function() { 			
+            var options = {
+                url: "/cost/files_pic",
+                type:"post",
+				data: {'as':1},
+                success: function (data) {
+                    data=jQuery.parseJSON(data);
+                    if(data.code==1){
+                        layer.msg('上传成功', {icon:6,time:1000}, function () {window.location.href="/cost/index";}); 
+                        return false; 
+                    }else{
+                        layer.msg(data.msg, {icon:5,time:1000});
+                        return false;
+                    }
+                    
+                },
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+            }; 
+            $("form").ajaxSubmit(options);      
+        });
+    })
+</script>
+</div>
+<include file="Public/footer" />

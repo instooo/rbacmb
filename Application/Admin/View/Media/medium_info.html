@@ -1,0 +1,129 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/cost/index">媒体管理</a>
+        </li>
+        <li>推广媒体列表</li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+    <div id="ManagerRight" class="ManagerRightShow">
+        <form id="myform" name="countform" method="get" action="/Media/medium_info">          
+            <div id="count_search">
+                <ul class="search_box">
+					<li class="line">
+						<label class="title">媒体名称：</label>
+						<label class="msg">
+							<input value="<{$name}>" name="name" type="text">  
+						</label>
+					</li>					
+                    <li class="line">
+                        <label class="title">合作状态：</label>
+						<label class="msg">
+						<select name="status" id="status">
+							<option value="">请选择状态</option>
+							<option value="0" <?php if($status=='0'){echo 'selected';} ?>>启用</option>
+							<option value="1" <?php if($status=='1'){echo 'selected';} ?>>未启用</option>
+						</select>
+						</label>
+                    </li>					
+					<li class="line">
+						<input type="hidden" name="order" id="order" value="">
+                        <input type="submit" name="searchbtn" value="搜索" class="manager-btn s-btn search-btn">
+                    </li>
+                    <li class="line" style=" float:right;">					
+                        <a href="/Media/medium_add" class="manager-btn s-btn search-btn" style="margin:0;padding:"; >添加</a>
+                    </li>
+                </ul>
+				
+					 
+				
+            </div>
+            <div id="count_body">
+                <table class="huitable">
+                    <thead>
+                    <tr align="left">
+                        <th>媒体ID</th>
+                        <th>媒体名称</th>
+                        <th>标示</th>
+                        <th>注册时间</th>
+						<th>状态</th>
+                        <th>操作</th>                      
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <if condition="$list">
+                        <volist name="list" id="vo">
+                            <tr data-id="<{$vo.id}>">
+                                <td><{$vo.id}></td>
+                                <td><{$vo.name}></td>
+                                <td><{$vo.mark}></td>
+                                <td><{$vo.addtime|date="y-m-d H:i:s",###}></td>
+                                <td>
+									<switch name="vo.status">
+										<case value="0">启用</case>
+										<case value="1">未启用</case>
+									 </switch>
+								</td>
+                                <td><a href="/media/medium_upd/id/<{$vo.id}>">修改</a><span>|</span>
+			<a class="btn_dele" href="javascript:void(0);">删除</a>|</span>
+			<a href="/media/medium_upzy/id/<{$vo.id}>">转移</a></td>                              
+                            </tr>
+                        </volist>
+                        <else />
+                        <tr><td colspan="7" style="text-align:center; font-size:24px; color:#ccc;">无记录</td></tr>
+                    </if>
+                    </tbody>
+                </table>
+            </div>
+            <div id="jsonpage" class="pagebox"><div class="pageinfo"><{$page}></div></div>
+        </form>
+        <div class="product-detail-desc mt-15">
+            <div class="title mb-5">
+                <span>媒体成本说明：</span>
+            </div>
+            <p class="pt-5"><span  style="font-weight:bold;">媒体成本说明：</span>当前账号显示充值查询的详细信息，包括用户ID、注册时间、用户名、充值游戏、充值金额、充值时间、推广人员、充值IP和选择充值日期、注册日期内的充值金额和人数。</p>           
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {        
+        //删除提示
+        $('.btn_dele').click(function () {
+            var id = $(this).parents('tr').attr('data-id');
+            if (id == '') return false;
+            layer.confirm('确定要删除该类型？', {
+                btn: ['确定','取消']
+            }, function(){
+                doDele(id);
+            });
+        });
+		//删除媒体
+		function doDele(id) {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{id:id},
+            url:'/media/medium_del',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.state == 0) {
+                    layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+    }); 
+</script>	
+<include file="Public/footer" />

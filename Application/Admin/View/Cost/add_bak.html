@@ -1,0 +1,150 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/Realtime/pay_list">实时数据</a>
+        </li>
+        <li>充值查询</li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+	
+<div id="ManagerRight" class="ManagerRightShow">
+	<div id="count_body" style="margin-top: 20px; position:relative; padding-bottom:60px;">
+		<form enctype="multipart/form-data">
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>
+					<tr><td>
+                    <label class="title" style="width:80px">投放时间：</label>
+                    </td><td>
+						<input type="button" name="one" id="addmore" value="增加更多" class="manager-btn s-btn search-btn" style="float:left; margin:0 10px 0 10px;">
+                    </td></tr>
+                    <tr><td>广告媒体：</td><td>
+                        <select class="alert_input add_input_tid" name="channel" id="channel">
+							<option value="">请选择广告媒体</option>
+                            <volist name="channel" id="vo">
+                                <option value="<{$vo.cid}>"><{$vo.cps_name}></option>
+                            </volist>
+                        </select><span id="select_tips" style="display: none"></span>
+                    </td></tr>  
+                </tbody>
+            </table>
+			<table class="huitable" id="formtable" style="width: 100%">                  
+                    <thead>
+                    <tr><th>投放时间</th><th>投放成本</th><th>备注</th><th>操作</th></tr>					
+                    </thead>
+                    <tbody>					
+					</tbody>
+			</table>
+			<div style="position:absolute; bottom:0"><input type="button" name="subbtn" id="subbtn" value="提交" class="manager-btn s-btn search-btn" style="float:left; margin:0 10px 0 10px;"></div>
+        </form>
+	
+	
+	</div>
+</div>
+
+<script type="text/javascript">
+	create_tr(6);
+    //添加表单组
+    function create_tr(num) {
+        num = num?num:1;
+        for (var i=1;i<=num;i++) {
+            var _tr_html = '';
+            _tr_html += '<tr><td><input type="text" name="tftime" class="normorinput"><span class="tips"></span></td><td><input type="text" name="tfmoney" class="normorinput"><span class="tips"></span></td><td><input type="text" name="tfbz" class="normorinput"><span class="tips"></span></td><td><input type="button" name="delebtn" value="删除" class="manager-btn orange-btn delebtn" style="margin:0"></td></tr>';
+            $('#formtable tbody').append(_tr_html);
+        }
+    }
+	$(function(){
+		$('.delebtn').live('click', function () {
+			var length = $('#formtable tbody tr').length;			
+            if ($('#formtable tbody tr').length <= 1) {
+                alert('至少要保留一个！');
+                return false;
+            }
+            $(this).parents('tr').remove();
+        });	
+		$('#addmore').click(function () {
+            create_tr(1);
+        });	
+		//批量增加下线
+        $('#subbtn').click(function () {
+            $('#select_tips').hide();
+            var channel =  $('#channel').val();			
+            if(channel<0 || !channel){			
+                $('#select_tips').css('color', 'red').html('您还未选择媒体').show();
+                return false;
+            }
+            $('.tips').hide();
+            var data = checkdata();
+            if (data == false) return false;
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                data:{data:JSON.stringify(data)},
+                url:'/System/channel_add_pl',
+                error:function () {
+                    $('.res_tips').css('color', 'red').html('未知错误').show();
+                },
+                success:function (data) {
+                    if (data.code == 1) {
+                        var msg = '成功注册'+data.info.success.length+'，失败'+data.info.fail.length;
+                        $('.res_tips').css('color', 'limegreen').html(msg).show();
+                        var info = data.info;
+                        for (var i in info.fail) {
+                            if (info['fail']) {
+                                var errArr = info['fail'][i]['msg'];
+                                for (var j in errArr) {									
+                                    $('#formtable tbody tr input[tag="'+errArr[j]['tag']+'"]').siblings('.tips').css('color', 'red').html(errArr[j]['show']).show();
+                                }
+                            }
+                        }
+                        layer.msg('成功成功', {icon:6,time:1000}, function () {							
+                            $('input[name="username"]').val('');
+                        });
+                    }else {
+                        $('.res_tips').css('color', 'red').html(data.msg).show();
+                    }
+                }
+            });
+        });
+
+		
+	})
+	
+	//检测并获取数据
+    function checkdata() {
+        var data = [];
+        var error_num = 0; 
+		var pid=$("select[name='pid']").val();
+		var tid=$("select[name='tid']").val();
+        $('#formtable tbody tr').each(function () {
+            var this_error_num = 0;
+            var username = $(this).find('input[name="username"]').val();
+            var tag_username = $(this).find('input[name="username"]').attr('tag');
+            //当前行全部为空则略去           
+            if (username == '') {
+                $(this).find('input[name="username"]').siblings('span.tips').css('color', 'red').html('用户名不能为空！').show();
+                this_error_num++;
+				return false;
+            } 
+            error_num += this_error_num;
+            if (this_error_num > 0) return true;
+            data[data.length] = {username:username,tag_username:tag_username,pid:pid,tid:tid};
+        });		
+        if (error_num > 0 || data.length == 0) return false;
+        else return data;
+    }
+	
+</script>
+</div>
+<include file="Public/footer" />

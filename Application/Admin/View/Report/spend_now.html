@@ -1,0 +1,384 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/cost/index">媒体管理</a>
+        </li>
+        <li>合同管理</li>
+    </ul>
+</div>
+<div id="MainContentDIV" style="min-width:<{$count*80+160}>px">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+    <div id="ManagerRight" class="ManagerRightShow" >
+        <form id="myform" name="countform" method="get" action="/report/spend_now">
+			<input type="hidden" value='<{$cpsid}>' name='cpsid'/>
+			<input type="hidden" value='<{$gameid}>' name='gameid'/>
+            <div id="count_search">
+                <ul class="search_box">
+                    <li class="line">
+                        <label class="title" style="width:80px">注册日期：</label>
+                        <input type="hidden" class="reg_start_input" name="reg_start_input">
+                        <input type="hidden" class="reg_end_input" name="reg_end_input">
+                        <div class="ta_date" id="div_date_demo3">
+                            <span class="date_title" id="date_demo4"></span>
+                            <a class="opt_sel" id="input_trigger_demo3" href="#">
+                                <i class="i_orderd"></i>
+                            </a>
+                        </div>						
+						<span class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,7,'reg_start_input','reg_end_input')">7天内</span>						
+						<span  class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,30,'reg_start_input','reg_end_input')">30天内</span>
+						<span class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,60,'reg_start_input','reg_end_input')">60天内</span>
+                    </li>
+					
+					<li class="line">
+                        <label class="title" style="width:80px">充值日期：</label>
+                        <input type="hidden" class="start_input" name="start">
+                        <input type="hidden" class="end_input" name="end">
+                        <div class="ta_date" id="div_date_demo3">
+                            <span class="date_title" id="date_demo3"></span>
+                            <a class="opt_sel" id="input_trigger_demo3" href="#">
+                                <i class="i_orderd"></i>
+                            </a>
+                        </div>						
+						<span class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,7,'start_input','end_input')">7天内</span>
+						<span  class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,30,'start_input','end_input')">30天内</span>
+						<span class="manager-btn s-btn search-btn" style="margin:0 0 0 5px;border-radius: 2px;background:#caab83" onclick="kuaijie(this,60,'start_input','end_input')">60天内</span>	
+                    </li>
+					<li class="line">						
+                        <input type="submit" name="searchbtn" value="查询" class="manager-btn s-btn search-btn">
+                    </li>     	
+                </ul>
+				
+					 
+				
+            </div>
+            <div id="count_body">
+				
+                <table class="huitable" style="min-width:<{$count*80+160}>px">
+                    <thead>
+					<tr style="border: 1px solid #a9a2a2;">
+					<th style="background:#ECEFF4;border:none;">
+					<input type="button" id="mtbtn" value="选择媒体" class="manager-btn s-btn search-btn" style="margin:0">
+					</th>					
+					<th colspan="<{$count+1}>" style="background:#ECEFF4;border:none;text-align:left">
+					 全部媒体
+					</th>
+				   </tr>
+					<tr style="border: 1px solid #a9a2a2;">
+					<th style="background:#ECEFF4;border:none;">
+					<input type="button"  value="选择游戏" id="gamebtn" class="manager-btn s-btn search-btn"
+					style="margin:0">
+					</th>	
+					<th colspan="<{$count+1}>" style="background:#ECEFF4;border:none;text-align:left">
+					全部游戏
+					</th>
+				   </tr>	
+					<tr >
+                        <th colspan="<{$count+2}>" style="background:#a1ada7;color:#fff"><b>月度全cps用户收入</b></th>
+					</tr>
+                    <tr align="left">
+                        <th style="border: 1px solid #ececec;background:#3ea279;color:#fff"><b>游戏</b></th>
+						<volist name="gamelist" id="vo">
+                        <th style="border: 1px solid #ececec;background:#3ea279;color:#fff"><b><{$vo.gamename}></b></th> 
+						</volist>
+						<th style="border: 1px solid #ececec;background:#3ea279;color:#fff"><b>小计</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <if condition="meiti_arr">
+                        <volist name="meiti_arr" id="vo">
+                            <tr align="center">
+                                <td><b><{$key}></b></td>
+								<volist name="gamelist" id="v">
+								<empty name="vo[$v['gid']]">
+									<td>0￥</td>
+									<else />
+									<td><{$vo["{$v['gid']}"]}>￥</td>
+								</empty>
+								</volist>
+								<td style="background:#f7f7f7"><b><{$vo.money}>￥</b></td>
+                            </tr>
+                        </volist>
+						<tr align="center" style="background:#e1e1e1">
+                            <td><b>小计</b></td>
+							<volist name="gamelist" id="v">	
+								<td><b>
+								<empty name='game_money[$v["gid"]]'>0<else/><{$game_money["{$v['gid']}"]}></empty>
+								￥</b></td>								
+							</volist>
+							<td><b>总计：<empty name="total_money">0<else/><{$total_money}></empty>￥</b></td>
+						</tr>						
+                    </if>
+                    </tbody>
+                </table>
+            </div>
+            <div id="jsonpage" class="pagebox"><div class="pageinfo"><{$page}></div></div>
+        </form>
+        <div class="product-detail-desc mt-15">
+            <div class="title mb-5">
+                <span>媒体成本说明：</span>
+            </div>
+            <p class="pt-5"><span  style="font-weight:bold;">媒体成本说明：</span>当前账号显示充值查询的详细信息，包括用户ID、注册时间、用户名、充值游戏、充值金额、充值时间、推广人员、充值IP和选择充值日期、注册日期内的充值金额和人数。</p>           
+        </div>		
+    </div>
+</div>
+<div class="meiti" style="display:none">			
+		<div class="gametype no_bor">
+			<span>字母</span>
+			<div class="type-info mt" id="mttitle">
+				<ul>
+					<li id="limt2-0" class="on"><a class="all" onclick="showallgamemt(2,5);">不限</a></li>
+					<li id="limt2-1"><a onclick="showfirstmt('a,b,c,d,e',1);">ABCDE</a></li>
+					<li id="limt2-2"><a onclick="showfirstmt('f,g,h,i,j',2);">FGHIJ</a></li>
+					<li id="limt2-3"><a onclick="showfirstmt('k,l,m,n,o',3);">KLMNO</a></li>
+					<li id="limt2-4"><a onclick="showfirstmt('p,q,r,s,t',4);">PQRST</a></li>
+					<li id="limt2-5"><a onclick="showfirstmt('u,v,w,x,y,z',5);">UVWXYZ</a></li>
+					<li id="limt2-6"><a onclick="showfirstmt('1,2,3,4,5,6,7,8,9',6);">123456789</a></li>
+					<li><a onclick="select_mt();">全选</a></li>
+					<li><a onclick="dselect_mt();">全不选</a></li>
+				</ul>
+			</div>
+		</div>			
+		<div style="float:left; width:100%;">
+		<volist name="midarr_result" id="vo">
+				<label style="float:left; line-height:18px; padding:5px;" class="mtname" short="<{$vo.cps_name}>">
+				<input style="margin-top:-2px;" type="checkbox" name="mt" mtname="<{$vo.cps_name}>" value="<{$vo.cid}>" ><{$vo.cps_name}></label>
+		</volist>
+		</div>
+		<div style="float:left"><a class="okbtn" id="okbtn_mt">确定</a></div>			
+</div>
+
+<div class="gamebox" style="display:none">			
+		<div class="gametype no_bor">
+				<span>字母</span>
+				<div class="type-info mt">
+					<ul>
+						<li id="li2-0" class="on"><a class="all" onclick="showallgame(2,5);">不限</a></li>
+						<li id="li2-1"><a onclick="showfirst('a,b,c,d,e',1);">ABCDE</a></li>
+						<li id="li2-2"><a onclick="showfirst('f,g,h,i,j',2);">FGHIJ</a></li>
+						<li id="li2-3"><a onclick="showfirst('k,l,m,n,o',3);">KLMNO</a></li>
+						<li id="li2-4"><a onclick="showfirst('p,q,r,s,t',4);">PQRST</a></li>
+						<li id="li2-5"><a onclick="showfirst('u,v,w,x,y,z',5);">UVWXYZ</a></li>
+						<li><a onclick="select_game();">全选</a></li>
+						<li><a onclick="dselect_game();">全不选</a></li>
+					</ul>
+				</div>
+				
+		</div>			
+		<div style="float:left; width:100%;">
+			<volist name="gamelist_all" id="vo">
+			<label style="float:left; line-height:18px; padding:5px;" class="game" short="<{$vo.short}>">					
+			<input style="margin-top:-2px;" type="checkbox" name="game" gname="<{$vo.gamename}>" value="<{$vo.gid}>" ><{$vo.gamename}></label>
+			</volist>
+		</div>
+		<div style="float:left"><a class="okbtn" id="okbtn_game">确定</a></div>			
+</div>
+
+<script src="__JS__/laydate/laydate.js"></script>
+<script>
+    $(function () {
+        var start = "<{$start}>";
+        var end = "<{$end}>";
+		var reg_start = "<{$reg_start}>";
+        var reg_end = "<{$reg_end}>";
+        $('.start_input').attr('value',start);
+        $('.end_input').attr('value',end);
+		$('.reg_start_input').attr('value',reg_start);
+        $('.reg_end_input').attr('value',reg_end);
+        var dateRange = new pickerDateRange('date_demo3', {
+            aRecent7Days: 'aRecent7DaysDemo3', //最近7天
+            isTodayValid: true,
+            startDate: start,
+            endDate: end,           
+            defaultText: ' 至 ',
+            inputTrigger: 'input_trigger_demo3',
+            theme: 'ta',
+            success: function (obj) {               
+                $("#input_trigger_demo3").parents('li.line').find('.start_input').attr('value', obj.startDate);
+                $("#input_trigger_demo3").parents('li.line').find('.end_input').attr('value', obj.endDate);
+            }
+        });		
+		var dateRange = new pickerDateRange('date_demo4', {
+            aRecent7Days: 'aRecent7DaysDemo4', //最近7天
+            isTodayValid: true,
+            startDate: reg_start,
+            endDate: reg_end,           
+            defaultText: ' 至 ',
+            inputTrigger: 'input_trigger_demo4',
+            theme: 'ta',
+            success: function (obj) {
+                $('.reg_start_input').val(obj.startDate);
+				$('.reg_end_input').val(obj.endDate);               
+            }
+        });
+		$("#mtbtn").click(function(){
+			var c_id = $('input[name="cpsid"]').val();
+			var channel_list = c_id.split(',');		
+			//将channel_list中的id分别填入对应的checkbox
+			$('input[name="mt"]').each(function(i){	
+			$(this).attr('checked',false);
+			if($.inArray($(this).val(),channel_list) > -1){
+				$(this).attr('checked',true);
+			}else{
+				$(this).attr('checked',false);
+			}
+			});
+			layer.open({
+				type: 1,
+				title: '选择媒体',				
+				area: ['1000px', '300px'], //宽高
+				content: $('.meiti'),
+			});			
+		})				
+		$("#gamebtn").click(function(){
+			var gameid = $('input[name="gameid"]').val();
+			var gameid_list = gameid.split(',');		
+			//将channel_list中的id分别填入对应的checkbox
+			$('input[name="game"]').each(function(i){	
+				$(this).attr('checked',false);
+				if($.inArray($(this).val(),gameid_list) > -1){
+					$(this).attr('checked',true);
+				}else{
+					$(this).attr('checked',false);
+				}
+			});		
+			index = layer.open({
+				type: 1,
+				title: '选择游戏',
+				skin: 'layui-layer', //加上边框
+				area: ['1000px', '300px'], //宽高
+				content: $(".gamebox")
+			});		
+		})
+		$("#okbtn_mt").click(function(){			
+			var chk_value =''; 
+			$('input[name="mt"]:checked').each(function(){ 
+				chk_value+=$(this).val()+","; 
+			});
+			$('input[name="cpsid"]').val(chk_value);
+			layer.close(layer.index);
+		})		
+		$("#okbtn_game").click(function(){
+			var chk_value =''; 
+			$('input[name="game"]:checked').each(function(){ 
+				chk_value+=$(this).val()+","; 
+			});
+			$('input[name="gameid"]').val(chk_value);
+			layer.close(layer.index);
+		})
+    });
+	function kuaijie(_this,num,start,end){	
+		var nowtime_now = new Date();
+		nowtime_now.setDate(nowtime_now.getDate()-1);
+		var year_now = nowtime_now.getFullYear();  
+		var month_now = padleft0(nowtime_now.getMonth() + 1);  
+		var day_now = padleft0(nowtime_now.getDate());
+		
+		var nowtime = new Date();
+		nowtime.setDate(nowtime.getDate()-num);
+		var year = nowtime.getFullYear();  
+		var month = padleft0(nowtime.getMonth() + 1);  
+		var day = padleft0(nowtime.getDate());
+		var str_now = year_now + "-" + month_now + "-" + day_now;
+		var str = year + "-" + month + "-" + day;	
+		var html =str+" 至 "+str_now;		
+		$("."+start).val(str);
+		$("."+end).val(str_now);
+		$(_this).parents(".line").find(".date_title").html(html);
+	}
+	//补齐两位数  
+	function padleft0(obj) {  
+		return obj.toString().replace(/^[0-9]{1}$/, "0" + obj);  
+	} 
+	function showfirst(gamename, num) {
+		$('.game').show();			
+		var show_num = 0;
+		arr = gamename.split(',');
+		for (i = 0; i < $('.game').length; i++) {
+			if (jQuery.inArray($('.game').eq(i).attr('short').substr(0, 1), arr) == "-1") {
+				$('.game').eq(i).hide();
+			}else show_num ++;
+		}
+		for (var i = 0; i <= 5; i++) {
+			document.getElementById('li2-' + i).className = '';
+		}
+		document.getElementById('li2-' + num).className = 'on';
+		if (show_num == 0) {
+			$('#gamelist .no_game').show();
+		}else {
+			$('#gamelist .no_game').hide();
+		}
+	}
+	function showallgame(num, tol) {
+		$('.game').show();
+		var show_num = $('#mttitle li').length;			
+		for (var i = 0; i <= tol; i++) {
+			document.getElementById('li' + num + '-' + i).className = '';
+		}
+		document.getElementById('li' + num + '-0').className = 'on';
+		if (show_num == 0) {
+			$('#gamelist .no_game').show();
+		}else {
+			$('#gamelist .no_game').hide();
+		}
+	}
+	function showfirstmt(gamename, num) {
+		$('.mtname').show();			
+		var show_num = 0;
+		arr = gamename.split(',');
+		for (i = 0; i < $('.mtname').length; i++) {
+			if (jQuery.inArray($('.mtname').eq(i).attr('short').substr(0, 1), arr) == "-1") {
+				$('.mtname').eq(i).hide();
+			}else show_num ++;
+		}
+		for (var i = 0; i <= 5; i++) {
+			document.getElementById('limt2-' + i).className = '';
+		}
+		document.getElementById('limt2-' + num).className = 'on';
+		if (show_num == 0) {
+			$('#gamelist .no_game').show();
+		}else {
+			$('#gamelist .no_game').hide();
+		}
+	}
+	function showallgamemt(num, tol) {
+		$('.mtname').show();
+		var show_num = $('#gamelist li.game').length;
+		for (var i = 0; i <= tol; i++) {
+			document.getElementById('limt' + num + '-' + i).className = '';
+		}
+		document.getElementById('limt' + num + '-0').className = 'on';
+		if (show_num == 0) {
+			$('#gamelist .no_game').show();
+		}else {
+			$('#gamelist .no_game').hide();
+		}
+	}	
+	function select_game(){
+		$('input[name="game"]').each(function(i){			
+			$(this).attr('checked',true);
+		})
+	}
+	function dselect_game(){
+		$('input[name="game"]').each(function(i){			
+			$(this).attr('checked',false);
+		})
+	}
+	function select_mt(){
+		$('input[name="mt"]').each(function(i){			
+			$(this).attr('checked',true);
+		})
+	}
+	function dselect_mt(){
+		$('input[name="mt"]').each(function(i){			
+			$(this).attr('checked',false);
+		})
+	}
+</script>
+<include file="Public/secchannel" />
+<include file="Public/footer" />

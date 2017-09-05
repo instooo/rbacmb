@@ -1,0 +1,257 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/Realtime/pay_list">媒体管理</a>
+        </li>
+        <li>媒体成本添加</li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+	
+<div id="ManagerRight" class="ManagerRightShow">
+	<div id="count_body" style="margin-top: 20px;">
+		<form>
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>                   
+                    <tr><td>一级媒体：</td><td>
+						<div class="gametype no_bor">
+						<span>字母</span>
+						<div class="type-info mt" id="mttitle">
+							<ul>
+								<li id="limt2-0" class="on"><a class="all" onclick="showallgamemt(2,5);">不限</a></li>
+								<li id="limt2-1"><a onclick="showfirstmt('a,b,c,d,e',1);">ABCDE</a></li>
+								<li id="limt2-2"><a onclick="showfirstmt('f,g,h,i,j',2);">FGHIJ</a></li>
+								<li id="limt2-3"><a onclick="showfirstmt('k,l,m,n,o',3);">KLMNO</a></li>
+								<li id="limt2-4"><a onclick="showfirstmt('p,q,r,s,t',4);">PQRST</a></li>
+								<li id="limt2-5"><a onclick="showfirstmt('u,v,w,x,y,z',5);">UVWXYZ</a></li>
+								<li id="limt2-6"><a onclick="showfirstmt('1,2,3,4,5,6,7,8,9',6);">123456789</a></li>
+							</ul>
+						</div>
+					</div>
+					<div style="float:left; width:100%;">
+					<volist name="meiti" id="vo">
+					<label style="float:left; line-height:18px; padding:5px;" class="mtname" short="<{$vo.cps_name}>">					
+					<input style="margin-top:-2px;" type="radio" name="mt" mtname="<{$vo.cps_name}>" value="<{$vo.cid}>" ><{$vo.cps_name}></label>
+					</volist>	
+                    </td></tr>	
+					<tr><td>游戏：</td><td>					
+					<div class="gametype no_bor">
+						<span>字母</span>
+						<div class="type-info mt">
+							<ul>
+								<li id="li2-0" class="on"><a class="all" onclick="showallgame(2,5);">不限</a></li>
+								<li id="li2-1"><a onclick="showfirst('a,b,c,d,e',1);">ABCDE</a></li>
+								<li id="li2-2"><a onclick="showfirst('f,g,h,i,j',2);">FGHIJ</a></li>
+								<li id="li2-3"><a onclick="showfirst('k,l,m,n,o',3);">KLMNO</a></li>
+								<li id="li2-4"><a onclick="showfirst('p,q,r,s,t',4);">PQRST</a></li>
+								<li id="li2-5"><a onclick="showfirst('u,v,w,x,y,z',5);">UVWXYZ</a></li>								
+							</ul>
+						</div>
+					</div>
+					<div style="float:left; width:100%;">
+					<volist name="game_list" id="vo">
+					<label style="float:left; line-height:18px; padding:5px;" class="game" short="<{$vo.short}>">					
+					<input style="margin-top:-2px;" type="radio" name="game" gname="<{$vo.gamename}>" value="<{$vo.gid}>" ><{$vo.gamename}></label>
+					</volist>
+					</div>	
+                    </td></tr>
+					<tr><td>消耗时间：</td><td>
+						<input type="hidden" class="s_time" name="s_time">
+                        <input type="hidden" class="e_time" name="e_time">
+                        <div class="ta_date" id="div_date_demo3">
+                            <span class="date_title" id="date_demo3"></span>
+                            <a class="opt_sel" id="input_trigger_demo3" href="#">
+                                <i class="i_orderd"></i>
+                            </a>
+                        </div></td></tr>
+                    <tr><td>金额：</td><td><input type="text" class="manager-input s-input" name="money" id="money" style="width: 300px" value=""></td></tr>
+					<tr><td>描述：</td><td><input type="text" class="manager-input s-input" name="des" id="des" style="width: 300px" value=""></td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="dosubmit" id="dosubmit" value="添加" class="manager-btn s-btn search-btn">
+                            <span id="tips" style="display: none"></span>
+                        </td>
+                    </tr>			
+                </tbody>
+            </table>
+        </form>
+	</div>
+</div>
+<script src="__JS__/laydate/laydate.js"></script>
+<script type="text/javascript">
+    $(function(){
+		var start = "<{$start}>";
+        var end = "<{$end}>";
+		$('.s_time').attr('value',start);
+        $('.e_time').attr('value',end);
+		 var dateRange = new pickerDateRange('date_demo3', {
+            aRecent7Days: 'aRecent7DaysDemo3', //最近7天
+            isTodayValid: true,
+            startDate: start,
+            endDate: end,
+			isSingleDay: true, 
+            isTodayValid: true,defaultText: ' 至 ',
+            inputTrigger: 'input_trigger_demo3',
+            theme: 'ta',
+            success: function (obj) {
+                $("#dCon_demo3").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+                $('.s_time').attr('value', obj.startDate);
+                $('.e_time').attr('value', obj.endDate);
+            }
+        });
+		
+        $('#dosubmit').live('click',function() { 		
+            var mtname = $("input[name='mt']:checked").attr("mtname");	
+			 var cpsid = $("input[name='mt']:checked").val();
+			var game = $("input[name='game']:checked").attr("gname");
+			var time = $("input[name='s_time']").val();
+			var des = $("input[name='des']").val();
+			var money = $("input[name='money']").val();
+			if(!mtname||!game||!time||!des||!money){				
+				layer.msg('数据不完整', {icon:5,time:1000});
+				return false;
+			}
+			var ex = /^\d+$/;
+			if (!ex.test(money)) {
+			   layer.msg('金额只能是数字', {icon:5,time:1000});
+				return false;
+			}
+			
+			$.ajax({
+				type:'post',
+				dataType:'json',
+				data:{cpsid:cpsid,spend_time:time},
+				url:'/spend/get_ht',			
+				success:function (data) {
+					if(data==0){
+						layer.msg('当前媒体暂无合同', {icon:5,time:1000});
+						return false;
+					}else{
+						aa(data);
+					}
+				}
+			});
+			
+			
+			
+			
+        });
+    })
+		function aa(data){
+			var mtname = $("input[name='mt']:checked").attr("mtname");
+			var game = $("input[name='game']:checked").attr("gname");
+			var time = $("input[name='s_time']").val();
+			var des = $("input[name='des']").val();
+			var money = $("input[name='money']").val();	
+			var option='<select name="htname" class="selectoption">';
+			for(var o in data){  
+				option+='<option value="'+data[o].id+'">'+data[o].agreetment+'</option>'
+			};
+			option+="</select>";
+			var html = "合同："+option;
+			layer.confirm(html, {
+				title:'请选择合同',
+                btn: ['确定','取消']
+            }, function(){
+				var ht = $("select[name='htname']").val();
+				var options = {
+					url: "/spend/add",
+					type:"post",
+					data: {'ht':ht},
+					success: function (data) {
+						data=jQuery.parseJSON(data);
+						if(data.code==1){
+							layer.msg('添加成功', {icon:6,time:1000}, function () {window.location.href="/spend/index";}); 
+							return false; 
+						}else{
+							layer.msg(data.msg, {icon:5,time:1000});
+							return false;
+						}
+						
+					},
+					error:function () {
+						layer.msg('未知错误', {icon:5,time:1000});
+					},
+				}; 
+				$("form").ajaxSubmit(options);  
+            });
+		}
+		function showfirst(gamename, num) {
+			$('.game').show();			
+			var show_num = 0;
+			arr = gamename.split(',');
+			for (i = 0; i < $('.game').length; i++) {
+				if (jQuery.inArray($('.game').eq(i).attr('short').substr(0, 1), arr) == "-1") {
+					$('.game').eq(i).hide();
+				}else show_num ++;
+			}
+			for (var i = 0; i <= 5; i++) {
+				document.getElementById('li2-' + i).className = '';
+			}
+			document.getElementById('li2-' + num).className = 'on';
+			if (show_num == 0) {
+				$('#gamelist .no_game').show();
+			}else {
+				$('#gamelist .no_game').hide();
+			}
+		}
+		
+		function showallgame(num, tol) {
+			$('.game').show();
+			var show_num = $('#mttitle li').length;			
+			for (var i = 0; i <= tol; i++) {
+				document.getElementById('li' + num + '-' + i).className = '';
+			}
+			document.getElementById('li' + num + '-0').className = 'on';
+			if (show_num == 0) {
+				$('#gamelist .no_game').show();
+			}else {
+				$('#gamelist .no_game').hide();
+			}
+		}
+		function showfirstmt(gamename, num) {
+			$('.mtname').show();			
+			var show_num = 0;
+			arr = gamename.split(',');
+			for (i = 0; i < $('.mtname').length; i++) {
+				if (jQuery.inArray($('.mtname').eq(i).attr('short').substr(0, 1), arr) == "-1") {
+					$('.mtname').eq(i).hide();
+				}else show_num ++;
+			}
+			for (var i = 0; i <= 5; i++) {
+				document.getElementById('limt2-' + i).className = '';
+			}
+			document.getElementById('limt2-' + num).className = 'on';
+			if (show_num == 0) {
+				$('#gamelist .no_game').show();
+			}else {
+				$('#gamelist .no_game').hide();
+			}
+		}
+		function showallgamemt(num, tol) {
+			$('.mtname').show();
+			var show_num = $('#gamelist li.game').length;
+			for (var i = 0; i <= tol; i++) {
+				document.getElementById('limt' + num + '-' + i).className = '';
+			}
+			document.getElementById('limt' + num + '-0').className = 'on';
+			if (show_num == 0) {
+				$('#gamelist .no_game').show();
+			}else {
+				$('#gamelist .no_game').hide();
+			}
+		}
+</script>
+</div>
+<include file="Public/footer" />

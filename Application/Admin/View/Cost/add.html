@@ -1,0 +1,122 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+            <a href="/">首页</a>
+        </li>
+        <li>
+            <a href="/Realtime/pay_list">媒体管理</a>
+        </li>
+        <li>媒体成本添加</li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+	
+<div id="ManagerRight" class="ManagerRightShow">
+	<div id="count_body" style="margin-top: 20px;">
+		<form>
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>                   
+                    <tr><td>媒体分类：</td><td>
+                        <select class="alert_input add_input_tid" id="m_id" name="m_id">		
+							<volist name="meiti"  id="vo">
+							<option value="<{$vo.id}>"><{$vo.name}></option>
+							</volist>
+                        </select>
+                    </td></tr>
+					<tr><td>方式：</td><td>
+                        <select class="alert_input add_input_tid" id="type" name="type">
+							<option value="0">测试媒体</option>
+							<option value="1">正式投放</option>							
+                        </select>
+                    </td></tr>
+					<tr><td>合作方式：</td><td>
+                        <select class="alert_input add_input_tid" id="hz_type" name="hz_type">
+							<volist name="fz"  id="vo">
+							<option value="<{$vo.id}>"><{$vo.typename}></option>								
+							</volist>
+                        </select>
+                    </td></tr>		
+                    <tr><td>合同名称：</td><td><input type="text" class="manager-input s-input" name="agreetment" id="agreetment" style="width: 300px" value=""></td></tr>
+					<tr><td>描述：</td><td><input type="text" class="manager-input s-input" name="des" id="des" style="width: 300px" value=""></td></tr>
+					<tr><td>合同时间段：</td><td>
+						<input type="hidden" class="s_time" name="s_time">
+                        <input type="hidden" class="e_time" name="e_time">
+                        <div class="ta_date" id="div_date_demo3">
+                            <span class="date_title" id="date_demo3"></span>
+                            <a class="opt_sel" id="input_trigger_demo3" href="#">
+                                <i class="i_orderd"></i>
+                            </a>
+                        </div></td></tr>
+					<tr><td>合同总金额：</td><td><input type="text" class="manager-input s-input" name="total_money" id="total_money" style="width: 300px" value=""></td></tr>
+					<!--<tr><td>合同图片：</td><td><input class="type-file" name="ht_pic" data-state="imgfile" size="30" hidefocus="true"  type="file" value=""></td></tr>-->		
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="dosubmit" id="dosubmit" value="添加" class="manager-btn s-btn search-btn">
+                            <span id="tips" style="display: none"></span>
+                        </td>
+                    </tr>			
+                </tbody>
+            </table>
+        </form>
+	</div>
+</div>
+<script src="__JS__/laydate/laydate.js"></script>
+<script type="text/javascript">
+    $(function(){
+		var start = "<{$start}>";
+        var end = "<{$end}>";
+		$('.s_time').attr('value',start);
+        $('.e_time').attr('value',end);
+		 var timestamp = (new Date()).valueOf()/1000-3600*24*7;
+		 var endstamp = (new Date()).valueOf()/1000+3600*24*60;
+		 var dateRange = new pickerDateRange('date_demo3', {           
+            isTodayValid: true,
+            startDate: start,
+            endDate: end,
+            defaultText: ' 至 ',
+            inputTrigger: 'input_trigger_demo3',
+			minValidDate: timestamp, //最小可用时间，控制日期选择器的可选力度 
+			maxValidDate: endstamp, // 最大可用时间，与stopToday 配置互斥 
+            theme: 'ta',
+			stopToday: false, 
+            success: function (obj) {
+                $("#dCon_demo3").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+                $('.s_time').attr('value', obj.startDate);
+                $('.e_time').attr('value', obj.endDate);
+            }
+        });
+		
+        $('#dosubmit').live('click',function() { 			
+            var options = {
+                url: "/cost/add",
+                type:"post",
+				data: {'as':1},
+                success: function (data) {
+                    data=jQuery.parseJSON(data);
+                    if(data.code==1){
+                        layer.msg('添加成功', {icon:6,time:1000}, function () {window.location.href="/cost/index";}); 
+                        return false; 
+                    }else{
+                        layer.msg(data.msg, {icon:5,time:1000});
+                        return false;
+                    }
+                    
+                },
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+            }; 
+            $("form").ajaxSubmit(options);      
+        });
+    })
+</script>
+</div>
+<include file="Public/footer" />
