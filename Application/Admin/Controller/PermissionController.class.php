@@ -45,7 +45,7 @@ class PermissionController extends CommonController {
                 break;
             }
             //查询父菜单
-            $model = M('node','mygame_','DB_CONFIG_ZHU');
+            $model = M('node');
             $pinfo = $model->where('id='.$data['pid'])->find();
             $data['level'] = $pinfo?$pinfo['level']+1:0;
             if ($data['level'] >= 3) {
@@ -90,7 +90,7 @@ class PermissionController extends CommonController {
             }
             $map = array();
             $map['id'] = $id;
-            $res = M('node','mygame_','DB_CONFIG_ZHU')->where($map)->save($data);
+            $res = M('node')->where($map)->save($data);
             if (false === $res) {
                 $ret['code'] = -4;
                 $ret['msg'] = '修改失败';
@@ -120,7 +120,7 @@ class PermissionController extends CommonController {
                 $ret['msg'] = '非法参数';
                 break;
             }
-            $l = M('node','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->find();
+            $l = M('node')->where(array('id'=>$id))->find();
             if (!$l) {
                 $ret['code'] = -3;
                 $ret['msg'] = '节点不存在';
@@ -131,9 +131,9 @@ class PermissionController extends CommonController {
                 $ret['msg'] = '节点不允许删除';
                 break;
             }
-            $res = M('node','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->delete();
+            $res = M('node')->where(array('id'=>$id))->delete();
             //删除子节点
-            $res1 = M('node','mygame_','DB_CONFIG_ZHU')->where(array('pid'=>$id))->delete();
+            $res1 = M('node')->where(array('pid'=>$id))->delete();
             if (!$res) {
                 $ret['code'] = -5;
                 $ret['msg'] = '删除失败';
@@ -179,7 +179,7 @@ class PermissionController extends CommonController {
                 break;
             }
 
-            $l = M('role','mygame_','DB_CONFIG_ZHU')->where(array('name'=>$data['name']))->find();
+            $l = M('role')->where(array('name'=>$data['name']))->find();
             if ($l) {
                 $ret['code'] = -3;
                 $ret['msg'] = '角色已存在';
@@ -188,7 +188,7 @@ class PermissionController extends CommonController {
             $time = time();
             $data['create_time'] = $time;
             $data['update_time'] = $time;
-            $rs = M('role','mygame_','DB_CONFIG_ZHU')->add($data);
+            $rs = M('role')->add($data);
             if (!$rs) {
                 $ret['code'] = -4;
                 $ret['msg'] = '添加失败';
@@ -222,7 +222,7 @@ class PermissionController extends CommonController {
             }
             $time = time();
             $data['update_time'] = $time;
-            $rs = M('role','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->save($data);
+            $rs = M('role')->where(array('id'=>$id))->save($data);
             if (!$rs) {
                 $ret['code'] = -3;
                 $ret['msg'] = '修改失败';
@@ -251,7 +251,7 @@ class PermissionController extends CommonController {
                 $ret['msg'] = '参数错误';
                 break;
             }
-            $rs = M('role','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->delete();
+            $rs = M('role')->where(array('id'=>$id))->delete();
             if (!$rs) {
                 $ret['code'] = -3;
                 $ret['msg'] = '删除失败';
@@ -276,7 +276,7 @@ class PermissionController extends CommonController {
             $ret['msg'] = '参数错误';
             exit(json_encode($ret));
         }
-        $roleinfo = M('role','mygame_','DB_CONFIG_ZHU')->where('id='.$roleid)->find();
+        $roleinfo = M('role')->where('id='.$roleid)->find();
         if (!$roleinfo) {
             //$this->error('角色不存在');
             $ret['code'] = -2;
@@ -323,7 +323,7 @@ class PermissionController extends CommonController {
             $nodeArr = explode(',', $nodeid_str);
 
             //删除原有权限
-            $model = M('access','mygame_','DB_CONFIG_ZHU');
+            $model = M('access');
             $acc_log = $model->where('role_id='.$roleid)->find();
             if ($acc_log) {
                 $del_rs = $model->where('role_id='.$roleid)->delete();
@@ -395,7 +395,7 @@ class PermissionController extends CommonController {
                 $ret['msg'] = '用户名应该为6到20位字母和数字';
                 break;
             }
-            $l = M('user','mygame_','DB_CONFIG_ZHU')->where(array('username'=>$data['username']))->find();
+            $l = M('user')->where(array('username'=>$data['username']))->find();
             if ($l) {
                 $ret['code'] = -4;
                 $ret['msg'] = '帐号重复';
@@ -411,7 +411,7 @@ class PermissionController extends CommonController {
             $data['bind_account'] = '';
             $data['remark'] = '';
             $data['info'] = '';
-            $rs = M('user','mygame_','DB_CONFIG_ZHU')->add($data);
+            $rs = M('user')->add($data);
             if (!$rs) {
                 $ret['code'] = -5;
                 $ret['msg'] = '添加失败';
@@ -423,7 +423,7 @@ class PermissionController extends CommonController {
                 $roledata = array();
                 $roledata['role_id'] = $role;
                 $roledata['user_id'] = $rs;
-                $rr = M('role_user','mygame_','DB_CONFIG_ZHU')->add($roledata);
+                $rr = M('role_user')->add($roledata);
                 if (!$rr) {
                     $ret['code'] = -6;
                     $ret['msg'] = '添加角色失败';
@@ -469,7 +469,7 @@ class PermissionController extends CommonController {
             if ($nickname) $data['nickname'] = $nickname;
             if (is_numeric($status)) $data['status'] = $status;
             if ($data) {
-                $res = M('user','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->save($data);
+                $res = M('user')->where(array('id'=>$id))->save($data);
                 if (false === $res) {
                     $ret['code'] = -4;
                     $ret['msg'] = '帐号修改失败';
@@ -479,11 +479,11 @@ class PermissionController extends CommonController {
 
             //更新角色信息
             if ($role) {
-                $roleinfo = M('role','mygame_','DB_CONFIG_ZHU')->where(array('user_id'=>$id))->find();
+                $roleinfo = M('role')->where(array('user_id'=>$id))->find();
                 if ($roleinfo) {
                     $rdata = array();
                     $rdata['role_id'] = $role;
-                    $role_rs = M('role_user','mygame_','DB_CONFIG_ZHU')->where(array('user_id'=>$id))->save($rdata);
+                    $role_rs = M('role_user')->where(array('user_id'=>$id))->save($rdata);
                     if (false === $role_rs) {
                         $ret['code'] = -5;
                         $ret['msg'] = '角色修改失败';
@@ -493,7 +493,7 @@ class PermissionController extends CommonController {
                     $rdata = array();
                     $rdata['role_id'] = $role;
                     $rdata['user_id'] = $id;
-                    $role_rs = M('role_user','mygame_','DB_CONFIG_ZHU')->add($rdata);
+                    $role_rs = M('role_user')->add($rdata);
                     if (false === $role_rs) {
                         $ret['code'] = -6;
                         $ret['msg'] = '角色修改失败';
@@ -525,7 +525,7 @@ class PermissionController extends CommonController {
                 $ret['msg'] = '参数错误';
                 break;
             }
-            $info = M('user','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->find();
+            $info = M('user')->where(array('id'=>$id))->find();
             if (!$info) {
                 $ret['code'] = -3;
                 $ret['msg'] = '帐号不存在';
@@ -537,16 +537,16 @@ class PermissionController extends CommonController {
                 break;
             }
             //删除帐号
-            $res = M('user','mygame_','DB_CONFIG_ZHU')->where(array('id'=>$id))->delete();
+            $res = M('user')->where(array('id'=>$id))->delete();
             if (!$res) {
                 $ret['code'] = -5;
                 $ret['msg'] = '帐号删除失败';
                 break;
             }
             //删除角色列表
-            $rr = M('role_user','mygame_','DB_CONFIG_ZHU')->where(array('user_id'=>$id))->delete();
+            $rr = M('role_user')->where(array('user_id'=>$id))->delete();
             //删除channel
-            M('user_channel','mygame_','DB_CONFIG_ZHU')->where(array('user_id'=>$id))->delete();
+            M('user_channel')->where(array('user_id'=>$id))->delete();
 
             $ret['code'] = 1;
             $ret['msg'] = '删除成功';

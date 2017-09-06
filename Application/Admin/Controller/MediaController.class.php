@@ -22,12 +22,12 @@ class MediaController extends CommonController {
 			$map_m['user_id'] = $this->meminfo['id'];
 			$midarr_result = M('user_meidium a')
 							->field('a.m_id,a.user_id,b.username')
-							->join('mygame_user b on a.user_id = b.id')
+							->join('youzhan_user b on a.user_id = b.id')
 							->where($map_m)
 							->select();
 			$midarr = array_column($midarr_result,'m_id');	
 		}
-		$medium = M('cps_medium','mygame_','DB_ZHU');	
+		$medium = M('cps_medium','youzhan_','DB_ZHU');	
 		$name = $_REQUEST ['name'];		
 		$status = $_REQUEST ['status'];	
 		
@@ -66,7 +66,7 @@ class MediaController extends CommonController {
 
 	//推广媒体添加
 	public function medium_add(){		
-		$medium = M('cps_medium','mygame_','DB_ZHU');
+		$medium = M('cps_medium','youzhan_','DB_ZHU');
 		//给表单提供以及媒体
 		$where['pid'] = 0;
 		$where['status'] =0;
@@ -129,7 +129,7 @@ class MediaController extends CommonController {
 
 	//媒体修改
 	public function medium_upd(){		
-		$medium = M('cps_medium','mygame_','DB_ZHU');
+		$medium = M('cps_medium','youzhan_','DB_ZHU');
 		$id =  $_REQUEST ['id'];
 		$where['id'] =$id;
 		$info1 = $medium->where($where)->find();
@@ -194,7 +194,7 @@ class MediaController extends CommonController {
 	
 	//转移媒体
 	public function medium_upzy(){
-		$medium = M('cps_medium','mygame_','DB_ZHU');
+		$medium = M('cps_medium','youzhan_','DB_ZHU');
 		$id =  $_REQUEST ['id'];
 		$where['id'] =$id;
 		$info1 = $medium				
@@ -254,7 +254,7 @@ class MediaController extends CommonController {
             }
 			$id	=	I("post.id",false,'intval');
 			$where['id']=$id;
-			$medium = M('cps_medium','mygame_','DB_ZHU');
+			$medium = M('cps_medium','youzhan_','DB_ZHU');
 			//查找是否父级
 			$result = $medium->where($where)->find();			
 			if($result['pid']==0){

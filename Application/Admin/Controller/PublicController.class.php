@@ -2,7 +2,6 @@
 namespace Admin\Controller;
 use Think\Controller;
 use Org\Util\Rbac;
-Vendor ( 'Ucenter.UcApi' );
 class PublicController extends Controller {
     /**
 	 * 登陆界面
@@ -34,7 +33,7 @@ class PublicController extends Controller {
                 break;
             }
 
-            $uinfo = M('user','mygame_','DB_CONFIG_ZHU')->where(array('username'=>$username))->find();
+            $uinfo = M('user')->where(array('username'=>$username))->find();
 
             if (!$uinfo) {
                 $ret['code'] = -6;
@@ -45,7 +44,7 @@ class PublicController extends Controller {
                 $ret['state'] = -7;
                 $ret['msg'] = '帐号被禁用';
                 break;
-            }
+            }			
             if ($uinfo['password'] != md5($password)) {
                 $ret['code'] = -8;
                 $ret['msg'] = '密码错误';
@@ -56,7 +55,7 @@ class PublicController extends Controller {
             $_SESSION['photo'] = $uinfo['info'];
             $role_id=M('role_user')->field('role_id')->where('user_id='.$uinfo['id'])->find();
             $_SESSION['role_id'] = $role_id['role_id'];
-            $user_model = M(C('USER_AUTH_MODEL'),'mygame_','DB_CONFIG_ZHU');
+            $user_model = M(C('USER_AUTH_MODEL'));
 
             //登录记录
             $ldata = array();

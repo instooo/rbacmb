@@ -20,8 +20,8 @@ return array(
     'REQUIRE_AUTH_ACTION' => '',
     'GUEST_AUTH_ON' => false, //游客不允许登录
     'GUEST_AUTH_ID' => 0,
-    'RBAC_ROLE_TABLE' => 'mygame_role',
-    'RBAC_USER_TABLE' => 'mygame_role_user',
-    'RBAC_ACCESS_TABLE' => 'mygame_access',
-    'RBAC_NODE_TABLE' => 'mygame_node',
+    'RBAC_ROLE_TABLE' => 'youzhan_role',
+    'RBAC_USER_TABLE' => 'youzhan_role_user',
+    'RBAC_ACCESS_TABLE' => 'youzhan_access',
+    'RBAC_NODE_TABLE' => 'youzhan_node',
 );

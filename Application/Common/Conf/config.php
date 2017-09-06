@@ -5,7 +5,7 @@ $config = array(
 		'TMPL_L_DELIM' => '<{',									//修改左右定界符
 		'TMPL_R_DELIM' => '}>',	
 		'MODULE_ALLOW_LIST'    => array('Admin'),
-		'DEFAULT_MODULE' => 'Admin',
+		'DEFAULT_MODULE' => 'WWW',
 		
 		/* Cookie设置 */
 		'COOKIE_EXPIRE'         =>  0,       // Cookie有效期
@@ -17,7 +17,7 @@ $config = array(
 		'IS_NEW'				    =>  true,
 		'APP_SUB_DOMAIN_DEPLOY'=>1, // 开启子域名配置
 		'APP_SUB_DOMAIN_RULES'    =>    array(   
-			'cb.7477.me'  => 'Admin', 	
+			'admin.dongguan.me'  => 'Admin', 	
 		),	
 
 );

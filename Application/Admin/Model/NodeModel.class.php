@@ -22,7 +22,7 @@ class NodeModel extends Model{
 	//用户所有用的权限
 	public function getNodeListByUid($uid){
 		$sql	=	"
-		select node.id,node.name,node.title,node.pid,node.level,node.ismenu,node.sort,(node.pid*node.level*node.sort) as sortby from mygame_node as node left join mygame_access as access on access.node_id	= node.id left join mygame_role_user as ru on ru.role_id = access.role_id left join mygame_user as user	on 	
+		select node.id,node.name,node.title,node.pid,node.level,node.ismenu,node.sort,(node.pid*node.level*node.sort) as sortby from youzhan_node as node left join youzhan_access as access on access.node_id	= node.id left join youzhan_role_user as ru on ru.role_id = access.role_id left join youzhan_user as user	on 	
 		 user.id = ru.user_id 	where user.id	=	$uid ORDER BY sort DESC
 		";
 		$rs	=	M('')->query($sql);
@@ -32,7 +32,7 @@ class NodeModel extends Model{
 	//角色所拥有的权限
 	public function getNodeListByRoleId($roleid){
 		$sql	=	"
-		select node.id,node.name,node.title,node.pid,node.level,node.ismenu,node.sort,(node.pid*node.level*node.sort) as sortby from mygame_node as node left join mygame_access as access on access.node_id	= node.id 	where access.role_id	=	{$roleid} ORDER BY sortby DESC
+		select node.id,node.name,node.title,node.pid,node.level,node.ismenu,node.sort,(node.pid*node.level*node.sort) as sortby from youzhan_node as node left join youzhan_access as access on access.node_id	= node.id 	where access.role_id	=	{$roleid} ORDER BY sortby DESC
 		";
 		$rs	=	M('')->query($sql);
 		return $rs;

@@ -109,7 +109,7 @@ class CommonController extends Controller {
 			$map_m['user_id'] = $this->meminfo['id'];
 			$midarr_result = M('user_meidium a')
 							->field('a.m_id,a.user_id,b.username')
-							->join('mygame_user b on a.user_id = b.id')
+							->join('youzhan_user b on a.user_id = b.id')
 							->where($map_m)
 							->select();
 			$midarr = array_column($midarr_result,'m_id');	
@@ -120,7 +120,7 @@ class CommonController extends Controller {
 		}else if(!$is_special){			
 			$mediummap['id'] = 0;			
 		}
-		$medium = M('cps_medium','mygame_','DB_ZHU');	
+		$medium = M('cps_medium','youzhan_','DB_ZHU');	
 		$meiti =$medium
 				->where($mediummap)					
 				->select();	
@@ -130,7 +130,7 @@ class CommonController extends Controller {
 	//获得渠道
 	public function get_game(){
 		
-		$game = M('game','mygame_','DB_ZHU');	
+		$game = M('game','youzhan_','DB_ZHU');	
 		$result = $game
 		->field('gid,gamename,short')
 		->select();
