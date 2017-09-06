@@ -1,0 +1,98 @@
+<include file="Public/header" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+           首页
+        </li>
+        <li>
+           系统设置
+        </li>
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+    <div id="ManagerRight" class="ManagerRightShow">
+        <form id="myform" name="countform" method="get" action="/Media/medium_info">          
+            <div id="count_search">
+                <ul class="search_box">					
+                    <li class="line" style=" float:right;">					
+                        <a href="/system/web_add" class="manager-btn s-btn search-btn" style="margin:0;padding:"; >添加</a>
+                    </li>
+                </ul>
+				
+					 
+				
+            </div>
+            <div id="count_body">
+                <table class="huitable">
+                    <thead>
+                    <tr align="left">
+                        <th>ID</th>
+                        <th>站点名称</th>
+                        <th>站点域名</th>  
+                        <th>操作</th>                      
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <if condition="$list">
+                        <volist name="list" id="vo">
+                            <tr data-id="<{$vo.id}>" align="center">
+                                <td><{$vo.id}></td>
+                                <td><{$vo.sitename}></td>
+                                <td><{$vo.domain}></td>
+                                <td ><a href="/system/web_upd/id/<{$vo.id}>">修改</a><span>|</span>
+			<a href="/system/web_info/id/<{$vo.id}>">查看</a></td>                              
+                            </tr>
+                        </volist>
+                        <else />
+                        <tr><td colspan="7" style="text-align:center; font-size:24px; color:#ccc;">无记录</td></tr>
+                    </if>
+                    </tbody>
+                </table>
+            </div>
+            <div id="jsonpage" class="pagebox"><div class="pageinfo"><{$page}></div></div>
+        </form>
+        <div class="product-detail-desc mt-15">
+            <div class="title mb-5">
+                <span>媒体成本说明：</span>
+            </div>
+            <p class="pt-5"><span  style="font-weight:bold;">媒体成本说明：</span>当前账号显示充值查询的详细信息，包括用户ID、注册时间、用户名、充值游戏、充值金额、充值时间、推广人员、充值IP和选择充值日期、注册日期内的充值金额和人数。</p>           
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {        
+        //删除提示
+        $('.btn_dele').click(function () {
+            var id = $(this).parents('tr').attr('data-id');
+            if (id == '') return false;
+            layer.confirm('确定要删除该类型？', {
+                btn: ['确定','取消']
+            }, function(){
+                doDele(id);
+            });
+        });
+		//删除媒体
+		function doDele(id) {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{id:id},
+            url:'/media/medium_del',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.state == 0) {
+                    layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+    }); 
+</script>	
+<include file="Public/footer" />
