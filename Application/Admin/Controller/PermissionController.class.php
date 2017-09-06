@@ -545,9 +545,7 @@ class PermissionController extends CommonController {
             }
             //删除角色列表
             $rr = M('role_user')->where(array('user_id'=>$id))->delete();
-            //删除channel
-            M('user_channel')->where(array('user_id'=>$id))->delete();
-
+			
             $ret['code'] = 1;
             $ret['msg'] = '删除成功';
             break;

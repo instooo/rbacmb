@@ -5,7 +5,7 @@ $config = array(
 		'TMPL_L_DELIM' => '<{',									//修改左右定界符
 		'TMPL_R_DELIM' => '}>',	
 		'MODULE_ALLOW_LIST'    => array('Admin'),
-		'DEFAULT_MODULE' => 'WWW',
+		'DEFAULT_MODULE' => 'Admin',
 		
 		/* Cookie设置 */
 		'COOKIE_EXPIRE'         =>  0,       // Cookie有效期
