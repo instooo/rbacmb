@@ -49,93 +49,33 @@ class CommonController extends Controller {
 	*特殊字符处理函数
 	*/
 	public function isEscape($val, $isboor = false) {
-    if (! get_magic_quotes_gpc ()) {
-        $val = addslashes ( $val );
-    }
-    if ($isboor) {
-        $val = strtr ( $val, array (
-                "%" => "\%",
-                "_" => "\_" 
-        ) );
-    }
-    return $val;
-}
-
-    /**
-     * 获取当前用户可以查看的游戏
-     */
-    public function getUserGames() {
-        $usergames = M('user_games')->where(array('user_id'=>$_SESSION['userid']))->find();
-        $map = array();
-        if ($usergames['games']) {
-            $games = explode(',', $usergames['games']);
-            $map['gid'] = array('in', $games);
-        }
-        $gamelist = M('game')->field('gid,game')->where($map)->order('gid desc')->select();
-        return $gamelist;
-    }
-
-	/**
-     * 获取一级渠道列表
-     * */
-    public function getTotalChannel() {			
-		if ($this->meminfo['id']) {
-			$return_data=S("return_data".$this->meminfo['id']);
-			if(false){
-				return $return_data;
-			}else{				
-				$map['uc.user_id']=$this->meminfo['id'];
-				$clist = M('user_channel uc')
-					->field('*')
-					->where($map)
-					->select();				
-				return $clist;			
-			}
-		}else return null;
-    }
-	
-	
-	public function special_member(){
-		//特殊账号，可以看到所有媒体
-		$special_member = array('admin');
-		$is_special = in_array($this->meminfo['username'],$special_member);
-		return $is_special ;
-	}
-	//获得渠道
-	public function get_channel(){
-		$is_special = $this->special_member();		
-		//查看当前拥有的账号
-		if(!$is_special){
-			$map_m['user_id'] = $this->meminfo['id'];
-			$midarr_result = M('user_meidium a')
-							->field('a.m_id,a.user_id,b.username')
-							->join('youzhan_user b on a.user_id = b.id')
-							->where($map_m)
-							->select();
-			$midarr = array_column($midarr_result,'m_id');	
-		}	
-		$mediummap['pid'] = array('neq',0);
-		if($midarr){
-			$mediummap['id'] = array('in',$midarr);
-		}else if(!$is_special){			
-			$mediummap['id'] = 0;			
+		if (! get_magic_quotes_gpc ()) {
+			$val = addslashes ( $val );
 		}
-		$medium = M('cps_medium','youzhan_','DB_ZHU');	
-		$meiti =$medium
-				->where($mediummap)					
-				->select();	
-		$this->assign('meiti',$meiti);
+		if ($isboor) {
+			$val = strtr ( $val, array (
+					"%" => "\%",
+					"_" => "\_" 
+			) );
+		}
+		return $val;
+	}	
+	
+	
+	public function unlimitedForLevel($cate, $html = '——', $pid = 0, $level = 0){
+		$arr =array();
+		foreach ($cate as $v){
+			if($v['pid'] == $pid){					
+				$v['level'] = $level+1;
+				$v['html'] = str_repeat($html, $level);
+				$arr[] = $v;
+				$arr = array_merge($arr,$this->unlimitedForLevel($cate, $html, $v['typeid'], $level+1));
+			}
+		}		
+		return $arr;
 	}
+    
 
-	//获得渠道
-	public function get_game(){
-		
-		$game = M('game','youzhan_','DB_ZHU');	
-		$result = $game
-		->field('gid,gamename,short')
-		->select();
-		return $result;
-	}
 
 }
                                 

@@ -1,0 +1,100 @@
+<include file="Public/header" />
+<script type="text/javascript" src="__JS__/lightbox/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="__JS__/lightbox/jquery.lightbox-0.5.css" media="screen" />
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="SiteMapPath">
+    <ul>
+        <li>
+           首页
+        </li>
+        <li>
+            栏目添加
+        </li>      
+    </ul>
+</div>
+<div id="MainContentDIV">
+    <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+    <include file="Public/left_menu" />
+	
+<div id="ManagerRight" class="ManagerRightShow">
+	<div id="count_body" style="margin-top: 20px;">
+		<form name="myform" id="myform">
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>	
+					<input type="hidden" name="id" value="<{$info.typeid}>"/>
+                    <tr><td>栏目名称：</td><td><input type="text" class="manager-input s-input" name="typename" id="name"style="width: 300px" value="<{$info.typename}>"></td></tr>
+					<tr><td>顶级：</td><td>
+                        <select class="alert_input add_input_tid" id="pid" name="pid">		
+							<option value="0">一级栏目</option>
+							<volist name="catelist" id="vo">
+							<option value="<{$vo.typeid}>" <if condition="$info['pid'] eq $vo['typeid']">selected</if>><{$vo.html}><{$vo.typename}></option>
+							</volist>
+                        </select>
+                    </td></tr>
+					<tr><td>栏目模型：</td><td>
+                       <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 0"> checked </if>  value="0"> 单页</label>
+					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 1"> checked </if>  value="1"> 文章</label>
+					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 2"> checked </if>  value="2"> 案例</label>
+					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 3"> checked </if>  value="3"> 图片</label>
+                    </tr>
+                    <tr><td>栏目描述：</td><td><textarea class="manager-input s-input" name="description" id="description" style="width: 600px; height:100px;"><{$info.description}></textarea></td></tr>
+					<tr ><td>栏目内容：</td><td></td></tr>						
+                </tbody>
+            </table>
+			<div id="content"><textarea name="content" id="editor_id"><{$info.content}></textarea></div>
+			<input type="button" name="dosubmit" id="dosubmit" value="修改" class="manager-btn s-btn search-btn">
+			<input type="button" value="取消" class="manager-btn s-btn search-btn" onclick="history.go(-1);">
+			<span id="tips" style="display: none"></span>
+        </form>
+	</div>
+</div>
+<script type="text/javascript">
+	
+    $(function(){  
+        $('#dosubmit').live('click',function() { 
+			UE.getEditor("editor_id").sync();  
+            var options = {
+                url: "/content/cate_upd",
+                type:"post",
+                data: {},
+                success: function (data) {
+                    data=jQuery.parseJSON(data);
+                    if(data.code==1){
+                        layer.msg('修改成功', {icon:6,time:1000}, function () {window.location.href="/content/cate_list";}); 
+                        return false; 
+                    }else{
+                        layer.msg(data.msg, {icon:5,time:1000});
+                        return false;
+                    }
+                    
+                },
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+            };  
+				
+            $("form").ajaxSubmit(options);      
+        });
+		 $("input[name='m_id']:radio").click(function(){
+		   if($(this).val()==0){
+			$("#content").show();
+		   }else{
+		    $("#content").hide();
+		   }
+		 });
+		var  val  = $("input[name='m_id']:checked").val();
+		if(val==0){
+			$("#content").show();
+		   }else{
+		    $("#content").hide();
+		  }
+    })
+	var editor = new UE.ui.Editor({initialContent:''});
+    editor.render("editor_id");
+</script>
+</div>
+<include file="Public/footer" />
