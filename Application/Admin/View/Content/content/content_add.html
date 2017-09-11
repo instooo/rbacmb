@@ -1,0 +1,63 @@
+ <link rel="stylesheet" type="text/css" href="__CSS__/AdminLTE.min.css" />
+    <link href="__CSS__/global.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/manager-common.css">
+    <link href="__CSS__/Manager.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+    <script src="__JS__/jquery.form.js"></script> 
+    <script type="text/javascript" src="__JS__/layer/layer.js"></script>
+    <script type="text/javascript" src="__JS__/date/dateRange.js"></script>
+    <script type="text/javascript" src="__JS__/typeahead/bootstrap3-typeahead.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__JS__/date/dateRange.css" />
+	<!--百度编辑器-->
+	<script type="text/javascript" src="__PUBLIC__/ueditor/editor_config.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/ueditor/editor_all_min.js"></script> 
+	<link rel="stylesheet" href="__PUBLIC__/ueditor/themes/default/ueditor.css">
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="laycontent" style="padding:10px">
+<link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+	<div id="count_body" style="margin-top: 20px;">
+		<form name="myform" id="myform">
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>	
+					<{$html}>
+                </tbody>
+            </table>
+			<input type="button" name="dosubmit" id="dosubmit" value="添加" class="manager-btn s-btn search-btn">
+			<input type="button" value="取消" class="manager-btn s-btn search-btn" onclick="history.go(-1);">
+			<span id="tips" style="display: none"></span>
+        </form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+    $(function(){  
+        $('#dosubmit').live('click',function() { 
+            var options = {
+                url: "/content/content_add",
+                type:"post",
+                data: {},
+                success: function (data) {
+                    data=jQuery.parseJSON(data);
+                    if(data.code==1){
+                        layer.msg('修改成功', {icon:6,time:1000}, function () {window.location.href="/content/cate_list";}); 
+                        return false; 
+                    }else{
+                        layer.msg(data.msg, {icon:5,time:1000});
+                        return false;
+                    }
+                    
+                },
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+            };  
+				
+            $("form").ajaxSubmit(options);      
+        });
+    })
+</script>

@@ -38,10 +38,12 @@
                             <tr data-id="<{$vo.typeid}>" align="center">
                                 <td><{$vo.typeid}></td>
                                 <td><{$vo.html}><{$vo.typename}></td>
-                                <td><{$vo.m_id}></td>
-                                <td ><a class="btn-w btn-block btn-info btn-flat" href="/content/cate_upd/id/<{$vo.typeid}>">修改</a>
+                                <td><{$vo.name}></td>
+                                <td style="text-align:left; padding-left:30px;"><a class="btn-w btn-block btn-info btn-flat" href="/content/cate_upd/id/<{$vo.typeid}>">修改</a>
 									<a class="btn_dele btn-w btn-block btn-info btn-warning" href="javascript:void(0);">删除</a>
-									<a class="btn-w btn-block btn-success btn-flat" href="javascript:void(0);">发布内容</a></td>                              
+									<if condition = "$vo['m_id'] neq 0">
+									<a class="btn-w btn-block btn-success btn-flat content-sub" href="javascript:void(0);" data-mid="<{$vo.m_id}>">发布内容</a></td> 
+									</if>	
                             </tr>
                         </volist>
                         <else />
@@ -65,25 +67,36 @@
                 doDele(id);
             });
         });
+		$(".content-sub").click(function(){
+			var  mid=$(this).attr("data-mid");
+			layer.open({
+				type: 2,
+				title: '发布文章',				
+				area: ["100%", "100%"], //宽高
+				content: "/content/content_add/mid/"+mid,
+				
+			});			
+		})
+		
 		//删除媒体
 		function doDele(id) {
-        $.ajax({
-            type:'post',
-            dataType:'json',
-            data:{id:id},
-            url:'/content/cate_del',
-            error:function () {
-                layer.msg('未知错误', {icon:5,time:1000});
-            },
-            success:function (data) {
-                if (data.code == 0) {
-                    layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
-                }else {
-                    layer.msg(data.msg, {icon:5,time:1000});
-                }
-            }
-        });
-    }
+			$.ajax({
+				type:'post',
+				dataType:'json',
+				data:{id:id},
+				url:'/content/cate_del',
+				error:function () {
+					layer.msg('未知错误', {icon:5,time:1000});
+				},
+				success:function (data) {
+					if (data.code == 0) {
+						layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+					}else {
+						layer.msg(data.msg, {icon:5,time:1000});
+					}
+				}
+			});
+		}
     }); 
 </script>	
 <include file="Public/footer" />

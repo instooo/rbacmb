@@ -135,7 +135,8 @@ class SystemController extends CommonController {
 				$model = M('model');
 				$name = trim ( $_REQUEST ['name'] );
 				$form = trim ( $_REQUEST ['form'] );
-				$status = trim ( $_REQUEST ['status'] );			
+				$status = trim ( $_REQUEST ['status'] );
+				$class = trim ( $_REQUEST ['class'] );
 				$id  = I('post.id','','intval');			
 				if ( $name==''||$form =='') {
 					$ret['code']=-2;
@@ -144,7 +145,8 @@ class SystemController extends CommonController {
 				}
 				$data['name']  = $name;
 				$data['form']      = $form;
-				$data['status']   = $status;		
+				$data['status']   = $status;
+				$data['class']   = $class;	
 				$st = $model->data($data)->add();					
 				if(!$st){
 					$ret['code'] = 0;
@@ -173,7 +175,8 @@ class SystemController extends CommonController {
             do{ 	
 				$name = trim ( $_REQUEST ['name'] );
 				$form = trim ( $_REQUEST ['form'] );
-				$status = trim ( $_REQUEST ['status'] );			
+				$status = trim ( $_REQUEST ['status'] );
+				$class = trim ( $_REQUEST ['class'] );				
 				$id  = I('post.id','','intval');			
 				if ( $name==''||$form =='') {
 					$ret['code']=-2;
@@ -182,7 +185,8 @@ class SystemController extends CommonController {
 				}
 				$data['name']  = $name;
 				$data['form']      = $form;
-				$data['status']   = $status;		
+				$data['status']   = $status;
+				$data['class']   = $class;	
 				$map['id'] = $id;
 				$st = $model->where($map)->save($data);				
 				if($st){

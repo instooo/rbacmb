@@ -33,10 +33,9 @@
                         </select>
                     </td></tr>
 					<tr><td>栏目模型：</td><td>
-                       <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 0"> checked </if>  value="0"> 单页</label>
-					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 1"> checked </if>  value="1"> 文章</label>
-					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 2"> checked </if>  value="2"> 案例</label>
-					   <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$info.m_id eq 3"> checked </if>  value="3"> 图片</label>
+                      <volist name="model" id="vo">
+                       <label style="float:left;padding:5px;" class="meiti"><input type="radio" name="m_id" <if condition = "$vo['id'] eq 1"> checked </if>  value="<{$vo.id}>"> <{$vo.name}></label>
+						</volist>
                     </tr>
                     <tr><td>栏目描述：</td><td><textarea class="manager-input s-input" name="description" id="description" style="width: 600px; height:100px;"></textarea></td></tr>
 					<tr ><td>栏目内容：</td><td></td></tr>						
@@ -83,6 +82,12 @@
 		    $("#content").hide();
 		   }
 		 });
+		 var  val  = $("input[name='m_id']:checked").val();
+		if(val==0){
+			$("#content").show();
+		   }else{
+		    $("#content").hide();
+		  }
 		
     })
 	var editor = new UE.ui.Editor({initialContent:''});
