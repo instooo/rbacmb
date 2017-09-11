@@ -156,51 +156,7 @@ class ContentController extends CommonController {
 		if ($_POST) {
 			$return = array("state"=>-1,"msg"=>'',"data"=>"");
             do{ 			
-				$name = trim ( $_REQUEST ['name'] );
-				$parent_id = trim ( $_REQUEST ['parent_id'] );
-				$mark = trim ( $_REQUEST ['mark'] );
-				$status = trim ( $_REQUEST ['status'] );
-				
-				if ( $name==''||$mark =='') {
-					$ret['code']=-2;
-					$ret['msg']='媒体名或标示不能为空';
-					break;	
-				} 
-				//媒体名称和媒体标识不能重复
-				$map['name']= $name;
-				$result = $medium->where($map)->find();			
-				if($result){
-					$ret['code']=-2;
-					$ret['msg']='媒体名不能重复';
-					break;	
-				}
-				unset($map);				
-				$map['mark']= $mark;
-				$result = $medium->where($map)->find();			
-				if($result){
-					$ret['code']=-2;
-					$ret['msg']='标示不能重复';
-					break;	
-				}				
-				$data['name']  = $name;
-				$data['pid']      = $parent_id;
-				$data['mark']   = $mark;
-				$data['status'] = $status;
-				$data['addtime'] = time();
-				$data['ext01'] ='';					
-				$st = $medium->data($data)->add();					
-				if(!$st){
-					$ret['code'] = 0;
-					$ret['msg'] = '添加失败';
-					break;					
-				}
-				//添加对应拥有权限表
-				$mdata['user_id'] = $this->meminfo['id'];
-				$mdata['m_id'] = $st;
-				$st = M('user_meidium')->data($mdata)->add();
-				$ret['code'] = 1;
-				$ret['msg'] = '添加成功';
-				break;
+				print_r($_POST);
 			}while(0);
 			exit(json_encode($ret));
 		} 
@@ -209,9 +165,10 @@ class ContentController extends CommonController {
 		$mid=$mid?$mid:1;
 		//查找模型对应的表格和对应的类名
 		$result = M('model')->where("id=".$mid)->find();
-		import('Common/Vendor/Model/Article');
-        $Article    = new \Article();
-		$html = $Article->getFields();
+		$class =ucfirst(strtolower($result['class']));
+		import('Common/Vendor/Model/'.$class);		
+        $class    = new $class();		
+		$html = $class->get_html();
 		$this->assign('html',$html);
 		$this->display('content/content/content_add');
 	}

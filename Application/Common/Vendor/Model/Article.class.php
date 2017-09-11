@@ -8,12 +8,21 @@ class Article extends Content implements ContentInterface
     //获取模型字段和类型
     function getFields(){
 		$common_fields = parent::getFields();
-		$html = $this->get_html($common_fields);
+		$fields[]=array('content',"内容",'editor');	
+		$common_fields = array_merge($common_fields,$fields);
+		return $common_fields;		
+	}
+	//获取html
+	 function get_html(){
+		$common_fields =$this->getFields();		
+		$html = parent::get_html($common_fields);
 		return $html;
 	}
+	
+	
 	//添加内容
     function add(){
-		
+		etFields();
 	}
 	//编辑内容
     function edit(){
