@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>业绩考核</title>
+    <meta name="keywords" content="业绩考核" />
+    <meta name="description" content="业绩考核" />
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+    <script src="__JS__/laydate/laydate.js"></script>
+    <style type="text/css">
+    .btn-default{display: block; margin-left: 40px;}
+    .set_1{float: left; clear: both; color: #666; font-size: 12px; width: 100%;}
+    .set_1 input,.set_1 select{position: relative; border: 1px solid #dbdbdb; border-radius: 2px; height: 28px; line-height: 28px; margin-right: 10px; font-size: 12px; padding: 0 10px;}
+    .set_1 select{outline: none; color: #666;}
+    .set_1 span{margin-right: 10px;}
+    .set_1 input[type="submit"]{background: #0099e5; color: #fff; cursor: pointer; border-radius: 5px; height: 28px; line-height: 28px; text-align: center;}
+    .content_set .con{clear: both; margin-top: 20px;}
+    .node_table tr a:hover{color: #0099e5;}
+    </style>
+</head>
+<body>
+<include file="Public:header"/>
+<div class="wrapper">
+    <div class="content_set">
+        <a class="btn-default" href="<{:U('data/standard')}>">达标率</a>
+        <div class="set_1">
+           <form action="<{:U('data/index')}>" method="get">
+               <if condition="$uid neq null">
+                   <input type="hidden" name="uid" value="<{$uid}>">
+               </if>
+               素材名称：<input name="title" value="<{$_GET['title']}>">
+               上传时间：<input name="starttime" id="start_time" value="<{$_GET['starttime']}>" onclick="laydate({elem: '#start_time',format: 'YYYY-MM-DD hh:mm:ss'});">
+               <span>~</span>
+               <input name="endtime" id="end_time" value="<{$_GET['endtime']}>" onclick="laydate({elem: '#end_time',format: 'YYYY-MM-DD hh:mm:ss'});">
+               状态：<select id="status" name="status">
+                        <option value="0">选择状态</option>
+                        <option value="1">通过</option>
+                        <option value="2">未通过</option>
+                  </select>
+               <input type="submit" value="搜索">
+           </form>
+        </div>
+        <div class="con">
+            <table class="node_table" width="100%">
+                <tr>
+                    <th>素材名称</th>
+                    <th>消耗(￥)</th>
+                    <th>曝光</th>
+                    <th>eCTC(￥)</th>
+                    <th>CTR</th>
+                    <th>点击</th>
+                    <th>注册</th>
+                    <th>转化率</th>
+                    <th>转化成本(￥)</th>
+                    <th>评价时间</th>
+                    <th>状态</th>
+                    <th>素材上传人</th>
+                </tr>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>
+                            <a href="<{:U('media/detail',array('mid'=>$vo['mid']))}>" target="_blank">
+                                <{$vo.title}>
+                            </a>
+                        </td>
+                        <td><{$vo.expend}></td>
+                        <td><{$vo.show_num}></td>
+                        <td><{$vo.ectc}></td>
+                        <td><{$vo.click_per}>%</td>
+                        <td><{$vo.click_num}></td>
+                        <td><{$vo.reg_num}></td>
+                        <td><php>
+                            echo sprintf('%.3f', $vo['reg_num']/$vo['click_num']*100);
+                        </php>%</td>
+                        <td><php>
+                            echo sprintf('%.2f', $vo['expend']/$vo['reg_num']);
+                        </php></td>
+                        <td><{$vo.pjtime|date="Y-m-d H:i:s",###}></td>
+                        <td>
+                            <switch name="vo.status">
+                                <case value="1"><span style="color:#0099e5">达标【<{$vo.ext2}>】</span></case>
+                                <case value="2"><span style="color: red">不达标</span></case>
+                            </switch>
+                        </td>
+                        <td><{$vo.nickname}></td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="pagelist" style="margin: 20px 0;">
+                <div class=pager-linkPage>
+                    <{$page}>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+   $(function(){
+       var select ="<{$_GET['status']}>";
+       $("#status option[value='"+select+"']").attr("selected",true);
+   });
+</script>
+<include file="Public:footer"/>
+</body>
+</html>

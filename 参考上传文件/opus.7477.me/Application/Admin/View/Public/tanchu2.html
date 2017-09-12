@@ -1,0 +1,103 @@
+<div class="zzao"></div>
+    <link rel="stylesheet" type="text/css" href="__CSS__/tanchuang.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/star.css">
+	<script src="__JS__/star.js"></script>
+  <script src="__JS__/winpop.js"></script>
+<style>
+.zzao{ width:100%; height:100%; background-color:#000;position: fixed;top:0; left:0;z-index:50; display:none; opacity:0.6;}
+.report-info{width:auto;height: auto;border: #e1e1e1 1px solid;background-color:#fff!important;padding: 15px 10px 10px 10px;    margin-bottom: 20px;  line-height:40px;}
+.report-connew{position: fixed;top: 50%;left: 50%; margin-top: -300px; margin-left: -350px;width: 700px;height: auto;    background-color: #fff;position: relative;border-radius: 5px;border: 2px solid #eee;}
+.report-box table{border-collapse: collapse;width: 100%; border: 1px solid #E8E8E8; text-align:center;}
+.report-box table th{height: 35px;line-height: 35px; padding: 6px 5px;background: #e1e1e1;font-size: 14px;border: 1px solid #f5f5f5;
+    }
+.report-box table tr{display: table-row; vertical-align: inherit;border-color: inherit;}
+.report-box table td{border: 1px solid #ececec;line-height: 22px;padding: 10px 5px;vertical-align: middle;word-wrap: break-word; word-break: break-all;border-bottom: 1px dashed #ddd;font: 14px/1.6 Arial,"Microsoft YaHei";}
+.report-box .report_if{margin:0; height: 35px; padding:0 0  10px 10px;}
+.report-box .report_if span{color:#269edc;font-size:18px;margin-left:10px;}
+.report-box .report_pj p{font-size:16px; line-height:22px;}
+.report-box .report_pj textarea{font-size:16px; width:100%; height:80px; resize: none;}
+</style>
+
+<div class="report-box">
+  <div class="report-connew">
+    <p class="title-con">评价素材</p>
+    <span class="close-but"></span>	
+    <div class="reason">
+		   <div class="report-info">
+			   <div class="report-star" style="width: 250px">
+				   <span>星级评价：</span>
+				   <div class="star">
+					   <a href="javascript:;"></a>
+					   <a href="javascript:;"></a>
+					   <a href="javascript:;"></a>
+					   <a href="javascript:;"></a>
+					   <a href="javascript:;"></a>
+				   </div>
+				   <input type="hidden" class="starhit" value="0">
+			   </div>
+		   </div>
+		 <div class="report_if">
+
+			<em>是否通过</em>
+			<input type="radio" value="1" name="state"><span>通过</span>
+			<input type="radio" value="2" name="state"><span>不通过</span>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <em>重点素材</em>
+			 <input type="radio" value="1" name="good"><span>是</span>
+			 <input type="radio" value="0" name="good"><span>否</span>
+		 </div>
+		 <div class="report-info report_pj">			
+			  <p>
+				具体评价:
+				<textarea name="pingjia"></textarea>
+			  </p>			  
+		 </div>      
+    </div>	
+    <div class="report-sub">
+      <a id="submit-btn" href="javascript:void(0);">审核</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 举报框的js
+$(function(){   
+    $("#detail_tc").click(function(){
+		$(".zzao").show();  
+        $(".report-box").fadeIn(300);        
+    });    
+    $(".report-box .close-but,#close-btn").click(function(){
+		$(".zzao").hide();  
+        $(".report-box").fadeOut(300);
+    });
+	$("#submit-btn").click(function(){
+		var mid=$("#mid").val();
+		var star = $('.starhit').val();
+		var state = $.trim($("input[name='state']:radio:checked").val());
+		var good = $.trim($("input[name='good']:radio:checked").val());
+		var pingjia = $.trim($("textarea[name='pingjia']").val());		
+	    if (state==''|| good=='') {
+				layer.alert ("请认真填写完成");
+                return;
+        }
+		if (star ==0){
+			layer.alert ("请选择星级"); return false;
+		}
+
+		$.ajax({
+			type : 'post',
+			dataType:'json',
+			url  : '<{:U("evaluate/star")}>',
+			data : '&star=' + star + '&state=' + state +'&good=' + good+ '&pingjia=' + pingjia+ '&mid=' + mid,
+			success: function(res){
+				if (res.status == false) {
+				   wintq('修改失败',3,1000,0,'');
+				} else {
+				   layer.msg('修改成功', {icon:6,time:1000}, function () {
+					   location.reload();
+					});
+				}
+			}
+		});
+	})
+})
+</script>

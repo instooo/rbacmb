@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>7477素材网</title>
+  <link rel="stylesheet" href="__CSS__/index_base.v4.4.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/index.v1.7.css">
+  <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+  </head>
+<body>
+    <include file="Public:header"/>
+  <div id="index-banner">
+
+    <div class="ck-slide">
+      <ul class="ck-slide-wrapper">
+        <li >
+          <a  rel="nofollow" style="background: url(__IMAGE__/bannar1.png) no-repeat center; background-size: cover;"></a>
+        </li>
+        <li style='display:none'>
+          <a  rel="nofollow" style="background: url(__IMAGE__/bannar3.png) no-repeat center; background-size: cover;"></a>
+        </li>
+      </ul>
+      <a href="javascript:" class="ctrl-slide ck-prev">上一张</a>
+      <a href="javascript:" class="ctrl-slide ck-next">下一张</a>
+      <div class="ck-slidebox">
+        <div class="slideWrap">
+          <ul class="dot-wrap">
+            <li class='current'><em>1</em></li>
+            <li><em>2</em></li>
+          </ul>
+        </div>
+      </div>
+      <div class="search">
+        <h2></h2>
+        <div class="search-m">
+
+          <div class="btn-select-search fl" id="pic_index_search">
+            <div class="current-select">
+              <span id="pic_current_search_type">全部作品</span> <i></i>
+            </div>
+          </div>
+
+          <form id="searchform" method="get" action="<{:U('media/myMedia')}>">
+            <input type="hidden" id="pic_form_search_model" name="search_mode" value="all"/>
+            <input type="text" class="text fl" id="searchinput" name="kw" placeholder="<{$count}>张高清图片免费下载" AUTOCOMPLETE="OFF">
+            <input id="pic_form_search_submit" type="submit" class="but fl tran" value="搜 索"></form>
+          <div pic-click-type="sug-list" class="search-sug"></div>
+          <div pic-click-type="sug-list" class="search-hot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="wrapper">
+    <eq name="role" value="3">
+    <div class="state">
+      <div class="state-m">
+        <dl>
+          <a href="<{:U('media/mymedia',array('status'=>1,'test'=>'true'))}>" rel="nofollow">
+            <dt> <i class="st1"></i>
+              已测试作品
+            </dt>
+            <dd style="color:#fd6d49; ">已通过创意主管审核</dd>
+            <dd>推广部已上线测试</dd>
+          </a>
+        </dl>
+        <dl>
+          <a href="<{:U('media/mymedia',array('status'=>1,'test'=>'false'))}>" rel="nofollow">
+            <dt>
+              <i class="st2"></i>
+              未测试作品
+            </dt>
+            <dd>已通过创意主管审核</dd>
+            <dd>推广部没有上线测试</dd>
+          </a>
+        </dl>
+        <dl>
+          <a href="<{:U('media/mymedia',array('status'=>1,'mt_status'=>1))}>" rel="nofollow">
+            <dt>
+              <i class="st3"></i>
+              测试通过作品
+            </dt>
+            <dd>已上线测试的素材</dd>
+            <dd>效果达到合格标准</dd>
+          </a>
+        </dl>
+        <dl>
+          <a href="<{:U('media/mymedia',array('status'=>1,'mt_status'=>2))}>" rel="nofollow">
+            <dt>
+              <i class="st4"></i>
+              测试未通过作品
+            </dt>
+            <dd>已上线测试的素材</dd>
+            <dd>测试结果未达标的素材</dd>
+          </a>
+        </dl>
+
+      </div>
+    </div>
+    </eq>
+    <neq name="role" value="3">
+    <div class="state">
+      <div class="state-m">
+        <dl>
+          <a href="<{:U('media/mymedia',array('status'=>1))}>" rel="nofollow">
+            <dt> <i class="st1"></i>
+              已审核作品
+            </dt>
+            <dd style="color:#fd6d49; ">已通过创意主管审核</dd>
+            <dd>可以提交推广部上线测试</dd>
+          </a>
+        </dl>
+        <eq  name="role" value="2">
+          <dl>
+            <a href="<{:U('media/mymedia',array('status'=>0))}>" rel="nofollow">
+              <dt>
+                <i class="st2"></i>
+                未审作品
+              </dt>
+              <dd>主管未审审核</dd>
+              <dd>等待审核</dd>
+            </a>
+          </dl>
+        </eq>
+          <dl>
+            <a href="<{:U('media/mymedia',array('status'=>2))}>" rel="nofollow">
+              <dt>
+                <i class="st2"></i>
+                未审核作品
+              </dt>
+              <dd>未通过创意主管审核</dd>
+              <dd>需修改或弃用</dd>
+            </a>
+          </dl>
+        <dl>
+          <a href="<{:U('media/mymedia',array('mt_status'=>1))}>" rel="nofollow">
+            <dt>
+              <i class="st3"></i>
+              媒体达标作品
+            </dt>
+            <dd>已上线测试的素材</dd>
+            <dd>效果达到合格标准</dd>
+          </a>
+        </dl>
+        <dl>
+          <a href="<{:U('media/mymedia',array('mt_status'=>2))}>" rel="nofollow">
+            <dt>
+              <i class="st4"></i>
+              媒体未通过作品
+            </dt>
+            <dd>包括媒体拒审</dd>
+            <dd>测试结果未达标的素材</dd>
+          </a>
+        </dl>
+
+      </div>
+    </div>
+
+      <div class="user-use-down" style="width: 100%;border-bottom: 1px solid #d8dce0;min-height:366px;">
+        <div class="user-use">
+          <p class="title">素材创新人员</p>
+          <div class="list-user clearfix">
+		  
+		  <volist name="user" id="vo">
+            <div class="use-con" style="width: 312px;">
+              <div class="bg-white clearfix">
+                <a href="<{:U('data/index',array('uid'=>$vo['id']))}>">
+				<if condition="$vo.info eq null">
+				<img src="__IMAGE__/index-page-user2.png" class="user-pic" style="width: 145px;">
+				<else/>
+                <img src="<{$vo.info}>" class="user-pic" style="width: 145px;">
+				</if>
+                </a>
+                <div class="user-info" style="max-width: 130px;padding: 15px 6px 15px 10px;">
+                  <p>
+                    <a href="<{:U('media/otherMedia',array('uid'=>$vo['id']))}>">
+                    <span class="user-name"><{$vo.nickname}></span></br>
+                    </a>
+                    <span class="user-pos">7477设计师</span>
+                  </p>
+                  <div class="pro">
+                    <p></p>
+                  </div>
+                  <p class="brief"><{$vo.remark}></p>
+                </div>
+
+              </div>
+            </div>
+          </volist> 
+            
+
+          </div>
+        </div>
+      </div>
+    </neq>
+  </div>
+
+  <include file="Public:footer"/>
+</body>
+<script type="text/javascript" src="__JS__/jquery.slide.js"></script>
+
+<script type="text/javascript">
+		$('.ck-slide').ckSlide({
+		  autoPlay: true
+		});
+</script>
+</html>

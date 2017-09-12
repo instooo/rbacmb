@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>批量测试</title>
+    <meta name="keywords" content="批量测试" />
+    <meta name="description" content="批量测试" />
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+<div class="wrapper">
+    <div class="content_set">
+        <div class="set_1">
+            <a href="<{:U('data/downDemo')}>" class="btn-default" style="margin-left: 35px;padding-left: 5px;padding-right: 5px">模板下载</a>
+            <span>请上传csv格式文件</span>
+            <form style="display: inline" action="<{:U('data/batchTest')}>" method="post" enctype="multipart/form-data">
+                <input  name="batch" type="file" value="上传测试文档">
+                <input type="submit" value="上传">
+            </form>
+        </div>
+        <div class="con">
+            <p>案例说明:<span style="color: red">消耗(￥)必须保留两位，CTR必须保留三位，如果编辑出现不能保留2或3位请用<em style="color: green">英文单引号</em>：格式请下载或用excel如下编辑保存csv格式</span></p>
+            <table class="node_table" width="100%">
+                <tr>
+                    <th>素材ID</th>
+                    <th>消耗(￥)</th>
+                    <th>曝光</th>
+                    <th>eCPM(￥)</th>
+                    <th>eCPC(￥)</th>
+                    <th>CTR（%）</th>
+                    <th>点击量</th>
+                    <th>注册</th>
+                    <th>结果</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>30.44</td>
+                    <td>53526</td>
+                    <td>1.21</td>
+                    <td>1.21</td>
+                    <td>0.046%</td>
+                    <td>100</td>
+                    <td>1</td>
+                    <td>双达标</td>
+                    <td>很好</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>33.00</td>
+                    <td>191016</td>
+                    <td>1.43</td>
+                    <td>1.43</td>
+                    <td>0.010%</td>
+                    <td>50</td>
+                    <td>5</td>
+                    <td>不达标</td>
+                    <td>有病毒</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<include file="Public:footer"/>
+</body>
+</html>

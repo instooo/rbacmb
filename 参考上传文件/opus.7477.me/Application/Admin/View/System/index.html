@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="__CSS__/index_base.v4.4.css">
+  <link rel="stylesheet" href="__CSS__/search.v4.css">
+
+  <link rel="stylesheet" type="text/css" href="__CSS__/system.css">
+  <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+  <title>系统设置</title>
+  </head>
+<body>
+  <include file="Public:header"/>
+  <div id="wrapper">
+    <div class="contentWarp_item clearfix">
+      <div class="section_select clearfix">
+        <div class="item item_price"> <i class="icon"><img src="__IMAGE__/1.png" width="71" height="74"></i>
+          <div class="desc">
+              <div class="tit"><{$add}></div>
+            <span>
+               今日上传素材
+            </span>
+          </div>
+        </div>
+        <div class="item item_order"> <i class="icon"><img src="__IMAGE__/2.png"></i>
+          <div class="desc">
+            <div class="tit"><{$test}></div>
+            <span>今日添加测试</span>
+          </div>
+          <i class="icon"></i>
+        </div>
+        <div class="item item_comment">
+          <i class="icon">
+            <img src="__IMAGE__/3.png" width="90" height="86"></i>
+          <div class="desc">
+            <div class="tit"><{$discuss}></div>
+            <span>今日评论数</span>
+          </div>
+        </div>
+        <div class="item item_flow">
+          <i class="icon">
+            <img src="__IMAGE__/4.png" width="86"></i>
+          <div class="desc">
+            <div class="tit"><{$good}></div>
+            <span>今日达标</span>
+          </div>
+          <i class="icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="contentWarp_item clearfix">
+      <div class="sc_title"><h3>快捷入口</h3></div>
+      <div class="section_order_select">
+          <ul>
+              <li>
+                  <a href="<{:U('permission/memberList')}>">
+                      <i class="ice ice_w"></i>
+                      <div class="t">用户管理</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('permission/roleList')}>">
+                      <i class="ice ice_d"></i>
+                      <div class="t">角色管理</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('permission/nodeList')}>">
+                      <i class="ice ice_n"></i>
+                      <div class="t">节点列表</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('cate/cateList')}>">
+                      <i class="ice ice_f"></i>
+                      <div class="t">分类列表</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('cate/add')}>">
+                      <i class="ice ice_y"></i>
+                      <div class="t">添加分类</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('channel/cateList')}>">
+                      <i class="ice ice_q"></i>
+                      <div class="t">媒体管理</div>
+                  </a>
+              </li>
+              <li>
+                  <a href="<{:U('data/log')}>">
+                      <i class="ice ice_b"></i>
+                      <div class="t">行为日志</div>
+                  </a>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  
+  <include file="Public:footer"/>
+</body>
+</html>

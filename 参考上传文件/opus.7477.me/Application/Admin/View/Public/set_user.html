@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>账号设置</title>
+  <meta name="keywords" content="账号设置" />
+  <meta name="description" content="账号设置" />
+  <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+  <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+  <script type="text/javascript" src="__JS__/layer/layer.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+  <!--中间内容开始-->
+  <div class="wrapper">
+   <form action="/User/userEdit" method="post" enctype="multipart/form-data">
+    <div class="content_set">
+      <div class="set_1">
+        <span>账号设置</span>
+      </div>
+      <div class="con">
+        <div class="con-tr" id="upload-user-info">
+          <div class="lin-60">
+            <span class="data">个人信息</span>
+            <span class="name">修改个人信息</span>
+            <span class="edit">
+              编辑
+              <i class="current"></i>
+            </span>
+          </div>
+          <div class="duo">
+            <div class="faceCen-main">
+              
+              <label class="control-label">账号：</label>
+              <div class="controls Per-infor">
+                <input type="text" name="id" value="<{$list.id}>" readonly style="cursor: not-allowed;" />
+              </div>
+			   <label class="control-label">密码：</label>
+              <div class="controls Per-infor">
+                <input type="text" name="password" value="" id="password" />
+              </div>
+			  
+              <label class="control-label">昵称：</label>
+              <div class="controls Per-infor">
+                <input type="text" name="nickname" value="<{$list.nickname}>" id="nickname" />
+              </div>
+			  
+              <label class="control-label">格言：</label>
+              <div class="controls Per-infor" style="line-height: 0;">
+                <textarea name="remark" id="remark"><{$list.remark}></textarea>
+              </div>
+			  
+              <label class="control-label">修改头像：</label>
+			  
+			  <div style="width:100px;height:100px;margin-left:115px;margin-bottom:10px;">
+			       <if condition="$list.info eq null">
+				   <img src="/public/admin/images/index-page-user2.png" style="width:100px;height:100px;">
+				   <else/>
+				   <img src="<{$list.info}>" style="width:100px;height:100px;">
+				   </if>
+			  </div>
+			  
+              
+              <label class="control-label">&nbsp;</label>
+             
+				<div class="controls Per-infor" style="position:relative; float:left; height:32px; width:110px; margin:0 20px 0 0;">
+					<input type="button" name="file" value="上传" class="submit-infor" style="position:absolute; left:0; z-index:1;" />
+					<input type="file" name="file" value="上传" style="position:absolute; left:0; z-index:10; filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity: 0; opacity:0; width:90px;" />
+				</div>
+               
+			  
+				<div class="controls Per-infor" style="height:32px; float:left; margin:0 20px 0 0;">
+				   <input type="submit" value="保存" class="submit-infor" id="submit-detail-info" />
+				</div>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+	</form>
+  </div>
+  <script type="text/javascript" src="__JS__/account.js"></script>
+  <script type="text/javascript">
+    $(function(){
+        // 显示与否的选择
+        $(".Per-infor span").click(function(){
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active").attr('data-status', 0);
+            } else {
+                $(this).addClass("active").attr('data-status', 1);
+            }
+        });
+        // 擅长内容的选取
+        $(".be-good-at span").click(function(){
+            if ($(this).hasClass("curr")) {
+                $(this).removeClass("curr").attr('data-status', 0);
+            } else {
+                $(this).addClass("curr").attr('data-status', 1);
+            }
+        });
+		
+    })
+  </script>
+
+
+
+</body>
+</html>

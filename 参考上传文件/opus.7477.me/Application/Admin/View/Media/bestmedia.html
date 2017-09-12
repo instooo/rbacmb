@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>精品素材</title>
+    <meta name="keywords" content="精品素材"/>
+    <meta name="description" content="精品素材"/>
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/search.v4.css">
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+<!-- header end -->
+<div id="wrapper">
+    <form id="form" method="get" action="<{:U('media/bestMedia')}>">
+        <div class="sea-search">
+            <div class="sea-m">
+                <a href="/">
+                    <div class="sea-logo fl"></div>
+                </a>
+                <div class="btn-select-search fl" id="pic_index_search">
+                    <div class="current-select">
+            <span id="pic_current_search_type">
+               <{:W('Common/searchType')}>
+            </span>
+                        <i></i>
+                    </div>
+                    <div class="select-list" id="pic_search_type_table">
+                        <div id="pic_search_type_list">
+                            <a pic-click-type="search_type" pic-search-type="all" href="javascript:void(0);">全部作品</a>
+                            <a pic-click-type="search_type" pic-search-type="photo" href="javascript:void(0);">swf素材</a>
+                            <a pic-click-type="search_type" pic-search-type="vector"
+                               href="javascript:void(0);">flv动画</a>
+                            <a pic-click-type="search_type" pic-search-type="video" href="javascript:void(0);">MP4视频</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sea-search-m fl search-m">
+
+
+                    <input type="hidden" id="pic_form_search_model" name="search_mode"
+                           value="<{$_GET['search_mode']}>"/>
+                    <input type="text" class="text fl" name="kw" id="searchinput" placeholder="输入关键字搜索图片"
+                           value="<{$_GET['kw']}>" AUTOCOMPLETE="OFF">
+                    <input type="submit" class="but fl tran" id="searchbtn" value="搜 索">
+
+                    <div pic-click-type="sug-list" class="search-sug"></div>
+                </div>
+                <a href="javascript:void(0);" class="pageup fr checkall">全选</a>
+                <a href="javascript:void(0);" class="pageup fr downloads">批量下载</a>
+            </div>
+        </div>
+
+        <div class="sea-nav">
+            <div class="sea-nav-m">
+
+                <div class="row clearfix">
+                    <div class="fl row-l">分类：</div>
+                    <div class="fl row-m clearfix" style="height: auto">
+                        <{:W('Common/cate')}>
+                        <input type="hidden" name="cid" value="<{$_GET['cid']}>" id="cid">
+                    </div>
+                    <div class="fr row-r on">
+                    <span class="wap-touch nav-link">
+                      <i></i>
+                    </span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="fl clear-l">媒体：</div>
+                    <div class="fl row-m clearfix" style="height: auto">
+                        <{:W('Common/channel')}>
+                        <input type="hidden" name="chanid" value="<{$_GET['chanid']}>" id="chanid">
+                    </div>
+                    <div class="fr row-r on">
+                    <span class="wap-touch nav-link">
+                      <i></i>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="filter clearfix">
+                    <div class="row-list fl">
+                        <div class="row-list-t">
+                            排序
+                            <i></i>
+                        </div>
+                        <div class="row-list-m new-filter-order">
+                            <{:W('Common/orderList')}>
+                            <input type="hidden" name="order" value="<{$_GET['order']}>">
+                        </div>
+                    </div>
+                    <div class="row-list fl">
+                        <div class="row-list-t">
+                            图片大小
+                            <i></i>
+                        </div>
+                        <div class="row-list-m">
+                            <div class="input-m clearfix">
+                                <p>大于：</p>
+                                <form class="new-filter-size">
+                                    <input type="text" class="txt fl" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                           name="width" onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                                           value="<{$_GET['width']}>" placeholder="宽度">
+                                    <span class="fl">x</span>
+                                    <input type="text" class="txt fl" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                           name="height" onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                                           value="<{$_GET['height']}>" placeholder="高度">
+                                    <span class="fl">px</span>
+                                    <input type="button" class="but fr" id="size" value="确定"></form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-list fl">
+                        <span class="filter-span  fl dispper" style=" padding-left: 15px;">游戏：</span>
+                        <input type="text" class="txt fl" value="<{$_GET['game']}>" name="game"
+                               style="padding: 0 10px;height: 26px;line-height: 26px;border: 1px #e4e4e6 solid;-webkit-border-radius: 1px;border-radius: 1px; margin-right: 10px;text-align: center;">
+                        <input id="game" type="button"
+                               style="width: 48px;height: 30px;color: #fff;background: #269edc;border: none;cursor: pointer;"
+                               value="确定">
+                    </div>
+                    <div class="row-list fl">
+                        <span class="filter-span  fl dispper" style=" padding-left: 15px;">作品时间：</span>
+                        <input type="text" class="txt fl" value="<{$_GET['addtime']}>" style="padding: 0 10px;height: 28px;line-height: 28px;border: 1px #e4e4e6 solid;-webkit-border-radius: 1px;border-radius: 1px; margin-right: 10px;text-align: center;" id="starttime" name="addtime">
+                        <input type="text" class="txt fl" value="<{$_GET['endtime']}>" style="padding: 0 10px;height: 28px;line-height: 28px;border: 1px #e4e4e6 solid;-webkit-border-radius: 1px;border-radius: 1px; margin-right: 10px;text-align: center;" id="endtime" name="endtime">
+
+                        <input id="addtime" type="button"
+                               style="width: 48px;height: 30px;color: #fff;background: #269edc;border: none;cursor: pointer;"
+                               value="确定">
+                    </div>
+                </div>
+    </form>
+</div>
+</div>
+
+<!-- 图片流 start -->
+<empty name="listinfo">
+    <include file="Public:searcherro"/>
+</empty>
+<div class="imgshow clearfix">
+    <div class="swipeboxEx">
+        <form id="go-down" action="<{:U('media/downLoad')}>" method="get">
+            <volist name="listinfo" id="vo">
+                <div class="list" data-w="400" data-h="300">
+                    <a href="/media/detail/mid/<{$vo.mid}>" target="_blank">
+                        <img class="lazy" src="__IMAGE__/blank.png" data-original="<{$vo.thumb}>" alt="<{$vo.title}>" title=""/>
+                        <p><{$vo.title}></p>
+                    </a>
+                    <div class="collect-icon">
+                        <a class="collect-best" title="下载">
+                            <input type="checkbox" name="mids[]" value="<{$vo.mid}>">
+                        </a>
+                    </div>
+                    <div class="downimg" event-statistics="true" event-name="download">
+                        <a href="<{:U('media/downLoad',array('mid'=>$vo['mid']))}>" rel="nofollow">下载</a>
+                    </div>
+                </div>
+            </volist>
+        </form>
+    </div>
+</div>
+
+<div class="pagelist" style="margin: 20px 0;">
+    <div class=pager-linkPage>
+        <{$page}>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="__JS__/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="__JS__/jquery.flex-images.min.1.0.4.js"></script>
+<script type="text/javascript" src="__JS__/search.v1.js"></script>
+<script type="text/javascript" src="__JS__/base.js"></script>
+<script src="__JS__/laydate/laydate.js"></script>
+<script>
+    ;
+    !function () {
+        laydate({
+            elem: '#starttime',
+            istime: true,
+            format: 'YYYY-MM-DD hh:mm:ss',
+            max: laydate.now().substr(0, 10),
+            zIndex: 999
+        })
+    }();
+    ;!function(){
+        laydate({
+            elem: '#endtime',
+            istime: true,
+            format: 'YYYY-MM-DD hh:mm:ss',
+            max: laydate.now().substr(0,10),
+            zIndex: 999
+        })
+    }();
+
+    $(function () {
+        var layoutnav = function () {
+            var navw = $('.sea-nav .row-m').width();
+            $('.sea-nav .nav-m a').remove();
+            var roww = 0;
+            $('.sea-nav .row-m a').each(function () {
+                var w = $(this).width();
+                roww += w + 40;
+                if (roww > navw) {
+                    $(this).addClass('h');
+                    $('.sea-nav .nav-m').append($(this).clone());
+                }
+            })
+        }
+        layoutnav();
+        $(window).on('resize', layoutnav);
+    });
+
+    //查询
+    $(".row-m a").click(function () {
+        var cid = $(this).attr("data-cid");
+        $(this).siblings("input[type='hidden']").attr('value', cid);
+        $("#form").submit();
+        return false;
+    });
+    $("#size").click(function () {
+        $("#form").submit();
+        return false;
+    });
+    $('#addtime').click(function () {
+        $("#form").submit();
+        return false;
+    });
+    $('#game').click(function () {
+        $("#form").submit();
+        return false;
+    });
+    $('.new-filter-order a').click(function () {
+        var order = $(this).attr("data-order");
+        $(this).siblings("input[type='hidden']").attr('value', order);
+        $("#form").submit();
+        return false;
+    });
+    $('.downloads').click(function () {
+        $('#go-down').submit();
+    });
+
+    $('.checkall').click(function(){
+        if ($('.checkall').hasClass('on')){
+            $('.checkall').removeClass('on');
+            $("input[name='mids[]']").attr('checked',false);
+        }else {
+            $('.checkall').addClass('on');
+            $("input[name='mids[]']").attr('checked',true);
+        }
+    });
+</script>
+
+<include file="Public:footer"/>
+</body>
+</html>

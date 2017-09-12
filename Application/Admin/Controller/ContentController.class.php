@@ -153,23 +153,62 @@ class ContentController extends CommonController {
 
 	//内容添加
 	public function content_add(){
-		if ($_POST) {
-			$return = array("state"=>-1,"msg"=>'',"data"=>"");
-            do{ 			
-				print_r($_POST);
-			}while(0);
-			exit(json_encode($ret));
-		} 
 		//模型默认为文章模型
 		$mid=$_REQUEST ['mid'];
 		$mid=$mid?$mid:1;
 		//查找模型对应的表格和对应的类名
 		$result = M('model')->where("id=".$mid)->find();
-		$class =ucfirst(strtolower($result['class']));
-		import('Common/Vendor/Model/'.$class);		
-        $class    = new $class();		
-		$html = $class->get_html();
-		$this->assign('html',$html);
-		$this->display('content/content/content_add');
+		$classname =ucfirst(strtolower($result['class']));
+		import('Common/Vendor/Model/'.$classname);		
+        $class    = new $classname();
+		if ($_POST) {
+			$ret = array("code"=>-1,"msg"=>'',"data"=>"");
+            do{ 
+				$data = $_POST;
+				$checkresult = $class->checkData($data);						
+				if($checkresult['code']!=1){
+					$ret = $checkresult;
+					break;
+				}		
+				$file = $_FILES;
+				if (!empty ( $_FILES ["uploads"] ["name"][0] )) {				
+					$list_img = $_FILES ["uploads"];				
+					$ima_name1 = $this->ftp_image_com_multiple ( $list_img, 'Article', 'you', $data ['webconfig_id'], '1' );
+					if($ima_name1==1)
+					{
+						$this->error('上传的图片超过2M!');
+						
+					}
+					if($ima_name1==2)
+					{
+						$this->error('上传的是必须是图片');
+						
+					}
+					$data ['article_img'] = json_encode($ima_name1); // 文章图片(缩略图加s_)				
+				}
+				$content = M($classname);
+				$data['addtime']=time();
+				$st = $content->data($data)->add();					
+				if(!$st){
+					$ret['code'] = 0;
+					$ret['msg'] = '添加失败';
+					break;					
+				}			
+				$ret['code'] = 1;
+				$ret['msg'] = '添加成功';
+				break;
+			}while(0);
+			exit(json_encode($ret));
+		}else{
+			//这些案例所有都有对应栏目，所以是公用的
+			$cate  = M('cate a')->join('youzhan_model b on a.m_id=b.id')->select();
+			$cate = $this->unlimitedForLevel($cate);		
+			$html = $class->get_html();
+			$this->assign('html',$html);
+			$this->assign('mid',$mid);				
+			$this->assign('cate',$cate);	
+			$this->display('content/content/content_add');
+		} 
+		
 	}
 }

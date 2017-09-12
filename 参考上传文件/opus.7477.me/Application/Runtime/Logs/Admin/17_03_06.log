@@ -1,0 +1,1867 @@
+[ 2017-03-06T09:33:54+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.126000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.067000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.071000s ]
+
+[ 2017-03-06T09:33:54+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.085000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.085000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-03-06T09:33:55+08:00 ] 192.168.1.14 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T09:34:02+08:00 ] 192.168.1.14 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0060s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=68 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1488764042',`login_count`=login_count+1 WHERE `id` = 68 [ RunTime:0.0010s ]
+
+[ 2017-03-06T09:34:03+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0030s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0110s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T09:34:07+08:00 ] 192.168.1.14 /index.php/media/dataMedia/date/today.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE `addtime` BETWEEN 1488729600 AND 1488815999 LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE `addtime` BETWEEN 1488729600 AND 1488815999 LIMIT 0,20   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant date - assumed 'date' D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 197 行.
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 225 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 227 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0160s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 244 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 256 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 272 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 286 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 290 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 298 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 353 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 358 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T09:34:09+08:00 ] 192.168.1.14 /index.php/media/dataMedia/date/yesterday.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0220s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE `addtime` BETWEEN 1488643200 AND 1488729599 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE `addtime` BETWEEN 1488643200 AND 1488729599 LIMIT 0,20   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant date - assumed 'date' D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 197 行.
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 225 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 227 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 244 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 256 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 272 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 286 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 290 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 298 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 353 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\01cc1c03843be42dbb6e2b1050bb9c42.php 第 358 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T09:34:11+08:00 ] 192.168.1.14 /index.php/data/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 122 行.
+SQL: SELECT COUNT(*) AS tp_count FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  LIMIT 1   [ RunTime:0.0170s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 129 行.
+SQL: SELECT a.id,a.click_per,a.ectc,a.expend,a.show_num,a.reg_num,a.click_num,a.status,a.pjtime,a.ext2,m.mid,m.title,u.nickname FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  ORDER BY a.id desc LIMIT 0,15   [ RunTime:0.0140s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: uid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 212 行.
+NOTIC: [8] Undefined index: title D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 213 行.
+NOTIC: [8] Undefined index: starttime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 214 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 216 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [8] Undefined index: status D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 273 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T09:34:46+08:00 ] 192.168.1.14 /index.php/Data/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 122 行.
+SQL: SELECT COUNT(*) AS tp_count FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  LIMIT 1   [ RunTime:0.0200s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 129 行.
+SQL: SELECT a.id,a.click_per,a.ectc,a.expend,a.show_num,a.reg_num,a.click_num,a.status,a.pjtime,a.ext2,m.mid,m.title,u.nickname FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  ORDER BY a.id desc LIMIT 15,15   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: uid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 212 行.
+NOTIC: [8] Undefined index: title D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 213 行.
+NOTIC: [8] Undefined index: starttime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 214 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 216 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [8] Undefined index: status D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 273 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T09:34:59+08:00 ] 192.168.1.14 /index.php/Data/index/p/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 122 行.
+SQL: SELECT COUNT(*) AS tp_count FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 129 行.
+SQL: SELECT a.id,a.click_per,a.ectc,a.expend,a.show_num,a.reg_num,a.click_num,a.status,a.pjtime,a.ext2,m.mid,m.title,u.nickname FROM opus_data a left join opus_material m on m.mid=a.mid left join opus_user u on u.id=m.uid  ORDER BY a.id desc LIMIT 30,15   [ RunTime:0.0140s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: uid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 212 行.
+NOTIC: [8] Undefined index: title D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 213 行.
+NOTIC: [8] Undefined index: starttime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 214 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 216 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 254 行.
+NOTIC: [8] Undefined index: status D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a427a9cf47adebb6baff12e3a10c0122.php 第 273 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T09:37:25+08:00 ] 192.168.1.14 /index.php/data/standard.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 168 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,u.nickname FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid LEFT JOIN opus_user u ON d.uid=u.id WHERE u.id IS NOT NULL  GROUP BY d.uid [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 179 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,u.nickname FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid LEFT JOIN opus_user u ON m.uid=u.id WHERE  1=1  GROUP BY m.uid [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 190 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,m.size FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid WHERE 1=1  GROUP BY m.size [ RunTime:0.0260s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 201 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,c.name FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid LEFT JOIN opus_cate c ON m.catid=c.cid WHERE 1=1  GROUP BY c.cid [ RunTime:0.0150s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 212 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,m.game FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid WHERE 1=1  GROUP BY m.game [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\DataController.class.php 第 223 行.
+SQL: SELECT COUNT(CASE WHEN d.status =1 THEN 1 END) as num,
+                COUNT(CASE WHEN d.ok_status =1 THEN 1 END) as doublenum,
+                COUNT(CASE WHEN d.ok_status =2 THEN 1 END) as clicknum,
+                COUNT(CASE WHEN d.ok_status =3 THEN 1 END) as costnum,
+                COUNT(CASE WHEN d.ok_status =4 THEN 1 END) as changenum,
+                COUNT(d.id) as total,m.size FROM opus_material m
+                LEFT JOIN opus_data d ON m.mid=d.mid WHERE 1=1  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: starttime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 208 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 210 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 277 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 280 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 283 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 286 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 289 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 292 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 277 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 280 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 283 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 286 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 289 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 292 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 277 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 280 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 283 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 286 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 289 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 292 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 277 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 280 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 283 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 286 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 289 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 292 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 313 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 316 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 319 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 322 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 325 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 328 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 313 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 316 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 319 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 322 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 325 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 328 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 313 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 316 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 319 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 322 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 325 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 328 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 313 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 316 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 319 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 322 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 325 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 328 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 313 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 316 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 319 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 322 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 325 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 328 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 349 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 352 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 355 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 358 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 361 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 364 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 349 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 352 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 355 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 358 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 361 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 364 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 385 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 388 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 391 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 394 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 397 行.
+NOTIC: [2] Division by zero D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b235be7f39ccae48af7c92dfaae2000b.php 第 400 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.088000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.088000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-03-06T12:42:07+08:00 ] 192.168.1.14 /index.php/media/bestMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0190s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE a.status = 1 AND b.status = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE a.status = 1 AND b.status = 1 LIMIT 0,20   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0260s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0160s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0060s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0060s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 272 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 286 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 290 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 298 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 306 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\b0fbc1d0986b6c078e99f845d4ad6d88.php 第 307 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.217000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.217000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.011000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011000s ]
+
+[ 2017-03-06T12:42:12+08:00 ] 192.168.1.14 /Public/loginout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\PublicController.class.php 第 100 行.
+
+[ 2017-03-06T12:42:13+08:00 ] 192.168.1.14 /index.php/media/bestMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Org\Util\Rbac.class.php 第 142 行.
+
+[ 2017-03-06T12:42:13+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:42:42+08:00 ] 192.168.1.14 /system/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Org\Util\Rbac.class.php 第 142 行.
+
+[ 2017-03-06T12:42:45+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:07+08:00 ] 192.168.1.14 /index.php/permission/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Org\Util\Rbac.class.php 第 142 行.
+
+[ 2017-03-06T12:43:07+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:12+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:14+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-03-06T12:43:23+08:00 ] 192.168.1.14 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0020s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=68 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1488775403',`login_count`=login_count+1 WHERE `id` = 68 [ RunTime:0.0010s ]
+
+[ 2017-03-06T12:43:24+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0360s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:26+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0020s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:29+08:00 ] 192.168.1.14 /system/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` WHERE `addtime` >= 1488729600 LIMIT 1   [ RunTime:0.0350s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.0160s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_discuss` WHERE `time` >= 1488729600 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` WHERE `status` = 1 LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:43:33+08:00 ] 192.168.1.14 /index.php/permission/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_node` [ RunTime:1.0990s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`level`,`ismenu`,`sort`,(pid*level*sort) as sortby FROM `opus_node` WHERE `status` = 1 ORDER BY sortby desc  [ RunTime:0.0160s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:44:09+08:00 ] 192.168.1.14 /Permission/addNode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `opus_node` WHERE ( id=4306 ) LIMIT 1   [ RunTime:0.0210s ]
+SQL: INSERT INTO `opus_node` (`pid`,`name`,`title`,`sort`,`ismenu`,`status`,`level`) VALUES ('4306','/User/setrule','下载别名设置','0','0','1','1') [ RunTime:0.0370s ]
+
+[ 2017-03-06T12:44:10+08:00 ] 192.168.1.14 /index.php/permission/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_node` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`level`,`ismenu`,`sort`,(pid*level*sort) as sortby FROM `opus_node` WHERE `status` = 1 ORDER BY sortby desc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\e86ebeb687ea860dd6c918b58ac835d6.php 第 247 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:44:22+08:00 ] 192.168.1.14 /system/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` WHERE `addtime` >= 1488729600 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_discuss` WHERE `time` >= 1488729600 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` WHERE `status` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:44:28+08:00 ] 192.168.1.14 /index.php/permission/roleList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.1300s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_role` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_role` ORDER BY create_time LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:44:41+08:00 ] 192.168.1.14 /Permission/addAccess
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `opus_role` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `opus_node` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`level`,`ismenu`,`sort`,(pid*level*sort) as sortby FROM `opus_node` WHERE `status` = 1 ORDER BY sortby desc  [ RunTime:0.0010s ]
+SQL: 
+		select node.id,node.name,node.title,node.pid,node.level,node.ismenu,node.sort,(node.pid*node.level*node.sort) as sortby from opus_node as node left join opus_access as access on access.node_id	= node.id 	where access.role_id	=	3 ORDER BY sortby DESC
+		 [ RunTime:0.1420s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined index: child D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+NOTIC: [8] Undefined variable: v2 D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a8873af476a45f774855ffaf05412663.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:44:50+08:00 ] 192.168.1.14 /Permission/saveAccess
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_access` [ RunTime:0.0860s ]
+SQL: SELECT * FROM `opus_access` WHERE ( role_id=3 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: DELETE FROM `opus_access` WHERE ( role_id=3 ) [ RunTime:0.1890s ]
+SQL: INSERT INTO `opus_access` (`role_id`,`node_id`,`level`,`pid`) VALUES ('3','4306','0','0'),('3','4307','0','0'),('3','4317','0','0'),('3','4308','0','0'),('3','4280','0','0'),('3','4316','0','0'),('3','4281','0','0'),('3','4304','0','0'),('3','4282','0','0'),('3','4284','0','0'),('3','4286','0','0'),('3','4290','0','0'),('3','4293','0','0'),('3','4292','0','0'),('3','4288','0','0'),('3','4305','0','0'),('3','4314','0','0'),('3','4313','0','0'),('3','4289','0','0') [ RunTime:0.0010s ]
+
+[ 2017-03-06T12:44:55+08:00 ] 192.168.1.14 /system/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` WHERE `addtime` >= 1488729600 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_discuss` WHERE `time` >= 1488729600 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` WHERE `status` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:45:05+08:00 ] 192.168.1.14 /index.php/permission/memberList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.0210s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_user User  JOIN opus_role_user Role_user ON User.id=Role_user.user_id LEFT JOIN opus_role Role ON Role_user.role_id=Role.id LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT User.id AS id,User.username AS username,User.nickname AS nickname,User.realname AS realname,User.password AS password,User.bind_account AS bind_account,User.last_login_time AS last_login_time,User.last_login_ip AS last_login_ip,User.login_count AS login_count,User.verify AS verify,User.email AS email,User.remark AS remark,User.create_time AS create_time,User.update_time AS update_time,User.status AS status,User.info AS info,Role.id AS roleid,Role.name AS rolename FROM opus_user User  JOIN opus_role_user Role_user ON User.id=Role_user.user_id LEFT JOIN opus_role Role ON Role_user.role_id=Role.id ORDER BY User.create_time desc LIMIT 0,20   [ RunTime:0.0230s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `opus_role` WHERE ( status=1 ) ORDER BY create_time desc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:45:17+08:00 ] 192.168.1.14 /Public/loginout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\PublicController.class.php 第 100 行.
+
+[ 2017-03-06T12:45:18+08:00 ] 192.168.1.14 /index.php/permission/memberList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Org\Util\Rbac.class.php 第 142 行.
+
+[ 2017-03-06T12:45:19+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:45:24+08:00 ] 192.168.1.14 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin4' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0030s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=80 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1488775524',`login_count`=login_count+1 WHERE `id` = 80 [ RunTime:0.0010s ]
+
+[ 2017-03-06T12:45:25+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0030s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:45:30+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0090s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0050s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:45:35+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0180s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:45:58+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0050s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:46:00+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:48:50+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:48:53+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:48:56+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4313 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4314 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4305 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4316 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4317 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='80' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE b.uid = '80' LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 224 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 226 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0020s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 243 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 255 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 271 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 285 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 289 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 297 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 305 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\a21d015a954b51d991369279ab5fa95a.php 第 306 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:50:12+08:00 ] 192.168.1.14 /Public/loginout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\PublicController.class.php 第 100 行.
+
+[ 2017-03-06T12:50:13+08:00 ] 192.168.1.14 /index.php/media/testMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Org\Util\Rbac.class.php 第 142 行.
+
+[ 2017-03-06T12:50:13+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:50:20+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-03-06T12:50:20+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:50:27+08:00 ] 192.168.1.14 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0020s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=68 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1488775827',`login_count`=login_count+1 WHERE `id` = 68 [ RunTime:0.0010s ]
+
+[ 2017-03-06T12:50:28+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:50:52+08:00 ] 192.168.1.14 /system/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_data` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` WHERE `addtime` >= 1488729600 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_discuss` WHERE `time` >= 1488729600 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_data` WHERE `status` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:50:57+08:00 ] 192.168.1.14 /index.php/permission/memberList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_user User  JOIN opus_role_user Role_user ON User.id=Role_user.user_id LEFT JOIN opus_role Role ON Role_user.role_id=Role.id LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT User.id AS id,User.username AS username,User.nickname AS nickname,User.realname AS realname,User.password AS password,User.bind_account AS bind_account,User.last_login_time AS last_login_time,User.last_login_ip AS last_login_ip,User.login_count AS login_count,User.verify AS verify,User.email AS email,User.remark AS remark,User.create_time AS create_time,User.update_time AS update_time,User.status AS status,User.info AS info,Role.id AS roleid,Role.name AS rolename FROM opus_user User  JOIN opus_role_user Role_user ON User.id=Role_user.user_id LEFT JOIN opus_role Role ON Role_user.role_id=Role.id ORDER BY User.create_time desc LIMIT 0,20   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `opus_role` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `opus_role` WHERE ( status=1 ) ORDER BY create_time desc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.054000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:51:15+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0040s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:51:17+08:00 ] 192.168.1.14 /Public/loginout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: authId D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\PublicController.class.php 第 100 行.
+
+[ 2017-03-06T12:51:18+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+
+[ 2017-03-06T12:51:18+08:00 ] 192.168.1.14 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:51:23+08:00 ] 192.168.1.14 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0060s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=80 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1488775883',`login_count`=login_count+1 WHERE `id` = 80 [ RunTime:0.0000s ]
+
+[ 2017-03-06T12:51:25+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0030s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-06T12:51:31+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0020s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-06T12:52:58+08:00 ] 192.168.1.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0040s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

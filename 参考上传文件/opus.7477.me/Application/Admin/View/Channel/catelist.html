@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>媒体列表</title>
+    <meta name="keywords" content="媒体列表"/>
+    <meta name="description" content="媒体列表"/>
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/table.css">
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+    <script type="text/javascript" src="__JS__/layer/layer.js"></script>
+
+</head>
+<body>
+<include file="Public:header"/>
+<div class="upload-main">
+    <div class="w1200">
+        <div class="cont_three">
+            <div class="title">
+                <p></p>
+                <span>媒体列表与说明</span>
+            </div>
+            <a class="btn-default" href="<{:U('channel/add')}>">添加媒体</a>
+            <p class="shuo"></p>
+            <table width="1200" border="2">
+                <tbody>
+                <tr>
+                    <td>媒体名称</td>
+                    <td>媒体描述</td>
+                    <td>操作</td>
+                </tr>
+                <foreach name="treeList" item="vo">
+                    <tr data-id="<{$vo.cid}>">
+                        <td style="text-align: left;padding-left: 10px"><{$vo.name}></td>
+                        <td><{$vo.des}></td>
+                        <td>
+                            <div class="tDiv a3">
+                                <a href="<{:U('channel/edit',array('cid'=>$vo['cid']))}>" class="btn_edit">
+                                    <i class="icon icon-edit"></i>
+                                    <b>编辑</b>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="javascript:;" class="btn_trash">
+                                    <i class="icon icon-trash"></i>
+                                    移除
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    //删除分类
+    $('.btn_trash').click(function () {
+        var url = '<{:U("channel/del")}>';
+        var _tr = $(this).parents('tr');
+        var id = _tr.attr('data-id');
+        layer.confirm('确定要删除该媒体？', {
+            btn: ['确定', '取消']
+        }, function () {
+            $.post(url, {id: id}, function (data) {
+                var data = JSON.parse(data);
+                if (data.status == 1) {
+                    layer.msg('删除成功', {icon: 6, time: 1000}, function () {
+                        _tr.remove();
+                    });
+                } else {
+                    layer.msg(data.msg, {icon: data.status, time: 1000});
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="__JS__/cate.js"></script>
+<script type="text/javascript" src="__JS__/select.js"></script>
+<include file="Public:footer"/>
+</body>
+</html>

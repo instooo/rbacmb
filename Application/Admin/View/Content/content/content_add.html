@@ -1,48 +1,72 @@
  <link rel="stylesheet" type="text/css" href="__CSS__/AdminLTE.min.css" />
-    <link href="__CSS__/global.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="__CSS__/manager-common.css">
-    <link href="__CSS__/Manager.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
-    <script src="__JS__/jquery.form.js"></script> 
-    <script type="text/javascript" src="__JS__/layer/layer.js"></script>
-    <script type="text/javascript" src="__JS__/date/dateRange.js"></script>
-    <script type="text/javascript" src="__JS__/typeahead/bootstrap3-typeahead.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="__JS__/date/dateRange.css" />
-	<!--百度编辑器-->
-	<script type="text/javascript" src="__PUBLIC__/ueditor/editor_config.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/ueditor/editor_all_min.js"></script> 
-	<link rel="stylesheet" href="__PUBLIC__/ueditor/themes/default/ueditor.css">
-	<!--时间插件-->
-	<script src="__JS__/laydatea/laydate.js"></script> <!-- 改成你的路径 -->
-
-	
-	
-	
+<link href="__CSS__/global.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/manager-common.css">
+<link href="__CSS__/Manager.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__/upload.css" rel="stylesheet" type="text/css" />
+<!--时间插件-->
+<script src="__JS__/laydatea/laydate.js"></script> <!-- 改成你的路径 -->
 <style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
 <div id="laycontent" style="padding:10px">
 <link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
 	<div id="count_body" style="margin-top: 20px;">
 		<form name="myform" id="myform">
+			<input type="hidden" name="mid" value="<{$mid}>"/>
             <table class="huitable">
                 <colgroup>
                     <col width="10%">
                     <col>
                 </colgroup>
-                <tbody>	
+                <tbody>
+					<tr><td>栏目名称</td>
+					<td>
+					<select class='manager-input s-input' name='typeid' id='typeid' style='width:300px'>
+						<option value="-1">选择栏目</type>
+						<volist name="cate" id="vo">
+						<option value="<{$vo.typeid}>" <if condition="$vo['m_id'] neq $mid">disabled style="background:#e1e1e1;"</if>><{$vo.html}><{$vo.typename}></type>
+						</volist>
+					</select>
+					</td></tr>				
 					<{$html}>
                 </tbody>
             </table>
 			<input type="button" name="dosubmit" id="dosubmit" value="添加" class="manager-btn s-btn search-btn">
-			<input type="button" value="取消" class="manager-btn s-btn search-btn" onclick="history.go(-1);">
+			<input type="button" value="取消" class="manager-btn s-btn search-btn" onclick="closelayr()">
 			<span id="tips" style="display: none"></span>
         </form>
 	</div>
 </div>
 
+
+<script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+<script src="__JS__/jquery.form.js"></script> 
+<script type="text/javascript" src="__JS__/layer/layer.js"></script>
+<script type="text/javascript" src="__JS__/date/dateRange.js"></script>
+<script type="text/javascript" src="__JS__/typeahead/bootstrap3-typeahead.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__JS__/date/dateRange.css" />
+<!--百度编辑器-->
+<script type="text/javascript" src="__PUBLIC__/ueditor/editor_config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/editor_all_min.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/ueditor/themes/default/ueditor.css">
+
+<!--上传文件插件-->
+<script type="text/javascript" src="__PUBLIC__/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="__JS__/uploader.js"></script>
+
 <script type="text/javascript">
 	
-    $(function(){  
-        $('#dosubmit').live('click',function() { 
+    $(function(){
+		var test= {};
+		var len = $("textarea[data-type=editor]").length;		
+		for(var i=0;i<len;i++){
+			var editor_name = $("textarea[data-type=editor]").eq(i).attr('name');			
+			test.editor_name =  new UE.ui.Editor({initialContent:''});
+			test.editor_name.render(editor_name);
+		}
+        $('#dosubmit').live('click',function() {		
+			for(var i=0;i<len;i++){
+				editor_name = $("textarea[data-type=editor]").eq(i).attr('name');				
+				UE.getEditor(editor_name).sync();
+			}
             var options = {
                 url: "/content/content_add",
                 type:"post",
@@ -50,7 +74,10 @@
                 success: function (data) {
                     data=jQuery.parseJSON(data);
                     if(data.code==1){
-                        layer.msg('修改成功', {icon:6,time:1000}, function () {window.location.href="/content/cate_list";}); 
+                        layer.msg('修改成功', {icon:6,time:1000}, function () {
+							 var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+							 parent.layer.close(index);
+						}); 
                         return false; 
                     }else{
                         layer.msg(data.msg, {icon:5,time:1000});
@@ -66,4 +93,9 @@
             $("form").ajaxSubmit(options);      
         });
     })
+	
+	function closelayr(){
+			var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+			parent.layer.close(index);
+	}
 </script>

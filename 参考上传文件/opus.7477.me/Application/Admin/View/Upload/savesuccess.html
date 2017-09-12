@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>上传成功</title>
+  <meta name="keywords" content="上传成功" />
+  <meta name="description" content="上传成功" />
+  <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+  <script src="__JS__/jQuery.1.8.2.min.js"></script>
+  
+  <style>
+        #header{ background: #222; }
+        .upload-main{ background-color: #f7f8fa; padding: 40px 0; }
+        .upload-con{ width:1200px; background-color: #fff; border: #eeeff2 1px solid; margin: 0 auto; min-height: 790px; }
+        .upload-title{ height: 70px; line-height: 70px;  text-align: center; color: #444; font-size: 18px; border-bottom:#eeeff2 1px solid; }
+        .success{ text-align: center; padding: 200px 0 345px; }
+        .up-word{ color: #666; font-size: 18px; }
+        .up-word i{ display: inline-block; width: 21px; height: 21px; background: url(__IMAGE__/bg/icon-upload.png) 0 -317px; vertical-align: middle; margin-right: 10px; }
+        .up-word span{ color: #ff5200; }
+        .up-word a{ color: #34a4de !important; }
+        .down-word{ color: #999; font-size: 14px; line-height: 30px; margin-top: 10px; }
+        .down-word a{ color: #666; }
+        .down-word a:hover{ color: #0099e5; }
+    </style>
+</head>
+<body>
+  <include file="Public:header"/> 
+  <div class="upload-main">
+    <div class="upload-con">
+      <div class="content" style="background-color:#fff;">
+        <div class="upload-title">
+          <span>文件上传</span>
+        </div>
+        <div class="success flag-complete">
+          <div class="up-word"> <i></i>
+            文件上传成功，
+            <span class="count-down">1</span>
+            秒后跳转到上传页面继续上传
+			<a>立即上传</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+  $(function(){
+      var $span = $('.count-down');
+      var $sec  = parseInt($span.text());
+      var $time = setInterval(function(){
+          $sec--;
+          if ($sec <= 0) {
+              window.location.href = '/Media/mymedia';
+              clearTimeout($time);
+          } else {
+              $span.text($sec);
+          }
+      }, 1000);
+  });
+</script>
+
+  
+
+<script type="text/javascript" src="__UPLOAD__/webuploader.js"></script>
+<script type="text/javascript" src="__JS__/uploader.js"></script>
+<script type="text/javascript" src="__JS__/select.js"></script>
+<include file="Public:footer"/>
+</body>
+</html>

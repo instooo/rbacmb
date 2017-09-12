@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>测试员达标率</title>
+    <meta name="keywords" content="测试员达标率" />
+    <meta name="description" content="测试员达标率" />
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+    <script src="__JS__/laydate/laydate.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+<div class="wrapper">
+    <div class="content_set" id="content_set">
+        <div class="set_1" style="height: auto; line-height: 40px">
+            测试通过数：<{$count[0]['num']}>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            测试数：<{$count[0]['total']}>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            达标率：
+            <php>
+            echo sprintf('%.2f', $count[0]['num']/$count[0]['total']*100);
+            </php>%
+            <div>
+                <form action="<{:U('data/standard')}>" method="get">
+                测试时间：<input name="starttime" id="start_time" value="<{$_GET['starttime']}>" onclick="laydate({elem: '#start_time',istime: true,format: 'YYYY-MM-DD hh:mm:ss'});">
+                <span>~</span>
+                <input name="endtime" id="end_time" value="<{$_GET['endtime']}>" onclick="laydate({elem: '#end_time',istime: true,format: 'YYYY-MM-DD hh:mm:ss'});">
+                <input type="submit" value="搜索">
+                </form>
+            </div>
+        </div>
+        <div class="table_tag">
+            <a href="javascript:void(0);" class="on">测试人</a>
+            <a href="javascript:void(0);">上传人</a>
+            <a href="javascript:void(0);">尺寸</a>
+            <a href="javascript:void(0);">分类</a>
+            <a href="javascript:void(0);">游戏</a>
+        </div>
+
+        <div class="con">
+            <table class="node_table" style="display: table;">
+                <tr>
+                    <th>测试人</th>
+                    <th>通过数量</th>
+                    <th>测试数量</th>
+                    <th>达标率</th>
+                    <th>双达标</th>
+                    <th>点击率达标</th>
+                    <th>成本达标</th>
+                    <th>转化率达标</th>
+                    <th>输出率</th>
+                </tr>
+                <volist name="users" id="vo">
+                    <tr>
+                        <td><{$vo.nickname}></td>
+                        <td><{$vo.num}></td>
+                        <td><{$vo.total}></td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['num']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['doublenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['clicknum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['costnum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['changenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', ($vo['doublenum']+$vo['costnum'])/$vo['total']*100);
+                            </php>%
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <table class="node_table">
+                <tr>
+                    <th>上传人</th>
+                    <th>通过数量</th>
+                    <th>测试数量</th>
+                    <th>达标率</th>
+                    <th>双达标</th>
+                    <th>点击率达标</th>
+                    <th>成本达标</th>
+                    <th>转化率达标</th>
+                    <th>输出率</th>
+                </tr>
+                <volist name="uploads" id="vo">
+                    <tr>
+                        <td><{$vo.nickname}></td>
+                        <td><{$vo.num}></td>
+                        <td><{$vo.total}></td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['num']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['doublenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['clicknum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['costnum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['changenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', ($vo['doublenum']+$vo['costnum'])/$vo['total']*100);
+                            </php>%
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <table class="node_table">
+                <tr>
+                    <th>尺寸</th>
+                    <th>通过数量</th>
+                    <th>测试数量</th>
+                    <th>达标率</th>
+                    <th>双达标</th>
+                    <th>点击率达标</th>
+                    <th>成本达标</th>
+                    <th>转化率达标</th>
+                    <th>输出率</th>
+                </tr>
+                <volist name="sizes" id="vo">
+                    <tr>
+                        <td><{$vo.size}></td>
+                        <td><{$vo.num}></td>
+                        <td><{$vo.total}></td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['num']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['doublenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['clicknum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['costnum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['changenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', ($vo['doublenum']+$vo['costnum'])/$vo['total']*100);
+                            </php>%
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <table class="node_table">
+                <tr>
+                    <th>分类</th>
+                    <th>通过数量</th>
+                    <th>测试数量</th>
+                    <th>达标率</th>
+                    <th>双达标</th>
+                    <th>点击率达标</th>
+                    <th>成本达标</th>
+                    <th>转化率达标</th>
+                    <th>输出率</th>
+                </tr>
+                <volist name="cate" id="vo">
+                    <tr>
+                        <td><{$vo.name}></td>
+                        <td><{$vo.num}></td>
+                        <td><{$vo.total}></td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['num']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['doublenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['clicknum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['costnum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['changenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', ($vo['doublenum']+$vo['costnum'])/$vo['total']*100);
+                            </php>%
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <table class="node_table">
+                <tr>
+                    <th>游戏</th>
+                    <th>通过数量</th>
+                    <th>测试数量</th>
+                    <th>达标率</th>
+                    <th>双达标</th>
+                    <th>点击率达标</th>
+                    <th>成本达标</th>
+                    <th>转化率达标</th>
+                    <th>输出率</th>
+                </tr>
+                <volist name="game" id="vo">
+                    <tr>
+                        <td><{$vo.game}></td>
+                        <td><{$vo.num}></td>
+                        <td><{$vo.total}></td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['num']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['doublenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['clicknum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['costnum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', $vo['changenum']/$vo['total']*100);
+                            </php>%
+                        </td>
+                        <td>
+                            <php>
+                                echo sprintf('%.2f', ($vo['doublenum']+$vo['costnum'])/$vo['total']*100);
+                            </php>%
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    $(".table_tag a").on("click",function(event) {
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".content_set .con table").hide().eq($(this).index()).show();
+    });
+})
+</script>
+<include file="Public:footer"/>
+</body>
+</html>

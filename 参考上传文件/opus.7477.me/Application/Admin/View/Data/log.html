@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>测试员达标率</title>
+    <meta name="keywords" content="测试员达标率" />
+    <meta name="description" content="测试员达标率" />
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+<div class="wrapper">
+    <div class="content_set">
+        <div class="set_1">
+            删除日志
+        </div>
+        <div class="con">
+            <table class="node_table" width="100%">
+                <tr>
+                    <th>事件ID</th>
+                    <th>事件</th>
+                </tr>
+                <volist name="log" id="vo">
+                    <tr>
+                        <td><{$vo.id}></td>
+                        <td><{$vo.message}></td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="pagelist" style="margin: 20px 0;">
+                <div class=pager-linkPage>
+                    <{$page}>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer"/>
+</body>
+</html>

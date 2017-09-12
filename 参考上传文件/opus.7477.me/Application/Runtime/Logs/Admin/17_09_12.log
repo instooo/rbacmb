@@ -1,0 +1,522 @@
+[ 2017-09-12T19:56:25+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.016000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020000s ]
+
+[ 2017-09-12T19:56:25+08:00 ] 127.0.0.1 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-12T19:56:26+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-12T19:56:27+08:00 ] 127.0.0.1 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0360s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin11' LIMIT 1   [ RunTime:0.0180s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0530s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=87 ) LIMIT 1   [ RunTime:0.0140s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1505217387',`login_count`=login_count+1 WHERE `id` = 87 [ RunTime:0.0000s ]
+
+[ 2017-09-12T19:56:28+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.1810s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.109000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.109000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-12T19:56:31+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0040s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-12T19:56:36+08:00 ] 127.0.0.1 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-12T19:56:36+08:00 ] 127.0.0.1 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:56:36+08:00 ] 127.0.0.1 /index.php/Public/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:56:42+08:00 ] 127.0.0.1 /index.php/Public/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `opus_user` WHERE `username` = 'admin11' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_role_user` [ RunTime:0.0040s ]
+SQL: SELECT `role_id` FROM `opus_role_user` WHERE ( user_id=87 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `opus_user` SET `last_login_time`='1505217402',`login_count`=login_count+1 WHERE `id` = 87 [ RunTime:0.0000s ]
+
+[ 2017-09-12T19:56:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0040s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:56:46+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `opus_material` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0060s ]
+SQL: SELECT u.id,u.nickname,u.remark,u.info FROM opus_user u left join opus_role_user r on u.id=r.user_id  WHERE r.role_id = 1  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:56:51+08:00 ] 127.0.0.1 /index.php/upload/uploadmedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.7250s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0360s ]
+SQL: SELECT `cid`,`name`,`pid`,`des`,`img_url`,`addtime`,`type` FROM `opus_cate` ORDER BY cid desc  [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0940s ]
+SQL: SELECT `cid`,`name`,`pid`,`des`,`addtime` FROM `opus_channel` ORDER BY cid desc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.060000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.060000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-12T19:56:55+08:00 ] 127.0.0.1 /upload/uploadFile_do
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:57:03+08:00 ] 127.0.0.1 /upload/uploadImage_do
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\data\wwwroot\web\opus.7477.me\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:58:17+08:00 ] 127.0.0.1 /index.php/media/userMedia.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 369 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array D:\data\wwwroot\web\opus.7477.me\Application\Admin\Controller\MediaController.class.php 第 255 行.
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE a.uid = '87' LIMIT 1   [ RunTime:0.3200s ]
+SQL: SELECT a.*,b.status as cs_status FROM opus_material a left join opus_data b ON b.mid=a.mid  WHERE a.uid = '87' LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: search_mode D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 222 行.
+NOTIC: [8] Undefined index: kw D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 223 行.
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0050s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_cate`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: cid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 240 行.
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0050s ]
+SQL: SELECT `cid`,`name`,`pid` FROM `opus_channel`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: chanid D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 252 行.
+NOTIC: [8] Undefined index: order D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 268 行.
+NOTIC: [8] Undefined index: width D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 280 行.
+NOTIC: [8] Undefined index: height D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 282 行.
+NOTIC: [8] Undefined index: game D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 290 行.
+NOTIC: [8] Undefined index: addtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 295 行.
+NOTIC: [8] Undefined index: endtime D:\data\wwwroot\web\opus.7477.me\Application\Runtime\Cache\Admin\7ae8438c26dc46e0e89870d139aacc48.php 第 296 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.229000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.229000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:58:22+08:00 ] 127.0.0.1 /media/detail/mid/152
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0060s ]
+SQL: SELECT a.*,b.click_per,b.ectc,b.expend,b.show_num,b.reg_num,b.click_num,b.status as cs_status,b.suggestion,b.pjtime FROM opus_material a LEFT join opus_data b ON b.mid=a.mid  WHERE a.mid = 152 LIMIT 1   [ RunTime:0.0150s ]
+SQL: SHOW COLUMNS FROM `opus_pingjia` [ RunTime:0.7930s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'pinzhi' AND `value` = 6 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'content' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'des' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'chuangyi' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`nickname`,`info` FROM `opus_user` WHERE `id` = 87 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0040s ]
+SQL: SELECT `cid`,`name` FROM `opus_cate` WHERE `cid` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0030s ]
+SQL: SELECT `cid`,`name` FROM `opus_channel` WHERE `cid` = 11 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.1120s ]
+SQL: SELECT d.*,u.info FROM opus_discuss d left join opus_user u on u.id=d.uid  WHERE `mid` = 152  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-12T19:58:25+08:00 ] 127.0.0.1 /media/detail/mid/152
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4289 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4287 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4286 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4285 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4284 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4282 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4281 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4304 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4312 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4307 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4308 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4309 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4303 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4297 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4298 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4299 and node.status=1 [ RunTime:0.0010s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4300 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4301 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4302 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4293 and node.status=1 [ RunTime:0.0000s ]
+SQL: select node.id,node.name from opus_role as role,opus_role_user as user,opus_access as access ,opus_node as node where user.user_id='87' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=2 and node.pid=4292 and node.status=1 [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_material` [ RunTime:0.0050s ]
+SQL: SELECT a.*,b.click_per,b.ectc,b.expend,b.show_num,b.reg_num,b.click_num,b.status as cs_status,b.suggestion,b.pjtime FROM opus_material a LEFT join opus_data b ON b.mid=a.mid  WHERE a.mid = 152 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_pingjia` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'pinzhi' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'content' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'des' AND `value` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `opus_pingjia` WHERE `typedes` = 'chuangyi' AND `value` = 6 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `opus_user` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`nickname`,`info` FROM `opus_user` WHERE `id` = 87 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_cate` [ RunTime:0.0060s ]
+SQL: SELECT `cid`,`name` FROM `opus_cate` WHERE `cid` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_channel` [ RunTime:0.0050s ]
+SQL: SELECT `cid`,`name` FROM `opus_channel` WHERE `cid` = 11 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `opus_discuss` [ RunTime:0.0040s ]
+SQL: SELECT d.*,u.info FROM opus_discuss d left join opus_user u on u.id=d.uid  WHERE `mid` = 152  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.307000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.307000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

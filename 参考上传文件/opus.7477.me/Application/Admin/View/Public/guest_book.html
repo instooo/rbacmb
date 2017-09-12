@@ -1,0 +1,241 @@
+
+<style>
+  #comments{max-width:1120px;background-color:#fff; border:#eeeff2 1px solid;margin:25px auto 20px;padding:30px 40px;}
+  .message{ max-width:1120px; margin-bottom:20px}
+  .people{max-height:63px; max-width:63px; border-radius:50px; margin-right:20px}
+  .message .people{ width:63px; margin-left:1%}
+  .people img{ max-height:63px; max-width:63px; border-radius:50px}
+  .input_t{ max-width:1029px; width:90%}
+  .input_t textarea{ display:inline-block; width:100%;max-width:1025px;padding:10px 1%; min-height:40px; outline:none;
+      border:#eeeff2 1px solid; border-radius:3px}
+  .all{ height:35px; line-height:35px; border-bottom:#eeeff2 1px solid;}
+  .discuss{ padding:30px 0 20px 0; border-bottom:#eeeff2 1px solid}
+  .discuss .right{ width: 1037px; max-width:1037px}
+  .discuss_infor .one,.discuss_infor .two{margin-bottom:5px; line-height:25px}
+  .discuss_infor div span{ display:inline-block; height:25px;line-height:25px}
+  .time_ly{ color:#999}
+  .num{ color:#666; padding-right:5px}
+  .name{ color:#999; padding-right:10px}
+  .discuss_infor .one i{ display:inline-block; width:15px; height:15px;
+      background:url(__IMAGE__/bg/discuss.png) no-repeat  center ; padding-left:10px}
+  .word{ background-color:#f7f8fa;max-width:1017px; padding:0 10px}
+  .word dl{ border-top:#ccc 1px dashed; width:99%;max-width:1017px; padding:10px 0}
+  .word dl:first-child{ border-top:none}
+  .word dd{ width:94%;}
+  .people_small{max-height:38px; max-width:38px;border-radius:50px; margin-right:1%}
+  .people_small img{ width:38px; height:38px;max-width:38px;border-radius:50px;}
+  .input_text{ padding-bottom:10px;margin:0 auto}
+  .input_text input{ height:32px; line-height:32px; width:98%; border:#d8dce0 1px solid; padding:0 1%}
+  .upload {height:37px; padding-bottom:10px}
+  .upload .fabu,.upload_up .fabu{ display:inline-block;width:137px; height:37px; line-height:37px; text-align:center;
+      background-color:#269edc; color:#fff; font-size:16px; border-radius:3px}
+  .upload_up .fabu{ margin-left:10px}
+  .login_no{ max-width:1025px; width:99.5%; border:#eeeff2 1px solid; border-radius:3px;padding:10px 1%; min-height:40px;}
+  .login_no a{ color:#269edc}
+  .pagelist{ margin-top: 20px;}
+</style>
+<div id="comments">
+  <div class="message clearfix">
+    <div class="people fl">
+      <a>
+          <if condition="$userinfo['info'] eq null">
+              <img src="__IMAGE__/login_no.png"/>
+              <else/>
+              <img src="<{$userinfo['info']}>"/>
+          </if>
+      </a>
+    </div>
+    <div class="input_t fl">
+      <!-- 未登录前 -->
+      <div class="login_no" style="display: none;">
+        登录后才可以评论，请
+        <a id="comment_login_in">点击这里</a>
+        进行登录
+      </div>
+      <!-- 登陆后 -->
+      <textarea class="storey" placeholder="添加评论或留下您宝贵的意见" style="resize: none;"></textarea>
+    </div>
+    <div class="upload_up clear fr" style="display: none;">
+      <span class="overflow">
+        已超出
+        <span id="overflow-num" style="color:#ff5200"></span>
+        个字符
+      </span>
+      <span class="suitable">
+        还可以输入
+        <span id="suitable-num" style="color: #ff5200;">199</span>
+        个字符
+        <a class="fabu" id="submit_comment" data-floor="0">发表</a>
+      </span>
+    </div>
+  </div>
+  <p class="all">全部评论（0）</p>
+  <div class="clearfix" id="comment_list">
+    <div id="comment_null" style="width:100%;text-align:center;font-size:20px;margin-top: 20px;height:60px;line-height:60px; display: none;">快来抢沙发咯~</div>
+      <foreach name="discuss" item="floor" key="key">
+          <dl class="discuss clearfix">
+              <dt class="people fl">
+                  <a>
+                      <if condition="$floor.info eq null">
+                          <img src="/public/admin/images/index-page-user2.png" width="63" height="63">
+                          <else/>
+                          <img src="<{$floor.info}>"  width="63" height="63">
+                      </if>
+                  </a>
+              </dt>
+              <dd class="right fr">
+                  <div class="discuss_infor">
+                      <div class="one">
+                          <span class="num"><{$key+1}>F</span>
+                          <span class="time_ly"><{$floor.time|date="Y-m-d H:i:s",###}></span>
+                          <i data-cid="<{$key+1}>"></i>
+                      </div>
+                      <div class="two">
+                          <span class="name"><{$floor.uid}>：</span>
+                         <{$floor.content}>
+                      </div>
+                      <!-- 追加回复模板 -->
+                      <div class="word" data-cid="<{$key+1}>" data-type="addpaddingtop" style="padding-top: 10px;">
+                          <foreach name="floor.child"  key="cy" item="item">
+                              <dl class="clearfix">
+                                  <dt class="people_small fl">
+                                      <a>
+                                          <if condition="$item.info eq null">
+                                              <img src="/public/admin/images/index-page-user2.png" width="40" height="40">
+                                              <else/>
+                                              <img src="<{$item.info}>"  width="40" height="40">
+                                          </if>
+                                      </a>
+                                  </dt>
+                                  <dd class="fl">
+                                      <div>
+                                          <span class="name"><{$item.uid}>：</span>
+                                          <{$item.content}>
+                                      </div>
+                                      <div>
+                                          <span class="time_ly"><{$floor.time|date="Y-m-d H:i:s",###}></span>
+                                      </div>
+                                  </dd>
+                              </dl>
+                          </foreach>
+          <div class="input_text" data-cid="<{$key+1}>" data-type="input" style="display: none;">
+              <form onsubmit="return false">
+                  <input  class="revert" type="text" data-cid="<{$key+1}>" placeholder="我也来说一句（字数不要超过100哦~）"></form>
+          </div>
+          <div class="upload clearfix" data-cid="<{$key+1}>" data-type="submit" style="display: none;">
+              <a class="fabu fr sen_back" data-cid="<{$key+1}>" data-pid="<{$floor.id}>"  data-type="fabu">发表</a>
+          </div>
+        </div>
+        </div>
+        </dd>
+        </dl>
+      </foreach>
+
+</div>
+</div>
+<script>
+$(function(){
+  // 点击回复评论，绑定事件
+  $(document).on('click', '.discuss_infor i', function(){
+    // 判断用户是否登录
+    var cid = $(this).attr('data-cid');
+      console.log(cid);
+    // 将其他的评论框隐藏
+    $("div[data-cid!="+cid+"][data-type='addpaddingtop']").css('paddingTop','0px').hide();
+    $("div[data-cid!="+cid+"][data-type='input']").hide();
+    $("div[data-cid!="+cid+"][data-type='submit']").hide();
+    $("div[data-cid!="+cid+"][data-type='input'] input").val('');
+    // 显示想要评论的评论框
+    $("div[data-cid="+cid+"][data-type='addpaddingtop']").css('paddingTop','10px').show();
+    $("div[data-cid="+cid+"][data-type='input']").show().find('input').focus();
+  });
+  // 处理输入的内容是文字还是字母的函数
+  function getLength(str){
+      return String(str).replace(/[^\x00-\xff]/g,'aa').length;
+  }
+  // 新楼层文本框输入内容
+  $(".input_t textarea").keyup(function(event){
+    // Math函数向上取值
+    var cnum = Math.ceil( getLength($(this).val()) / 2 );
+    console.log(cnum);
+    if (cnum <= 0) {
+        $("div.upload_up").hide();
+    } else if ( cnum <= 200 ) {
+        $("div.upload_up").show();
+        $("div.upload_up .suitable").show();
+        $("div.upload_up .overflow").hide();
+        $("#suitable-num").text(200 - cnum);
+    } else {
+        $("div.upload_up").show();
+        $("div.upload_up .suitable").hide();
+        $("div.upload_up .overflow").show();
+        $("#overflow-num").text(cnum - 200);
+    }
+    var event = event || window.event;
+    if (event.ctrlKey && event.keyCode == 13) {
+        $("#submit_comment").trigger('click');
+    }
+  });
+  // 楼中楼文本框输入内容
+  $(document).on('keyup', 'input[type="text"]', function(event){
+    var cid = $(this).attr('data-cid');
+    var text = $(this).val();
+    var length = Math.ceil(getLength(text) / 2);
+    if (!text || length > 100) {
+        $("div[data-cid="+cid+"][data-type='submit']").hide();
+    } else {
+        $("div[data-cid="+cid+"][data-type='submit']").show();
+    }
+    var event = event || window.event;
+    if (event.ctrlKey && event.keyCode == 13) {
+        $("a[data-cid="+cid+"][data-type='fabu']").trigger('click');
+    }
+  });
+
+  $("#submit_comment").on('click',function(){
+    var mid = $("#mid").val();
+    var content = $('.storey').val();
+    $.ajax({
+      type : 'post',
+      dataType:'json',
+      url  : '<{:U("evaluate/discuss")}>',
+      data :  {
+        'mid': mid,
+        'content': content,
+      },
+      success: function(res){
+        if (res.status==true){
+            location.reload();
+        }else {
+          layer.alert(res.msg);
+        }
+
+      }
+    });
+  });
+
+  $(".sen_back").on('click',function(){
+    var mid = $("#mid").val();
+    var pid = $(this).attr('data-pid');
+    var content = $(this).parents('.word').find(".revert").val();
+      $.ajax({
+          type : 'post',
+          dataType:'json',
+          url  : '<{:U("evaluate/discuss")}>',
+          data :  {
+              'mid': mid,
+              'pid':pid,
+              'content': content,
+          },
+          success: function(res){
+              if (res.status==true){
+                  location.reload();
+              }else {
+                  layer.alert(res.msg);
+              }
+
+          }
+      });
+  });
+})
+</script>

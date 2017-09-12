@@ -1,0 +1,206 @@
+<include file="Public:header_index"/>
+
+<div class="wrapper">
+    <div class="content_set">
+        <div class="set_1">
+            <span>角色管理</span>
+        </div>
+        <div class="con">
+            <a class="btn_sub role_add" href="javascript:void(0);" style="margin-top: 20px;">增加角色</a>
+            <table class="node_table" width="100%">
+                <col width="10%"><col width="20%"><col width="10%"><col width="20%"><col width="40%">
+                <tr><th>ID</th><th>角色名</th><th>启用</th><th>添加时间</th><th>操作</th></tr>
+                <volist name="list" id="vo">
+                    <tr data-id="<{$vo.id}>">
+                        <td class="id" data="<{$vo.id}>"><{$vo.id}></td>
+                        <td class="name" data="<{$vo.name}>"><{$vo.name}></td>
+                        <td class="status" data="<{$vo.status}>"><switch name="vo.status"><case value="1">是</case><case value="0">否</case></switch></td>
+                        <td class="create_time" data="<{$vo.create_time}>"><{$vo.create_time|date="Y-m-d H:i:s",###}></td>
+                        <td>
+                            <if condition="$vo['name'] neq '超级管理员'">
+                                <a class="btn_edit" href="javascript:void(0);">编辑</a>
+                                &nbsp;|&nbsp;
+                                <a class="btn_pri" href="javascript:void(0);">分配权限</a>
+                                &nbsp;|&nbsp;
+                                <a class="btn_dele" href="javascript:void(0);">删除</a>
+                            </if>
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <div><{$page}></div>
+        </div>
+    </div>
+</div>
+
+<div id="add_alert_tmp" style="display: none">
+    <div class="form_content" style="padding: 20px;">
+        <table width="100%">
+            <tr><td>角色名称</td><td><input type="text" class="add_input_name" /></td></tr>
+            <tr><td>是否启用</td><td><select class="add_input_status"><option value="1">是</option><option value="0">否</option></select></td></tr>
+            <tr><td></td><td><a class="subBtn">提交</a></td></tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        //增加角色
+        $('.role_add').click(function () {
+            var _form_id = 'add_form_' + Math.ceil(Math.random()*1000);
+            var _html = '<div id="'+_form_id+'" class="add_node_div">' + $('#add_alert_tmp').html() + '</div>';
+            layer.open({
+                type: 1,
+                title: '添加节点',
+                skin: 'layui-layer', //加上边框
+                area: ['420px', '200px'], //宽高
+                content: _html
+            });
+            $('#'+_form_id+' .subBtn').click(function () {
+                doRoleAdd(this);
+            });
+        });
+        //删除角色
+        $('.btn_dele').click(function () {
+            var id = $(this).parents('tr').attr('data-id');
+            if (id == '') return false;
+            layer.confirm('确定要删除该角色？', {
+                btn: ['确定','取消']
+            }, function(){
+                doDeleRole(id);
+            });
+        });
+
+        //编辑角色
+        $('.btn_edit').click(function () {
+            editRole(this);
+        });
+        
+        //分配权限
+        $('.btn_pri').click(function () {
+            var roleid = $(this).parents('tr').attr('data-id');
+            if (roleid == '') return false;
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                data:{roleid:roleid},
+                url:'/Permission/addAccess',
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+                success:function (data) {
+                    if (data.code == 1) {
+                        layer.open({
+                            type: 1,
+                            title: '权限分配',
+                            shadeClose: true,
+                            maxmin: true, //开启最大化最小化按钮
+                            area: ['80%', '80%'],
+                            content: data.html
+                        });
+                    }else {
+                        layer.msg(data.msg, {icon:5,time:1000});
+                    }
+                }
+            });
+        });
+
+    });
+    //增加角色
+    function doRoleAdd(_this) {
+        var form_content = $(_this).parents('.form_content');
+        var name = form_content.find('.add_input_name').val();
+        var status = form_content.find('.add_input_status').val();
+        if (name == '' || status == '') {
+            layer.msg('数据不能为空', {icon:5,time:1000});
+            return false;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{name:name,status:status},
+            url:'/Permission/roleAdd',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('添加成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+
+    //删除角色
+    function doDeleRole(id) {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{id:id},
+            url:'/Permission/roleDelete',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+
+    //编辑角色
+    function editRole(_this) {
+        if ($(_this).hasClass('do_edit_btn')) {
+            doEditRole(_this);
+        }else {
+            $(_this).addClass('do_edit_btn').html('提交');
+            var _tr = $(_this).parents('tr');
+            var id = _tr.attr('data-id');
+            if (id == '') return false;
+
+            var name = _tr.find('.name').attr('data');
+            var status = _tr.find('.status').attr('data');
+
+            _tr.find('.name').html('<input type="text" class="input_name" value="'+name+'" />');
+            _tr.find('.status').html('<select class="input_status"><option value="1">是</option><option value="0">否</option></select>');
+            _tr.find('.input_status option[value="'+status+'"]').attr('selected', true);
+        }
+    }
+    function doEditRole(_this) {
+        var _tr = $(_this).parents('tr');
+        var id = _tr.attr('data-id');
+        if (id == '') return false;
+        var name = _tr.find('.input_name').val();
+        var status = _tr.find('.input_status').val();
+        if (name == '' || status == '') {
+            layer.msg('数据不能为空', {icon:5,time:1000});
+            return false;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{id:id,name:name,status:status},
+            url:'/Permission/roleEdit',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('修改成功', {icon:6,time:1000}, function () {
+                        $(_this).removeClass('do_edit_btn').html('编辑');
+                        _tr.find('.name').html(name).attr('data', name);
+                        _tr.find('.status').html((status==1)?'是':'否').attr('data', status);
+                    });
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+</script>
+<include file="Public:footer_index"/>

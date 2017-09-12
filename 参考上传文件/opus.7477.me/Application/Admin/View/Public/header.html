@@ -1,0 +1,185 @@
+<if condition="$role eq 1 ">
+<div id="header">
+	<div class="head">
+		<div class="logo fl">
+			<a href="/" title="返回摄图网首页"></a>
+		</div>
+		<div class="nav fl clearfix">
+			<div class="nav-list fl ">
+				<a href="<{:U('media/bestMedia')}>" class="nav-link pc-click">精品素材</a>
+			</div>
+			<div class="nav-list fl ">
+				<a href="<{:U('media/myMedia',array('have'=>'true'))}>" class="nav-link pc-click">所有已审核作品</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('media/userMedia')}>"  class="nav-link" target="_blank">我的作品</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="/upload/uploadmedia"  class="nav-link" target="_blank">我要上传</a>
+			</div>
+		</div>
+		<div class="user fr">
+				<div class="header">
+				<if condition="$_SESSION['photo'] eq null">
+					<img src="__IMAGE__/index-page-user2.png">
+					<else/>
+					<img src="<{$_SESSION['photo']}>">
+				</if>
+				</div>
+				<div class="user">
+
+				<a href="javascript:void(0)" data="user_name" style="max-width: 68px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><{$_SESSION['user']}></a>
+
+				<div class="new-user-menu" style="overflow: hidden; display: none;" data="">
+				<div class="new-user-menu-div new-border-bottom">ID号：<{$_SESSION['uid']}></div>
+
+				<div class="new-user-menu-div new-myaccount new-border-bottom">
+					<a href="/User/setUser/?uid=<{$_SESSION['uid']}>" class="btn_edit">
+					  <i></i>
+					  账号设置
+					</a>
+				</div>
+				<div class="new-user-menu-div new-myupload">
+					<a href="<{:U('media/userMedia')}>" target="_blank">
+					  <i></i>
+					  我的图片
+					</a>
+				</div>
+				<div class="new-user-menu-div new-up">
+					<a href="<{:U('upload/uploadmedia')}>" target="_blank">
+					  <i></i>
+					  上传图片
+					</a>
+				</div>
+				<div class="new-user-menu-div new-logout">
+					<span class="loginoutBtn">
+					  <i></i>
+					  退出
+					</span>
+				</div>
+            </div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+<elseif condition="$role eq 2 "/>
+<div id="header">
+	<div class="head">
+		<div class="logo fl">
+			<a href="/" title="返回摄图网首页"></a>
+		</div>
+		<div class="nav fl clearfix">
+			<div class="nav-list fl ">
+				<a href="<{:U('media/bestMedia')}>" class="nav-link pc-click">精品素材</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('media/dataMedia',array('date'=>'today'))}>"  class="nav-link" target="_blank">今日新增作品</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('media/dataMedia',array('date'=>'yesterday'))}>"  class="nav-link" target="_blank">昨日新增作品</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('data/index')}>"  class="nav-link" target="_blank">业绩考核</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="/system/index"  class="nav-link" target="_blank">系统设置</a>
+			</div>
+		</div>
+
+		<div class="user fr">
+				<div class="header">
+					<if condition="$_SESSION['photo'] eq null">
+						<img src="__IMAGE__/index-page-user2.png">
+						<else/>
+						<img src="<{$_SESSION['photo']}>">
+					</if>
+				</div>
+				<div class="user">
+
+				<a href="javascript:void(0)" data="user_name" style="max-width: 68px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><{$_SESSION['user']}></a>
+
+				<div class="new-user-menu" style="overflow: hidden; display: none;" data="">
+				<div class="new-user-menu-div new-border-bottom">ID号：<{$_SESSION['uid']}></div>
+
+				<div class="new-user-menu-div new-myaccount new-border-bottom">
+					<a href="/User/setUser/?uid=<{$_SESSION['uid']}>" class="btn_edit">
+					  <i></i>
+					  账号设置
+					</a>
+				</div>
+				<div class="new-user-menu-div new-logout">
+					<span class="loginoutBtn">
+					  <i></i>
+					  退出
+					</span>
+				</div>
+            </div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+<elseif condition="$role eq 3 "/>
+<div id="header">
+	<div class="head">
+		<div class="logo fl">
+			<a href="/" title="返回摄图网首页"></a>
+		</div>
+		<div class="nav fl clearfix">
+			<div class="nav-list fl ">
+				<a href="<{:U('media/bestMedia')}>" class="nav-link pc-click">精品素材</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('media/testMedia')}>"  class="nav-link" target="_blank">我的测试</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('test/index')}>"  class="nav-link" target="_blank">下载测试素材</a>
+			</div>
+			<div class="nav-list fl ">
+				<a  href="<{:U('data/batchTest')}>"  class="nav-link" target="_blank">批量测试</a>
+			</div>
+		</div>		
+	</div>
+
+	<div class="user fr">
+				<div class="header">
+					<if condition="$_SESSION['photo'] eq null">
+						<img src="__IMAGE__/index-page-user2.png">
+						<else/>
+						<img src="<{$_SESSION['photo']}>">
+					</if>
+				</div>
+				<div class="user">
+
+				<a href="javascript:void(0)" data="user_name" style="max-width: 68px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><{$_SESSION['user']}></a>
+
+
+				<div class="new-user-menu" style="overflow: hidden; display: none;" data="">
+				<div class="new-user-menu-div new-border-bottom">ID号：<{$_SESSION['uid']}></div>
+
+				<div class="new-user-menu-div new-myaccount new-border-bottom">
+					<a href="/User/setUser/?uid=<{$_SESSION['uid']}>" class="btn_edit">
+					  <i></i>
+					  账号设置
+					</a>
+				</div>
+				<div class="new-user-menu-div new-myupload">
+					<a href="<{:U('media/testMedia')}>" target="_blank">
+					  <i></i>
+					  我的测试
+					</a>
+				</div>
+				<div class="new-user-menu-div new-logout">
+					<span class="loginoutBtn">
+					  <i></i>
+					  退出
+					</span>
+				</div>
+            </div>
+		  </div>
+		</div>
+</div>
+</if>
+<script type="text/javascript" src="__JS__/layer/layer.js"></script>
+<script type="text/javascript" src="__JS__/header.js"></script>

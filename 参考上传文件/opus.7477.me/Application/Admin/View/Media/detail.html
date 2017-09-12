@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>详细信息</title>
+  <meta name="keywords" content="详细信息" />
+  <meta name="description" content="详细信息" />
+
+  <link rel="stylesheet" href="__CSS__/base.v4.4.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/article.css">
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+    <script src="__JS__/html5media.min.js"></script>
+    <script type="text/javascript" src="__JS__/layer/layer.js"></script>
+    <script type="text/javascript" src="__JS__/laydate/laydate.js"></script>
+</head>
+<body>
+  <include file="Public:header"/> 
+  <input type="hidden" value="<{$info.mid}>" id="mid">
+<div id="wrapper">
+  <div class="photo-wrap">
+    <div class="photo">
+      <div class="photo-m clearfix">
+        <div class="photo-view">
+          <p><{$info.title}>
+              <eq name="role" value="2">
+                <a href="<{:U('system/delMedia',array('mid'=>$info['mid']))}>" class="btn-default" style="float: right">删除</a>
+              </eq>
+          </p>
+          <div>
+            <span class="publicityt">
+              <i></i>
+              <{$info.addtime|date="Y-m-d H:i:s",###}>发布<b></b>
+            </span>
+              <present name="info.expend">
+                  <{$info.expend}>消耗(￥)<b>|</b>
+                  <{$info.show_num}>曝光<b>|</b>
+                  <{$info.ectc}>点击均价<b>|</b>
+                  <{$info.click_per}>%点击率<b>|</b>
+                  <{$info.click_num}>点击<b>|</b>
+                  <{$info.reg_num}>注册<b>|</b>
+              </present>
+            <span class="download">
+              <i></i>
+              <{$info.down_num}>下载
+            </span>
+          </div>
+        </div>
+
+        <div class="photo-img" style="height: 480px">
+          <a href="<{$info.cps_url}>" target="_blank">
+            <!--<img id="photo" style="cursor:default;" src="<{$info.thumb}>" alt="<{$info.title}>" title="<{$info.title}>">-->
+              <eq name="info.houzui" value="flv">
+                  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="640" height="480">
+                      <param name="movie" value="__JS__/flvplayer.swf" />
+                      <param name="quality" value="high" />
+                      <param name="allowFullScreen" value="true" />
+                      <embed src="__JS__/flvplayer.swf" allowfullscreen="true" flashvars="vcastr_file=http://opus.7477sc.me<{$info.remote_url}>&IsAutoPlay=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>
+                  </object>
+              </eq>
+              <eq name="info.houzui" value="mp4">
+                  <video src="<{$info.remote_url}>"  autoplay ></video>
+              </eq>
+              <eq name="info.houzui" value="swf">
+                  <object align="middle" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="<{$width}>" height="<{$height}>">
+                      <param value="always" name="allowScriptAccess">
+                      <param value="<{$info.remote_url}>" name="movie">
+                      <param value="high" name="quality">
+                      <param value="transparent" name="bgcolor">
+                      <param name="wmode" value="transparent">
+                      <param value="noborder" name="scale">
+                      <embed align="middle"  pluginspage="http://www.macromedia.com/go/getflashplayer"
+                             type="application/x-shockwave-flash" allowscriptaccess="always" scale="noborder"
+                             quality="high" src="<{$info.remote_url}>"  allowfullscreen="true" allownetworking="all" wmode="transparent" width="<{$width}>" height="<{$height}>">
+                      </embed>
+                      <param name="allowFullScreen" value="true">
+                  </object>
+              </eq>
+
+          </a>
+          <style>.photo-img{ position: relative; text-align: center; }</style>
+
+        </div>       
+		<include file="Media:right"/>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+<if condition="$role eq 1">
+	<include file="Public:tanchu1"/>
+<elseif condition="$role eq 2 "/>			
+	<if condition="$info.status neq 0">
+		<include file="Public:tanchu1"/>
+	<else/>
+		<include file="Public:tanchu2"/>
+	</if>
+<else/>
+	<if condition="$info.cs_status neq 0">
+		<include file="Public:tanchu2"/>
+	<else/>
+		<include file="Public:tanchu1"/>
+		<include file="Public:tanchu"/>
+	</if>	
+</if>
+<!--举报-->
+<div class="mask"></div>
+
+<include file="Public:guest_book"/>
+<include file="Public:footer"/>
+</body>
+</html>

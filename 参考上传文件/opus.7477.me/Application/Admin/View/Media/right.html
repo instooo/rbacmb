@@ -1,0 +1,170 @@
+		
+		<div class="photo-info">
+          <div class="infor-what">
+
+            <div class="uploader">
+              <a class="head">
+				  <if condition="$userinfo['info'] eq null">
+					  <img src="__IMAGE__/login_no.png" alt="头像" />
+					  <else/>
+					  <img src="<{$userinfo['info']}>" alt="头像" />
+				  </if>
+              </a>
+              <div class="reward">
+                <div><{$userinfo['nickname']}></div>
+              </div>
+
+			<if condition="$info.is_good eq 1 ">
+				<div class="reward" style="float: right">
+					<a style="background: red">重点素材</a>
+				</div>
+			</if>
+			<if condition="$role eq 2">
+				<div class="reward" style="float: right">
+					<a href="/upload/editopusinfo/mid/<{$info.mid}>">编辑素材</a>
+				</div>
+			</if>
+            </div>
+			<!--角色为创新人员的-->
+			  <if condition="$role eq 1 ">
+				<if condition="$info.status eq 0 ">
+				<div class="freedownload">
+				  <a href="javascript:void(0)" >未审核</a>
+				</div>				
+				<elseif condition="$info.status eq 1 "/>
+					<div class="freedownload">
+					  <a href="<{:U('media/downLoad',array('mid'=>$info['mid']))}>">下载（审核通过）</a>
+					</div>
+					<div class="freedownload">						
+						<switch name="info.cs_status">
+							<case value="1"><a href="javascript:void(0)" >测试通过</a></case>
+							<case value="2"><a href="javascript:void(0)" style="background:#ff4302">测试未通过</a></case>
+							<default /><a href="javascript:void(0)" style="background:#009900">未测试</a>
+						</switch>						
+					</div>	
+				<elseif condition="$info.status eq 2 "/>
+				<div class="freedownload">
+				  <a href="javascript:void(0)" style="background:#ff4302">审核未通过</a>
+				</div>
+				</if>
+				<div class="but-coll-zan">
+				<switch name="info.status">
+					<case value="0">
+					 <a class="zan-but" id="add-star" href="/upload/editopusinfo/mid/<{$info.mid}>" style="width: 290px;text-align:center;">					
+					<span class="star-status">编辑</span>              
+					</a>				 
+					</case>					
+					<default />
+					 <a class="zan-but" id="detail_tc" style="width: 290px;text-align:center; background:#e1e1e1">
+					<span class="star-status">查看详情</span>              
+					</a>
+				</switch>		
+				 
+				</div>    
+							
+			<elseif condition="$role eq 2 "/>
+				<if condition="$info.status eq 0 ">
+				<div class="freedownload">
+				  <a href="javascript:void(0)" id="detail_tc">审核</a>
+				</div>
+				<elseif condition="$info.status eq 1 "/>
+				<div class="freedownload">
+				  <a href="javascript:void(0)" >审核通过</a>
+				</div>
+				<div class="freedownload">						
+					<switch name="info.cs_status">
+						<case value="1"><a href="javascript:void(0)" >测试通过</a></case>
+						<case value="2"><a href="javascript:void(0)" style="background:#ff4302">测试未通过</a></case>
+						<default /><a href="javascript:void(0)" style="background:#009900">未测试</a>
+					</switch>						
+				</div>	
+				<elseif condition="$info.status eq 2 "/>
+				<div class="freedownload">
+				  <a href="javascript:void(0)" style="background:#ff4302">审核未通过</a>
+				</div>				
+				</if>
+				<div class="but-coll-zan">
+				<switch name="info.status">
+					<case value="0"></case>					
+					<default />	
+					<a class="zan-but" id="detail_tc"  style="width: 290px;text-align:center;">					
+					<span class="star-status">查看详情</span>              
+					</a>						
+				</switch>			 
+				</div>    
+			<elseif condition="$role eq 3 "/>
+				<if condition="$info.status eq 1 ">
+					<div class="freedownload">
+					<switch name="info.cs_status">
+						<case value="1"><a href="javascript:void(0)" >测试通过</a></case>
+						<case value="2"><a href="javascript:void(0)" style="background:#ff4302">测试未通过</a></case>
+						<default /><a href="javascript:void(0)" id="detail_tc_a" style="background:#009900">反馈结果</a>
+					</switch>					
+					</div>				
+				</if>
+				<div class="but-coll-zan">
+				<switch name="info.status">
+					<case value="0"></case>
+					<default />
+					<a class="zan-but" id="add-star" style="width: 290px;text-align:center;">
+					<span class="star-status" id="detail_tc">查看详情</span>
+					</a>
+				</switch>
+				</div>  
+			</if>	   
+	   </div>		 
+		  
+          <div class="infor-what">
+			<div class="infor">
+              <p>
+                编号
+                <span><{$info.mid}></span>
+              </p>
+				<p>
+					别名
+					<span style="color: green"><{$info.alias}></span>
+				</p>
+              <p>
+                分类
+                <span class="c-blue">
+                  <a class="photo-cate"><{$cate['name']}></a>
+                </span>
+              </p>
+				<p>
+					媒体
+                <span class="c-blue">
+                  <a class="photo-cate"><{$channel['name']}></a>
+                </span>
+				</p>
+              <p>
+                尺寸
+                <span><{$info.size1}> × <{$info.size2}></span>
+				<span>大小： <{$filesize}></span>
+              </p>
+              <p>
+                游戏
+                <span><{$info.game}></span>
+              </p>
+			  <p>
+                地址
+                <span><a href="<{$info.cps_url}>" class="c-blue"  target="_blank">落地页地址</a></span>
+              </p>				  
+              <div style="color:#999;padding-top: 5px;" class="geshi">
+                格式
+                <span style="padding-left: 20px;"><{$info.houzui}></span>
+
+              </div>
+				<if condition="$info.status eq 1 ">
+					<if condition="$info.cs_status eq 2 ">
+						<div style="color:#999;padding-top: 5px;" class="geshi">
+							理由
+							<span style="padding-left: 20px;color: green"><{$info.suggestion}></span>
+						</div>
+					</if>
+				</if>
+            </div>
+          </div>
+
+        </div>
+
+		

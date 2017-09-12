@@ -1,0 +1,51 @@
+<style>
+
+    .result-box {
+        background-color: #fff;
+        height: 125px;
+        margin: 40px auto 20px;
+        padding: 70px 0 45px;
+        width: 93%;
+    }
+    .result-box p {
+        color: #666;
+        text-align: center;
+    }
+    .result-box .sorry-word {
+        font-size: 18px;
+        line-height: 30px;
+        height: 30px;
+    }
+    .result-box .brief-word {
+        line-height: 20px;
+        margin-top: 10px;
+    }
+    .result-box .sub-but-idea {
+        height: 40px;
+        line-height: 40px;
+        width: 175px;
+        background-color: #269edc;
+        border-radius: 2px;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        margin: 20px auto 0;
+    }
+    .result-box .sorry-word a, .result-box .brief-word a {
+        color: #269edc;
+    }
+    .result-box .brief-word span {
+        color: #ff5200;
+    }
+
+</style>
+
+<div class="result-box">
+    <p class="sorry-word">抱歉，没有找到 "<a href=""><{$_GET['kw']}></a>"  相关的图片</p>
+    <p class="brief-word">
+        您可以<span>简化</span>、<span>缩短关键词</span> 或 <span>减少筛条件</span>。
+        <span class="guess">可以尝试这些词搜索：</span>
+
+        <a href=""><{$_GET['kw']}></a><a href=""> </a><a href=""> </a><a href=""> </a><a href=""> </a><a href=""> </a>                </p>
+    <a href="javascript:history.go(-1);"><div class="sub-but-idea">返回上一页</div></a>
+</div>

@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>编辑媒体</title>
+  <meta name="keywords" content="编辑媒体" />
+  <meta name="description" content="编辑媒体" />
+  <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+  <script src="__JS__/jQuery.1.8.2.min.js"></script>
+</head>
+<body>
+  <include file="Public:header"/> 
+  <div class="upload-nav">    
+    <a href="javascript:void(0);" class="on">编辑媒体</a>
+	<input type="hidden" name="cid" class="category-input fl" maxlength="50" value="<{$model.cid}>" />
+  </div>
+  <div class="upload-main">
+    <div class="upload-con">     
+      <div class="upload-category clearfix">
+        <span class="category-name fl">媒体名称</span>
+        <input type="text" name="title" class="category-input fl" maxlength="50" value="<{$model.name}>" />
+        <span class="category-notice fl" data-tag="title">
+          可以输入
+          <i>50</i>
+          字，请用一句话概括出文件大意
+        </span>
+        <span class="notice" data-name="title">
+          <i></i>
+          标题格式错误
+        </span>
+      </div>      
+	  <div class="upload-category clearfix">
+        <span class="category-name fl">媒体简介</span>
+        <textarea name="des" class="category-textarea fl"><{$model.des}></textarea>
+        <span class="category-notice fl" data-tag="des">         
+          媒体的一句话描述
+        </span>
+		<span class="notice" data-name="des">
+          <i></i>
+          标签最少6组
+        </span>		
+      </div>
+      <div class="upload-category clearfix">
+        <span class="category-name fl">上级媒体ID</span>
+        <div class="input-box cursor-input fl">
+          <input type="text" class="input-text" name="pid" placeholder="<{$catepidinfop}>" onfocus="this.blur()" data-id="<{$model.pid}>" />
+          <i class="triangle"></i>
+          <div class="drop-box">
+			<volist name='cate' id='vo'>
+			<if condition="$key neq $model['cid']">
+            <a href="javascript:void(0);" data-id="<{$key}>"><{$vo}></a>
+            </if>
+			</volist>
+          </div>
+        </div>
+        <span class="notice" data-name="cate">
+          <i></i>
+          请选择媒体
+        </span>
+      </div>
+      <div class="upload-category clearfix">       
+        <input type="hidden" name="detail_preview_src" value="" />
+        <a href="javascript:void(0);" class="sub-examine" id="sub-cateedit">提交审核</a>
+        <span class="notice" data-name="submit">
+          <i></i>
+          提交审核失败
+        </span>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="__JS__/layer/layer.js"></script>
+<script type="text/javascript" src="__JS__/select.js"></script>
+<script>
+  // 提交审核矢量图信息
+  $("#sub-cateedit").on("click", function(){
+    var cid = $.trim($("input[name='cid']").val());
+    var title = $.trim($("input[name='title']").val());
+    if (!title) {
+      $("[data-tag='title']").hide();
+      $("[data-name='title']").html("<i></i>标题不能为空").show();
+      return;
+    }
+    var des  = $.trim($("textarea[name='des']").val());
+    if (!des) {
+      $("[data-tag='des']").hide();
+      $("[data-name='des']").html("<i></i>请填写一句描述").show();
+      return;
+    }
+    var pid   = $("input[name='pid']").attr("data-id");
+    $.ajax({
+      type : 'post',
+      dataType:'json',
+      url  : '/channel/edit',
+      data : 'title=' + title + '&des=' + des+ '&pid=' + pid+ '&cid=' + cid ,
+      success: function(res){
+        if (res.status == false) {
+          layer.alert ("无修改项，上传错误");
+        } else {
+          // 跳转上传成功页面
+          window.location.href = '/channel/catelist';
+        }
+      }
+    });
+  });
+</script>
+<include file="Public:footer"/>
+</body>
+</html>

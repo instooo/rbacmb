@@ -61,7 +61,7 @@ class CommonController extends Controller {
 		return $val;
 	}	
 	
-	
+	//二级菜单
 	public function unlimitedForLevel($cate, $html = '——', $pid = 0, $level = 0){
 		$arr =array();
 		foreach ($cate as $v){
@@ -75,7 +75,6 @@ class CommonController extends Controller {
 		return $arr;
 	}
     
-
-
+	
 }
                                 

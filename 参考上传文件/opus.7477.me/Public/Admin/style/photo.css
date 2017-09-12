@@ -1,0 +1,365 @@
+#header {
+    background: #222;
+}
+
+body {
+    background-color: #f7f8fa;
+}
+
+/* larvel render 分页样式补丁 */
+.page {
+    margin: 20px 0;
+}
+
+.pager-linkPage {
+    display: inline-block;
+}
+
+.pagelist span, .pagelist a {
+    padding: 0 20px;
+    color: #8c8c8c;
+    display: inline-block;
+    max-height: 40px;
+    line-height: 40px;
+    border: 1px #d8dce0 solid;
+    margin: 0 2px;
+    border-radius: 3px;
+}
+
+.pagelist .pager-linkPage a.current, .pagelist .pager-linkPage span.current {
+    background: #269edc;
+    color: #fff;
+}
+
+.unsubmit.page {
+    font-size: 12px;
+}
+
+.unsubmit.page .pagelist span, .unsubmit.page .pagelist a {
+    padding: 0 15px;
+}
+
+/* 上传导航 */
+.upload-nav {
+	width:1200px;
+	margin:5px auto 0;
+    height: 58px;
+    line-height: 56px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: left;
+}
+
+.upload-nav a {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0 25px;
+    transition: all 0.2s;
+}
+
+.upload-nav a:hover, .upload-nav .on {
+    color: #0099e5;
+    border-bottom: #0099e5 2px solid;
+}
+
+/* 上传图片 */
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.upload-box {
+    background-color: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#uploader {
+    position: relative;
+}
+
+#queueList {
+    overflow: hidden;
+    border: #fff 1px dashed;
+}
+
+#queueList.filled {
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+#queueList.webuploader-dnd-over {
+    background-color: #e8f5fc;
+    border: #77ccf9 1px dashed;
+}
+
+#queueList.webuploader-dnd-over .huo span {
+    background-color: #e8f5fc;
+}
+
+.placeholder {
+    padding: 250px 0;
+}
+
+#filePicker {
+    text-align: center;
+}
+
+#filePicker i, #filePickerMore i {
+    display: inline-block;
+    width: 28px;
+    height: 24px;
+    background: url(../images/bg/upload-bg-5.png) 0 0;
+    vertical-align: -6px;
+    margin-right: 5px;
+}
+
+.upload-box .huo {
+    width: 500px;
+    border-bottom: #bbb 1px dashed;
+    margin: 30px auto 40px;
+    position: relative;
+}
+
+.upload-box .huo span {
+    display: inline-block;
+    padding: 0 20px;
+    color: #bbb;
+    font-size: 18px;
+    background-color: #fff;
+    position: absolute;
+    top: -10px;
+    left: 220px;
+}
+
+.upload-box h3 {
+    color: #269edc;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.upload-box .word {
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 上传列表 */
+#fileList {
+    height: 580px;
+    overflow-y: auto;
+}
+
+#fileList .list {
+    width: 194px;
+    height: 234px;
+    margin-right: 35px;
+    margin-bottom: 20px;
+}
+
+#fileList .upload-pic {
+    width: 197px;
+    height: 197px;
+    background-color: #fdfdfd;
+    position: relative;
+}
+
+#fileList .upload-pic .pic-box {
+    width: 197px;
+    height: 197px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+#fileList .upload-pic .pic-box img {
+    text-align: center;
+    max-width: 197px;
+    max-height: 197px;
+    overflow: hidden;
+}
+
+#fileList .imgWrap {
+    position: relative;
+    line-height: 197px;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 197px;
+    height: 197px;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webit-transition: 200ms ease-out;
+    -moz-transition: 200ms ease-out;
+    -o-transition: 200ms ease-out;
+    -ms-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+}
+
+#fileList .title {
+    height: 30px;
+    color: #666;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    width: 100%;
+}
+
+#fileList .progress {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4) !important;
+    filter: Alpha(opacity=60);
+    background: #fff;
+}
+
+#fileList .progress p {
+    height: 30px;
+    background-color: #269edc;
+}
+
+#fileList .progress span {
+    display: block;
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.add-go-on {
+    height: 70px;
+    border-top: #eeeff2 1px solid;
+}
+
+#filePickerMore {
+    margin-top: 12px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+.add-go-on .uploadInfo {
+    height: 70px;
+    line-height: 70px;
+    color: #999;
+}
+
+.upload-win {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    opacity: 1
+}
+
+.upload-win-mask {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .6;
+}
+
+.upload-win-main {
+    width: 580px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -290px;
+    z-index: 999;
+}
+
+.upload-win-main .head {
+    width: 100%;
+    height: 125px;
+    background: url(../images/bg/upload-win.jpg) no-repeat;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.upload-win-main .up-fail {
+    background-position: 0 -126px;
+}
+
+.upload-win-main .up-succ {
+    background-position: 0 0;
+}
+
+.upload-win-main .head i {
+    display: block;
+    width: 37px;
+    height: 58px;
+    background: url(../images/bg/closeBtn.png) no-repeat;
+    cursor: pointer;
+    position: absolute;
+    top: -57px;
+    right: 0;
+}
+
+.upload-win-main .content {
+    padding: 0 20px;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.upload-win-main .cont {
+    padding: 30px;
+}
+
+.upload-win-main .cont h3 {
+    font-size: 16px;
+    color: #444;
+    line-height: 36px;
+    text-align: center;
+}
+
+.upload-win-main .cont h3 .num {
+    color: #f43838;
+}
+
+.upload-win-main .cont .contBtn {
+    text-align: center;
+}
+
+.upload-win-main .cont .btn {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #269edc;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    margin: 20px 30px;
+    transition: all .2s;
+}
+
+.upload-win-main .cont .btn:hover {
+    background-color: #0a89cb;
+}
+
+.upload-win-main .cont .text {
+    color: #269edc;
+}
+
+.upload-win-main .cont .text:hover {
+    color: #0a89cb;
+}

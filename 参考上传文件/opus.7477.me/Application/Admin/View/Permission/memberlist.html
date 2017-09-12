@@ -1,0 +1,224 @@
+<include file="Public:header_index"/>
+
+<div class="wrapper">
+    <div class="content_set">
+        <div class="set_1">
+            <span>用户管理</span>
+        </div>
+        <div class="con">
+            <a class="btn_sub member_add" href="javascript:void(0);" style="margin-top: 20px;">增加用户</a>
+            <table class="node_table" width="100%">
+                <tr><th>ID</th><th>帐号</th><th>昵称</th><th>角色</th><th>状态</th><th>上次登录时间</th><th>操作</th></tr>
+                <volist name="list" id="vo">
+                    <tr data-id="<{$vo.id}>">
+                        <td><{$vo.id}></td>
+                        <td class="username"><{$vo.username}></td>
+                        <td class="nickname" data="<{$vo.nickname}>"><{$vo.nickname}></td>
+                        <td class="roleid" data="<{$vo.roleid}>"><{$vo.rolename}></td>
+                        <td class="status" data="<{$vo.status}>">
+                            <switch name="vo.status">
+                                <case value="1">启用</case>
+                                <case value="0">关闭</case>
+                            </switch>
+                        </td>
+                        <td><{$vo.last_login_time|date="Y-m-d H:i:s",###}></td>
+                        <td>
+                            <a class="btn_edit" href="javascript:void(0);">编辑</a>
+                            &nbsp;|&nbsp;
+                            <a class="btn_dele" href="javascript:void(0);">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+                <tr><td colspan="7"><{$pagebar}></td></tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div id="add_alert_tmp" style="display: none">
+    <div class="form_content add_member_content" style="padding: 20px;">
+        <table width="100%">
+            <tr><td>帐号</td><td><input type="text" class="add_input_username" /></td></tr>
+            <tr><td>密码</td><td><input type="password" class="add_input_password" /></td></tr>
+            <tr><td>昵称</td><td><input type="text" class="add_input_nickname" /></td></tr>
+            <tr>
+                <td>角色</td>
+                <td>
+                    <select class="add_input_role" style="width: 100px">
+                    <volist name="rolelist" id="vo"><option value="<{$vo.id}>"><{$vo.name}></option></volist>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>状态</td>
+                <td>
+                    <select class="add_input_status"><option value="1">启用</option><option value="0">关闭</option></select>
+                </td>
+            </tr>
+            <tr><td></td><td><a class="btn_sub">提交</a></td></tr>
+        </table>
+    </div>
+</div>
+
+<div id="edit_alert_tmp" style="display: none">
+    <div class="form_content edit_member_content" style="padding: 20px;">
+        <input type="hidden" class="edit_id" />
+        <table width="100%">
+            <tr><td>帐号</td><td class="edit_username"></td></tr>
+            <tr><td>密码</td><td><input type="password" class="edit_input_password" /></td></tr>
+            <tr><td>昵称</td><td><input type="text" class="edit_input_nickname" /></td></tr>
+            <tr>
+                <td>角色</td>
+                <td>
+                    <select class="edit_input_role" style="width: 100px">
+                        <volist name="rolelist" id="vo"><option value="<{$vo.id}>"><{$vo.name}></option></volist>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>状态</td>
+                <td>
+                    <select class="edit_input_status"><option value="1">启用</option><option value="0">关闭</option></select>
+                </td>
+            </tr>
+            <tr><td></td><td><a class="btn_sub">提交</a></td></tr>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        //新增用户
+        $('.member_add').click(function () {
+            layer.open({
+                type: 1,
+                title: '添加用户',
+                skin: 'layui-layer', //加上边框
+                area: ['350px', '400px'], //宽高
+                content: $('#add_alert_tmp').html()
+            });
+            $('.add_member_content .btn_sub').click(function () {
+                doAddMember(this);
+            });
+        });
+        //删除用户
+        $('.btn_dele').click(function () {
+            var id = $(this).parents('tr').attr('data-id');
+            if (id == '') return false;
+            layer.confirm('确定要删除该角色？', {
+                btn: ['确定','取消']
+            }, function(){
+                doDeleMember(id);
+            });
+        });
+
+        //编辑用户
+        $('.btn_edit').click(function () {
+            var _tr = $(this).parents('tr');
+            var id = _tr.attr('data-id');
+            var username = _tr.find('.username').html();
+            var nickname = _tr.find('.nickname').attr('data');
+            var role = _tr.find('.roleid').attr('data');
+            var status = _tr.find('.status').attr('data');
+
+            $('#edit_alert_tmp .edit_id').attr('value', id);
+            $('#edit_alert_tmp .edit_username').html(username);
+            $('#edit_alert_tmp .edit_input_nickname').attr('value', nickname);
+            $('#edit_alert_tmp .edit_input_role option[value="'+role+'"]').attr('selected', true).siblings('option').removeAttr('selected');
+            $('#edit_alert_tmp .edit_input_status option[value="'+status+'"]').attr('selected', true).siblings('option').removeAttr('selected');
+            var _form_id = 'edit_form_' + Math.ceil(Math.random()*1000);
+            var _html = '<div id="'+_form_id+'" class="edit_member_div">' + $('#edit_alert_tmp').html() + '</div>';
+            layer.open({
+                type: 1,
+                title: '添加用户',
+                skin: 'layui-layer', //加上边框
+                area: ['350px', '400px'], //宽高
+                content: _html
+            });
+            $('#'+_form_id+' .btn_sub').click(function () {
+                var data = {
+                    id:$('#'+_form_id+' .edit_id').val(),
+                    password:$('#'+_form_id+' .edit_input_password').val(),
+                    nickname:$('#'+_form_id+' .edit_input_nickname').val(),
+                    role:$('#'+_form_id+' .edit_input_role').val(),
+                    status:$('#'+_form_id+' .edit_input_status').val()
+                };
+                doEditMember(data);
+            });
+        });
+
+    });
+    //增加用户
+    function doAddMember(_this) {
+        var form_content = $(_this).parents('.form_content');
+        var username = form_content.find('.add_input_username').val();
+        var password = form_content.find('.add_input_password').val();
+        var nickname = form_content.find('.add_input_nickname').val();
+        var role = form_content.find('.add_input_role').val();
+        var status = form_content.find('.add_input_status').val();
+        if (username == '' || password == '' || nickname == '') {
+            layer.msg('数据不能为空', {icon:5,time:1000});
+            return false;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{username:username,password:password,nickname:nickname,role:role,status:status},
+            url:'/Permission/memberAdd',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('添加成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+    //删除用户
+    function doDeleMember(id) {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{id:id},
+            url:'/Permission/memberDelete',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+    //编辑用户
+    function doEditMember(data) {
+        if (data.id == '' || data.nickname == '') {
+            layer.msg('参数不全', {icon:5,time:1000});
+            return false;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:data,
+            url:'/Permission/memberEdit',
+            error:function () {
+                layer.msg('未知错误', {icon:5,time:1000});
+            },
+            success:function (data) {
+                if (data.code == 1) {
+                    layer.msg('修改成功', {icon:6,time:1000}, function () {location.reload()});
+                }else {
+                    layer.msg(data.msg, {icon:5,time:1000});
+                }
+            }
+        });
+    }
+</script>
+<include file="Public:footer_index"/>

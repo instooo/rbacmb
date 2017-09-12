@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>批量测试错误</title>
+    <meta name="keywords" content="批量测试错误" />
+    <meta name="description" content="批量测试错误" />
+    <link rel="stylesheet" href="__CSS__/base.v4.5.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/uploadvectordiagram.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/photo.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/account.css" />
+    <script src="__JS__/jQuery.1.8.2.min.js"></script>
+</head>
+<body>
+<include file="Public:header"/>
+<div class="wrapper">
+    <div class="content_set">
+        <div class="set_1">
+            <a href="<{:U('data/downDemo')}>" class="btn-default" style="margin-left: 35px;padding-left: 5px;padding-right: 5px">模板下载</a>
+            <span>错误信息列表</span>
+            <a href="<{:U('data/batchTest')}>" class="btn-default" style="float: right;margin-right: 35px;padding-left: 5px;padding-right: 5px">批量测试</a>
+        </div>
+        <div class="con">
+            <table class="node_table" width="100%">
+                <tr>
+                    <th>错误ID号</th>
+                    <th>错误详情</th>
+                </tr>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>第<php>echo $key+2</php>行</td>
+                        <td><{$vo}></td>
+                    </tr>
+                </volist>
+            </table>
+        </div>
+    </div>
+</div>
+<include file="Public:footer"/>
+</body>
+</html>

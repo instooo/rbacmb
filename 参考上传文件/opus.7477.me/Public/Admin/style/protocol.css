@@ -1,0 +1,30 @@
+﻿#header{  background: #222;}
+/*条款样式*/
+#upprot{max-width: 1200px;margin: 0 auto;margin-top: 30px;margin-bottom: 40px;box-shadow: 0 2px 3px rgba(0,0,0,.1);}
+.hd-banner{width: 1198px;height: 300px;margin: 0 auto; background: url(../images/bg/upload-banner-cc0.jpg) no-repeat;}
+.up-rule{width: 100%;background-color: #fff;}
+.up-rule .rule-hd {text-align: center;line-height: 40px;padding: 58px 0 48px 0;}
+.up-rule .rule-hd h3{font-size: 24px;color: #444;}
+.up-rule .rule-hd p{font-size: 16px;color: #666;}
+.up-rule .rule-list{width: 1012px;margin:  0 auto;border: 1px solid #eeeff2;}
+.up-rule .rule-list .rl-title{color: #444;text-align: center;font-size: 18px;font-weight: 400;line-height: 70px;}
+.up-rule .rule-list .rl-main{padding: 0 20px;font-size: 16px;color: #666;line-height: 20px;}
+.up-rule .rl-main span{display: block;}
+.up-rule .rl-main p{margin-top: 10px; display: inline-block;}
+.up-rule .rl-main .txtIndent{text-indent: 2em;}
+.up-rule .rl-main .warned{background: #ffffc8;}
+.up-rule .rl-main .rl-item,.rl-main .rl-special{margin-bottom: 30px;}
+.up-rule .rl-main .rl-item span{color: #444;}
+.up-rule .rl-main .rl-item p{color: #666;}
+/*同意条款选框*/
+.up-rule .rule-check{cursor: pointer; height: 40px;border:1px solid #eeeff2;position: relative;width: 992px;margin: 0 auto;border-top: none;padding-left: 20px;}
+.up-rule .rule-check input[type=checkbox]{width: 16px;height: 16px;vertical-align: -3px;z-index: 10;opacity: 0;filter: alpha(opacity=0);}
+.up-rule .rule-check label{font-size: 14px;line-height: 40px;}
+.up-rule .rule-check label a{color: #269edc;display: inline-block;}
+.up-rule .rule-check label a:hover{text-decoration: underline;}
+.up-rule .rule-check .rl-checkbox{position: absolute;top: 12px;left: 18px;width: 16px;height: 16px;border: 1px solid #e4e4e4;cursor: pointer;z-index: 9;}
+.up-rule .rule-check .rl-checkbox.agreed{background: url(../images/bg/certification-icon.png) no-repeat 0 -38px;}
+.up-rule .rule-agree {padding: 30px 0;}
+.up-rule .rule-agree .agreeBtn{display: block;width: 135px;height: 40px;line-height: 40px;color: #fff;font-size: 16px;text-align: center;background-color: #269edc;border-radius: 2px;margin: 0 auto;}
+.up-rule .rule-agree .agreeBtn:hover{opacity: .8;filter: alpha(opacity=80);}
+.up-rule .rule-agree .hasagreeBtn{cursor: not-allowed;display: block;width: 135px;height: 40px;line-height: 40px;color: #fff;font-size: 16px;text-align: center;background-color: #bbb;border-radius: 2px;margin: 0 auto;}
