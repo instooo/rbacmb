@@ -1,8 +1,11 @@
-$(function(){
-	uploader = WebUploader.create({
+//upload('#picker-down','name');
+
+function upload(id,uploadname,mul=false,num=1){
+	var name_str = uploadname;
+	uploadname = WebUploader.create({
 		pick: {
-			id: '#picker-down',				
-			multiple: true			
+			id: id,				
+			multiple: mul			
 		},
 		formData: {},
 		compress: false,
@@ -15,22 +18,22 @@ $(function(){
 		},
 		swf: '/Public/webuploader/Uploader.swf',
 		server: '/upload/uploadImage_do',
-		threads: 5,
-		fileNumLimit: 5,
+		threads: num,
+		fileNumLimit: num,
 		fileSizeLimit: 1.5 * 1024 * 1024,           // 300 M
 		fileSingleSizeLimit: 1.5 * 1024 * 1024,     // 300 M
 		duplicate: true
 	});	
 	
 	// 文件加入队列时触发
-	uploader.on('filesQueued', function(file) {		
+	uploadname.on('filesQueued', function(file) {		
 		// 打点，开始上传
 		timeMark = new Date().getTime();
-		uploader.upload();
+		uploadname.upload();
 		addPreviewFile(file);
 	});	
 	// 文件加入队列报错时触发
-	uploader.on('error', function(code) {
+	uploadname.on('error', function(code) {
 		var errMsg = '';
 		switch (code) {
 			case 'Q_EXCEED_NUM_LIMIT':
@@ -50,127 +53,128 @@ $(function(){
 		}
 		$("[data-tag='preview']").hide();
 		$("[data-name='preview']").html("<i></i>" + errMsg).show();			
-	});
-	
+	});	
 
-		// 文件上传过程当中触发
-		uploader.on('uploadProgress', function(file, percentage) {
-			var $li = $('#preview_' + file.id);
-			// 进度条延迟展示，异步获取statusText
-			setTimeout(function(){
-				// 文件上传被拒绝
-				if (file.statusText == 'abort') {
-					// 比如服务器出现问题
-					// 提示错误信息
-					$li.find('.preview-progress').html(
-						'<p class="progress-line" style="width: 100%"></p>' +
-						'<p class="word-notice">服务器异常，上传中断，请重新上传</p>'
-					);
-					// 移除上传文件
-					uploader.cancelFile(file);
-					uploader.removeFile(file, true);
-					// 移除上传文本框
-					$li.fadeOut(3000, function(){
-						$(this).remove();
-					});
-					// 清除input文本
-					$("input[name='detail_preview_src']").val('');
-				} else {
-					$li.find('.word-notice').html('上传中<span class="progress-percent"></span>');
-					$li.find('.progress-percent').text(parseInt(percentage * 100) + '%');
-					$li.find('.progress-line').css('width', percentage * 100 + '%');
-				}
-			}, 10);
-			// 上传过程当中删除图片
-			$li.on('click', '.position-ab', function() {
-				$li.find('.preview-progress').html(
-					'<p class="progress-line" style="width: 100%"></p>' +
-					'<p class="word-notice">删除成功</p>'
-				);
-				uploader.cancelFile(file);
-				uploader.removeFile(file, true);
-				// 移除上传文本框
-				$li.fadeOut(3000, function(){
-					$(this).remove();
-				});
-				// 清除input文本
-				$("input[name='detail_preview_src']").val('');
-			});
-		});
-
-		// 文件上传成功后触发
-		uploader.on('uploadSuccess', function(file, response) {
-			var $li = $('#preview_' + file.id);
-			if (response.status == false) {       // 服务器验证失败
+	// 文件上传过程当中触发
+	uploadname.on('uploadProgress', function(file, percentage) {
+		var $li = $('#preview_' + file.id);
+		// 进度条延迟展示，异步获取statusText
+		setTimeout(function(){
+			// 文件上传被拒绝
+			if (file.statusText == 'abort') {
+				// 比如服务器出现问题
 				// 提示错误信息
-				$("[data-tag='preview']").hide();
-				$("[data-name='preview']").html("<i></i>" + response.content).show();
-				// 提示上传失败
 				$li.find('.preview-progress').html(
 					'<p class="progress-line" style="width: 100%"></p>' +
-					'<p class="word-notice">上传失败</p>'
+					'<p class="word-notice">服务器异常，上传中断，请重新上传</p>'
 				);
 				// 移除上传文件
-				uploader.removeFile(file, true);
+				uploadname.cancelFile(file);
+				uploadname.removeFile(file, true);
 				// 移除上传文本框
 				$li.fadeOut(3000, function(){
 					$(this).remove();
 				});
 				// 清除input文本
-				$("input[name='detail_preview_src']").val('');
-			} else {                // 服务器验证成功
-				var yltName = response.content;
-				$("input[name='detail_preview_src']").val(yltName);
-				// 提示上传成功，延迟200ms防止抖动
-				setTimeout(function(){
-					$li.find('.preview-progress').html(
-							'<p class="progress-line" style="width: 100%"></p>' +
-							'<p class="word-notice">上传成功</p>'
-					);
-				}, 200);
-				// 上传成功之后点击删除图片
-				$li.on('click', '.position-ab', function(){
-					$.ajax({
-						type : "POST",
-						url  : "/upload/deleteFile",
-						data : {"yltName": yltName},
-						dataType : 'json',
-						success  : function(res) {
-							if (res.status == true) {   // 删除成功
-								$li.find('.preview-progress').html(
-									'<p class="progress-line" style="width: 100%"></p>' +
-									'<p class="word-notice">删除成功</p>'
-								);
-								// 移除上传文件
-								uploader.removeFile(file, true);
-								// 移除上传文本框
-								$li.fadeOut(3000, function(){
-									$(this).remove();
-								});
-								// 清除input文本
-								$("input[name='detail_preview_src']").val('');
-							} else {    // 删除失败
-
-							}
-						}
-					});
-				});
+				$("input[name='"+name_str+"']").val('');
+			} else {
+				$li.find('.word-notice').html('上传中<span class="progress-percent"></span>');
+				$li.find('.progress-percent').text(parseInt(percentage * 100) + '%');
+				$li.find('.progress-line').css('width', percentage * 100 + '%');
 			}
+		}, 10);
+		// 上传过程当中删除图片
+		$li.on('click', '.position-ab', function() {
+			$li.find('.preview-progress').html(
+				'<p class="progress-line" style="width: 100%"></p>' +
+				'<p class="word-notice">删除成功</p>'
+			);
+			uploadname.cancelFile(file);
+			uploadname.removeFile(file, true);
+			// 移除上传文本框
+			$li.fadeOut(3000, function(){
+				$(this).remove();
+			});
+			// 清除input文本
+			$("input[name='"+name_str+"']").val('');
 		});
-		// 不管成功或者失败，文件上传完成时触发
-		thumbUploader.on('uploadComplete', function(file){
-			// 重置打点+计数
-			timeMark  = new Date().getTime();
-			frequency = -1;
-		});
-		
-	// 缩略图大小
-	var thumbnailWidth  = 172;
-	var thumbnailHeight = 131;
+	});
+
+	// 文件上传成功后触发
+	uploadname.on('uploadSuccess', function(file, response) {
+		var $li = $('#preview_' + file.id);
+		if (response.status == false) {       // 服务器验证失败
+			// 提示错误信息
+			$("[data-tag='preview']").hide();
+			$("[data-name='preview']").html("<i></i>" + response.content).show();
+			// 提示上传失败
+			$li.find('.preview-progress').html(
+				'<p class="progress-line" style="width: 100%"></p>' +
+				'<p class="word-notice">上传失败</p>'
+			);
+			// 移除上传文件
+			uploadname.removeFile(file, true);
+			// 移除上传文本框
+			$li.fadeOut(3000, function(){
+				$(this).remove();
+			});
+			// 清除input文本
+			$("input[name='"+name_str+"']").val('');
+		} else {                // 服务器验证成功
+			var yltName = response.content;
+			$("input[name='"+name_str+"']").val(yltName);
+			// 提示上传成功，延迟200ms防止抖动
+			setTimeout(function(){
+				$li.find('.preview-progress').html(
+						'<p class="progress-line" style="width: 100%"></p>' +
+						'<p class="word-notice">上传成功</p>'
+				);
+				$(".notice").html('');
+			}, 200);
+			// 上传成功之后点击删除图片
+			$li.on('click', '.position-ab', function(){
+				$.ajax({
+					type : "POST",
+					url  : "/upload/deleteFile",
+					data : {"yltName": yltName},
+					dataType : 'json',
+					success  : function(res) {
+						if (res.status == true) {   // 删除成功
+							$li.find('.preview-progress').html(
+								'<p class="progress-line" style="width: 100%"></p>' +
+								'<p class="word-notice">删除成功</p>'
+							);
+							// 移除上传文件
+							uploadname.removeFile(file, true);
+							// 移除上传文本框
+							$li.fadeOut(3000, function(){
+								$(this).remove();
+							});
+							// 清除input文本
+							$("input[name='"+name_str+"']").val('');
+						} else {    // 删除失败
+
+						}
+					}
+				});
+			});
+		}
+	});
+	// 不管成功或者失败，文件上传完成时触发
+	uploadname.on('uploadComplete', function(file){
+		// 重置打点+计数
+		timeMark  = new Date().getTime();
+		frequency = -1;
+	});		
+	
 	// 添加源文件
 	function addPreviewFile(file) {
-		// 生成缩略图
-		$('.wait-upload').append(
+		// 缩略图大小
+		var thumbnailWidth  = 172;
+		var thumbnailHeight = 131;
+		alert (name_str);
+		// 生成缩略图		
+		$("input[name='"+name_str+"']").parents('tr').find('.wait-upload').append(
 			'<div class="preview-small imgWrap fl" id="preview_' + file[0]['id'] + '">' +
 				'<i class="position-ab"></i>' +
 				'<div class="preview-progress">' +
@@ -183,7 +187,7 @@ $(function(){
 		);
 		var $li = $('#preview_' + file[0]['id']);
 		// 生成缩略图
-		uploader.makeThumb(file, function(error, src) {
+		uploadname.makeThumb(file, function(error, src) {
 			if (error) {
 				$li.text('不能预览');
 			} else {
@@ -196,8 +200,8 @@ $(function(){
 				'<p class="progress-line" style="width: 100%"></p>' +
 				'<p class="word-notice">删除成功</p>'
 			);
-			uploader.cancelFile(file);
-			uploader.removeFile(file, true);
+			uploadname.cancelFile(file);
+			uploadname.removeFile(file, true);
 			// 移除上传文本框
 			$li.fadeOut(3000, function(){
 				$(this).remove();
@@ -206,4 +210,4 @@ $(function(){
 			$("input[name='detail_preview_src']").val('');
 		});
 	}
-})
+}

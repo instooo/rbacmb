@@ -10,8 +10,7 @@ class Article extends Content implements ContentInterface
 	);
     //获取模型字段和类型
     function getFields(){
-		$common_fields = parent::getFields();		
-		$fields[]=array('imgurl_many',"多个缩略图",'file_many','file','jpg,gif,bmp,png');
+		$common_fields = parent::getFields();
 		$fields[]=array('updatetime',"发布时间",'date');
 		$fields[]=array('content',"内容",'editor');			
 		$common_fields = array_merge($common_fields,$fields);

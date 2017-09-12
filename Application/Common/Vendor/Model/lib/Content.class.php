@@ -15,6 +15,7 @@ class Content{
 		$fields[]=array('weight',"权重",'input',0);
 		$fields[]=array('status',"状态",'radio');
 		$fields[]=array('imgurl',"缩略图",'file');	
+		$fields[]=array('imgurla',"多张图片",'mu_file',10);	
 		
 		$fields['val']['status'] =array("开启:1:checked","关闭:0");
 		return $fields;
@@ -35,10 +36,9 @@ class Content{
 						$html.="<tr><td>".$val['1']."</td><td><textarea type='text' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' style='width:400px; height:100px'></textarea></td></tr>";
 						break;
 					case 'file':
-						//$html.="<tr><td>".$val['1']."</td><td><input type='file' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' style='width:300px'><span>文章缩略图片</span></td></tr>";
-						
-						$html.='<tr><td>'.$val['1'].'</td><td><div class="upload-category clearfix">						
-						<a href="javascript:void(0);" id="picker-down" class="category-y fl">上传预览图</a>
+						$htmla.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
+						$html.='<tr><td>'.$htmla.$val['1'].'</td><td><div class="upload-category clearfix">						
+						<a href="javascript:void(0);" id="'.$val['0'].'" class="category-y fl">上传预览图</a>
 						<span class="category-notice fl" data-tag="preview">支持jpg、png格式，RGB模式，单张（宽、高大于1200px）</span>
 						<span class="notice fl" data-name="preview">
 						  <i></i>
@@ -46,10 +46,27 @@ class Content{
 						</span>
 						<div class="wait-upload"></div>
 					  </div></td></tr>';
+					   $script = "<script type='text/javascript'>
+								upload('#".$val['0']."','".$val['0']."');
+								</script>";
+						$html.=$script;
 						break;
-					case 'file_many':
-						$html.="<tr><td>".$val['1']."</td><td><input type='file' class='manager-input s-input' name='".$val['0']."[]' id='".$val['0']."' style='width:300px'multiple/><span>可多个图片</span></td></tr>";
-						break;
+					case 'mu_file':
+						$htmla.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
+						$html.='<tr><td>'.$htmla.$val['1'].'</td><td><div class="upload-category clearfix">						
+						<a href="javascript:void(0);" id="'.$val['0'].'" class="category-y fl">上传预览图</a>
+						<span class="category-notice fl" data-tag="preview">支持jpg、png格式，RGB模式，单张（宽、高大于1200px）</span>
+						<span class="notice fl" data-name="preview">
+						  <i></i>
+						  预览图上传错误
+						</span>
+						<div class="wait-upload"></div>
+					  </div></td></tr>';
+					   $script = "<script type='text/javascript'>
+								upload('#".$val['0']."','".$val['0']."',true,".$val[3].");
+								</script>";
+						$html.=$script;
+						break;					
 					case 'date':
 						$html.="<tr><td>".$val['1']."</td><td><input type='text' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' value='".date('Y-m-d H:i:s',time())."' style='width:300px' readonly/></td></tr>";						
 						$script = '<script type="text/javascript">
