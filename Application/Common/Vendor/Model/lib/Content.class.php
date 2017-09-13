@@ -52,8 +52,8 @@ class Content{
 						$html.=$script;
 						break;
 					case 'mu_file':
-						$htmla.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
-						$html.='<tr><td>'.$htmla.$val['1'].'</td><td><div class="upload-category clearfix">						
+						$htmlb.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
+						$html.='<tr><td>'.$htmlb.$val['1'].'</td><td><div class="upload-category clearfix">						
 						<a href="javascript:void(0);" id="'.$val['0'].'" class="category-y fl">上传预览图</a>
 						<span class="category-notice fl" data-tag="preview">支持jpg、png格式，RGB模式，单张（宽、高大于1200px）</span>
 						<span class="notice fl" data-name="preview">
@@ -63,7 +63,7 @@ class Content{
 						<div class="wait-upload"></div>
 					  </div></td></tr>';
 					   $script = "<script type='text/javascript'>
-								upload('#".$val['0']."','".$val['0']."',true,".$val[3].");
+								upload('#".$val['0']."','".$val['0']."');
 								</script>";
 						$html.=$script;
 						break;					

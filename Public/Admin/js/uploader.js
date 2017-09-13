@@ -1,11 +1,10 @@
 //upload('#picker-down','name');
-
-function upload(id,uploadname,mul=false,num=1){
+function upload(id,uploadname){
 	var name_str = uploadname;
 	uploadname = WebUploader.create({
 		pick: {
 			id: id,				
-			multiple: mul			
+			multiple: true			
 		},
 		formData: {},
 		compress: false,
@@ -18,8 +17,8 @@ function upload(id,uploadname,mul=false,num=1){
 		},
 		swf: '/Public/webuploader/Uploader.swf',
 		server: '/upload/uploadImage_do',
-		threads: num,
-		fileNumLimit: num,
+		threads: 1,
+		fileNumLimit: 1,
 		fileSizeLimit: 1.5 * 1024 * 1024,           // 300 M
 		fileSingleSizeLimit: 1.5 * 1024 * 1024,     // 300 M
 		duplicate: true
@@ -172,9 +171,9 @@ function upload(id,uploadname,mul=false,num=1){
 		// 缩略图大小
 		var thumbnailWidth  = 172;
 		var thumbnailHeight = 131;
-		alert (name_str);
+		
 		// 生成缩略图		
-		$("input[name='"+name_str+"']").parents('tr').find('.wait-upload').append(
+		$("input[name='"+name_str+"']").closest('tr').find('.wait-upload').append(
 			'<div class="preview-small imgWrap fl" id="preview_' + file[0]['id'] + '">' +
 				'<i class="position-ab"></i>' +
 				'<div class="preview-progress">' +
@@ -210,4 +209,8 @@ function upload(id,uploadname,mul=false,num=1){
 			$("input[name='detail_preview_src']").val('');
 		});
 	}
+}
+
+function upload_mul(id,uploadname,mul=false,num=1){
+	
 }

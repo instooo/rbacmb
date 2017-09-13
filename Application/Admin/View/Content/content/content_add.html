@@ -48,26 +48,26 @@
 <script type="text/javascript" src="__JS__/typeahead/bootstrap3-typeahead.min.js"></script>
 <link rel="stylesheet" type="text/css" href="__JS__/date/dateRange.css" />
 <!--百度编辑器-->
-<script type="text/javascript" src="__PUBLIC__/ueditor/editor_config.js"></script>
-<script type="text/javascript" src="__PUBLIC__/ueditor/editor_all_min.js"></script> 
-<link rel="stylesheet" href="__PUBLIC__/ueditor/themes/default/ueditor.css">
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script> 
 
 
-
-<script type="text/javascript">
-	
-    $(function(){
+<script type="text/javascript">	
+    $(function(){ 	
 		var test= {};
 		var len = $("textarea[data-type=editor]").length;		
 		for(var i=0;i<len;i++){
 			var editor_name = $("textarea[data-type=editor]").eq(i).attr('name');			
-			test.editor_name =  new UE.ui.Editor({initialContent:''});
-			test.editor_name.render(editor_name);
+			test.editor_name = UE.getEditor(editor_name,{
+				initialFrameWidth : 1000,
+				initialFrameHeight: 400
+			});	
+							 
 		}
         $('#dosubmit').live('click',function() {		
 			for(var i=0;i<len;i++){
 				editor_name = $("textarea[data-type=editor]").eq(i).attr('name');				
-				UE.getEditor(editor_name).sync();
+				//UE.getEditor(editor_name).sync();
 			}
             var options = {
                 url: "/content/content_add",
