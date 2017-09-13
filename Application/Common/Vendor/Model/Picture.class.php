@@ -3,19 +3,15 @@
 include "lib/ContentInterface.php";
 include "lib/Content.class.php";
 // 没有声明命名空间
-class Article extends Content implements ContentInterface 
+class Picture extends Content implements ContentInterface 
 {	
 	protected $_validate = array(
-		array('content','require','不能为空'), //默认情况下用正则进行验证	
+		array('title','require','不能为空'), //默认情况下用正则进行验证	
 	);
     //获取模型字段和类型
     function getFields(){
 		$common_fields = parent::getFields();
-		$fields[]=array('description',"简介",'text');	
-		$fields[]=array('status',"状态",'radio');
-		$fields[]=array('imgurl',"缩略图",'file');	
-		$fields[]=array('updatetime',"发布时间",'date');
-		$fields[]=array('content',"内容",'editor');		
+		$fields[]=array('img_duo',"多张图片",'mu_file',10);			
 		$common_fields = array_merge($common_fields,$fields);
 		return $common_fields;		
 	}

@@ -10,13 +10,10 @@ class Content{
 	//获取模型字段和类型
     function getFields(){
 		$fields = array();
+		//显示的字段-start
 		$fields[]=array('title',"标题",'input');
-		$fields[]=array('description',"简介",'text');	
 		$fields[]=array('weight',"权重",'input',0);
-		$fields[]=array('status',"状态",'radio');
-		$fields[]=array('imgurl',"缩略图",'file');	
-		$fields[]=array('imgurla',"多张图片",'mu_file',10);	
-		
+		//显示的字段-end		
 		$fields['val']['status'] =array("开启:1:checked","关闭:0");
 		return $fields;
 	}
@@ -63,7 +60,7 @@ class Content{
 						<div class="wait-upload"></div>
 					  </div></td></tr>';
 					   $script = "<script type='text/javascript'>
-								upload('#".$val['0']."','".$val['0']."');
+								upload_many('#".$val['0']."','".$val['0']."','".$val['3']."');
 								</script>";
 						$html.=$script;
 						break;					

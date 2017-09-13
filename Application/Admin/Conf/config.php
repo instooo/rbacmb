@@ -18,7 +18,7 @@ $config = array(
 	'LANG_LIST'=>'en-us,zh-cn,zh-tw',
 	/***CronSign***/
 	'TIMESIGN'=>'9120b3e216ff71f1e9c3cbb588c3ca80',	
-	'UPLOAD_PATH'=>'Public/uploads/',
+	'UPLOAD_PATH'=>'uploads/',
 );
 
 

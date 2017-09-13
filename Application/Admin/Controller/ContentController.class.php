@@ -150,7 +150,12 @@ class ContentController extends CommonController {
 		}while(0);
 		exit(json_encode($ret));
 	}
-
+	
+	//内容首页
+	public function content_list(){
+		echo 1;
+	}
+	
 	//内容添加
 	public function content_add(){
 		//模型默认为文章模型
@@ -169,25 +174,15 @@ class ContentController extends CommonController {
 				if($checkresult['code']!=1){
 					$ret = $checkresult;
 					break;
-				}		
-				$file = $_FILES;
-				if (!empty ( $_FILES ["uploads"] ["name"][0] )) {				
-					$list_img = $_FILES ["uploads"];				
-					$ima_name1 = $this->ftp_image_com_multiple ( $list_img, 'Article', 'you', $data ['webconfig_id'], '1' );
-					if($ima_name1==1)
-					{
-						$this->error('上传的图片超过2M!');
-						
-					}
-					if($ima_name1==2)
-					{
-						$this->error('上传的是必须是图片');
-						
-					}
-					$data ['article_img'] = json_encode($ima_name1); // 文章图片(缩略图加s_)				
-				}
+				}					
 				$content = M($classname);
 				$data['addtime']=time();
+				//对栏目进行过滤
+				if(!$data['typeid'] || $data['typeid']==-1){
+					$ret['code'] = -1;
+					$ret['msg'] = '请选择栏目';
+					break;			
+				}
 				$st = $content->data($data)->add();					
 				if(!$st){
 					$ret['code'] = 0;

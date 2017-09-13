@@ -46,8 +46,7 @@ class UploadController extends CommonController {
 		if(!$info) {// 上传错误提示错误信息
 			$data['status']=false;
 			$data['content']=$upload->getError();
-		}else{	
-			print_r($info);
+		}else{			
 			//上传成功后返回文件保存地址
 			$data['status']=true;			
 			$data['content']= "/".C("UPLOAD_PATH").$info['sourceFile']['savepath'].$info['sourceFile']['savename'];		
