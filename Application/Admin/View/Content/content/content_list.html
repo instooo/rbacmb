@@ -6,7 +6,7 @@
            首页
         </li>
         <li>
-           栏目管理
+           内容列表
         </li>
     </ul>
 </div>
@@ -16,19 +16,27 @@
     <div id="ManagerRight" class="ManagerRightShow">
         <form id="myform" name="countform" method="get" action="/Media/medium_info">          
             <div id="count_search">
-                <ul class="search_box">					
-                    <li class="line" style=" float:right;">					
-                        <a href="/content/cate_add" class="manager-btn s-btn search-btn" style="margin:0;padding:"; >添加</a>
+                <ul class="search_box">	
+					<li class="line" style=" float:left; font-size:18px;">					
+                        <a>当前位置：内容管理》文章模型列表</a>
                     </li>
+                    <li class="line" style=" float:right;">					
+                        <a onclick="select_model()" class="manager-btn s-btn search-btn" style="margin:0;padding:"; >模型选择</a>
+                    </li>
+					<li class="line" style=" float:right;">					
+                        <a  class="manager-btn s-btn search-btn content-sub" style="margin:0;padding:"; data-mid="<{$mid}>">添加文章</a>
+                    </li>					
                 </ul>
             </div>
             <div id="count_body">
                 <table class="huitable">
                     <thead>
                     <tr align="left">
-                        <th>栏目ID</th>
-                        <th>栏目名称</th>
-                        <th>模型</th>  
+						<volist name="fileds" id="vo">
+							<if condition="$vo[4] eq 1">
+							<th><{$vo.1}></th>
+							</if>
+						</volist>
                         <th>操作</th>                      
                     </tr>
                     </thead>
@@ -36,14 +44,13 @@
                     <if condition="$list">
                         <volist name="list" id="vo">
                             <tr data-id="<{$vo.typeid}>" align="center">
-                                <td><{$vo.typeid}></td>
-                                <td><{$vo.html}><{$vo.typename}></td>
-                                <td><{$vo.name}></td>
+								<volist name="fileds" id="v">
+								<if condition="$v[4] eq 1">
+                                <td><{$vo["$v[0]"]}></td>
+								</if>
+								</volist>
                                 <td style="text-align:left; padding-left:30px;"><a class="btn-w btn-block btn-info btn-flat" href="/content/cate_upd/id/<{$vo.typeid}>">修改</a>
 									<a class="btn_dele btn-w btn-block btn-info btn-warning" href="javascript:void(0);">删除</a>
-									<if condition = "$vo['m_id'] neq 0">
-									<a class="btn-w btn-block btn-success btn-flat content-sub" href="javascript:void(0);" data-mid="<{$vo.m_id}>">发布内容</a></td> 
-									</if>	
                             </tr>
                         </volist>
                         <else />
@@ -53,50 +60,33 @@
                 </table>
             </div>
         </form>
+		<div id="jsonpage" class="pagebox"><div class="pageinfo"><{$page}></div></div>
     </div>
 </div>
 <script>
-    $(function () {        
-        //删除提示
-        $('.btn_dele').click(function () {
-            var id = $(this).parents('tr').attr('data-id');
-            if (id == '') return false;
-            layer.confirm('确定要删除该类型？', {
-                btn: ['确定','取消']
-            }, function(){
-                doDele(id);
-            });
-        });
-		$(".content-sub").click(function(){
-			var  mid=$(this).attr("data-mid");
-			layer.open({
-				type: 2,
-				title: '发布文章',				
-				area: ["60%", "100%"], //宽高
-				content: "/content/content_add/mid/"+mid,
-				
-			});			
-		})
-		
-		//删除媒体
-		function doDele(id) {
-			$.ajax({
-				type:'post',
-				dataType:'json',
-				data:{id:id},
-				url:'/content/cate_del',
-				error:function () {
-					layer.msg('未知错误', {icon:5,time:1000});
-				},
-				success:function (data) {
-					if (data.code == 0) {
-						layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
-					}else {
-						layer.msg(data.msg, {icon:5,time:1000});
-					}
-				}
-			});
-		}
-    }); 
+	var flag = "<{$mid}>";
+	if(flag == 0){
+		select_model();
+	}
+	function select_model(){
+		layer.open({
+			type: 2,
+			title: '选择模型',	
+			shadeClose: true,
+			shade: 0.8,
+			area: ["50%", "50%"], //宽高
+			content: "/content/content_select/",			
+		});			
+	}
+	$(".content-sub").click(function(){
+		var  mid=$(this).attr("data-mid");
+		layer.open({
+			type: 2,
+			title: '发布文章',				
+			area: ["100%", "100%"], //宽高
+			content: "/content/content_add/mid/"+mid,
+			
+		});			
+	})
 </script>	
 <include file="Public/footer" />

@@ -11,8 +11,8 @@ class Content{
     function getFields(){
 		$fields = array();
 		//显示的字段-start
-		$fields[]=array('title',"标题",'input');
-		$fields[]=array('weight',"权重",'input',0);
+		$fields[]=array('title',"标题",'input','',1);
+		$fields[]=array('weight',"权重",'input',0,1);
 		//显示的字段-end		
 		$fields['val']['status'] =array("开启:1:checked","关闭:0");
 		return $fields;
@@ -33,7 +33,7 @@ class Content{
 						$html.="<tr><td>".$val['1']."</td><td><textarea type='text' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' style='width:400px; height:100px'></textarea></td></tr>";
 						break;
 					case 'file':
-						$htmla.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
+						$htmla="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
 						$html.='<tr><td>'.$htmla.$val['1'].'</td><td><div class="upload-category clearfix">						
 						<a href="javascript:void(0);" id="'.$val['0'].'" class="category-y fl">上传预览图</a>
 						<span class="category-notice fl" data-tag="preview">支持jpg、png格式，RGB模式，单张（宽、高大于1200px）</span>
@@ -49,7 +49,7 @@ class Content{
 						$html.=$script;
 						break;
 					case 'mu_file':
-						$htmlb.="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
+						$htmlb="<input type='hidden' class='manager-input s-input' name='".$val['0']."'  style='width:300px' value=''>";						
 						$html.='<tr><td>'.$htmlb.$val['1'].'</td><td><div class="upload-category clearfix">						
 						<a href="javascript:void(0);" id="'.$val['0'].'" class="category-y fl">上传预览图</a>
 						<span class="category-notice fl" data-tag="preview">支持jpg、png格式，RGB模式，单张（宽、高大于1200px）</span>

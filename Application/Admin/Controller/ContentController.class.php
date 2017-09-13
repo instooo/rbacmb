@@ -152,8 +152,49 @@ class ContentController extends CommonController {
 	}
 	
 	//内容首页
+	public function content_select(){
+		if ($_POST) {
+			$id = $_REQUEST['id'];
+			$id = $id?$id:0;
+			session('content_mid',$id);
+		}else{
+			//查找对应模型
+			$map['id']=array('neq',0);
+			$modellist = M('model')->where($map)->select();
+			$this->assign('modellist',$modellist);
+			$this->display('content/content/content_select');		
+		}
+		
+	}
+	
+	//内容列表页
 	public function content_list(){
-		echo 1;
+		$mid = session('content_mid');
+		$mid = $mid?$mid:0;
+		
+		//找到相应模型并获得类
+		$result = M('model')->where("id=".$mid)->find();
+		$classname =ucfirst(strtolower($result['class']));
+		import('Common/Vendor/Model/'.$classname);		
+        $class    = new $classname();		
+		$fileds =$class->getFields();
+		//查找对应的栏目id		
+		$content = M($classname);
+		$count = $content	
+				->where($contentmap)					
+				->count();	
+		$page = new \Think\Page($count, 5);
+		
+		$list = $content
+				->where($contentmap)
+				->limit($page->firstRow.','.$page->listRows)
+				->order('weight desc,aid desc')
+				->select();		
+		$this->assign('list',$list);
+		$this->assign ( 'page', $page->show () );
+		$this->assign('fileds',$fileds);
+		$this->assign('mid',$mid);
+		$this->display('content/content/content_list');		
 	}
 	
 	//内容添加

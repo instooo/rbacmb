@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Hover Effect Ideas | Set 1</title>
+		<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
+		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="__CSS__/effects/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/effects/css/set1.css" />
+		    <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+		<script type="text/javascript" src="__JS__/layer/layer.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">				
+			
+				<div class="grid">
+					<volist name="modellist" id="vo">
+					<figure class="effect-layla">
+						<img/>
+						<figcaption>
+							<h2><{$vo.name}> <span><{$vo.class}></span></h2>						
+							<a onclick="select_model(<{$vo.id}>)"></a>
+						</figcaption>			
+					</figure>
+					</volist>
+				</div>
+		      </div>		
+		</div><!-- /container -->
+		<script>
+			function select_model(id){
+				$.ajax({
+				type:'post',
+				dataType:'json',
+				data:{id:id},
+				url:'/content/content_select',				
+				success:function (data) {
+					parent.location.reload();
+					var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+					parent.layer.close(index);
+					
+				}
+			});
+			}
+		</script>
+	</body>
+</html>
