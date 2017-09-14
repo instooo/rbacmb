@@ -22,28 +22,18 @@ class Picture extends Content implements ContentInterface
 		return $html;
 	}
 	
+	//编辑html	
+	function edit_html($info){		
+		$common_fields =$this->getFields();		
+		$html = parent::edit_html($common_fields,$info);	
+		return $html;
+	}
+	
 	public function checkData($data){
 		$_validate =$this->_validate;
 		$common_fields =$this->getFields();			
 		$result = parent::checkData($data,$_validate,$common_fields);			
 		return $result;
-	}
-	
-	//添加内容
-    function add(){
-		
-	}
-	//编辑内容
-    function edit(){
-		
-	}
-	//删除内容
-    function del(){
-		
-	}
-	//获取列表
-	function c_list(){
-		
 	}
 }
 ?>

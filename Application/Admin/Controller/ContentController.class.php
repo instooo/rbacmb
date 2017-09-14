@@ -211,11 +211,14 @@ class ContentController extends CommonController {
 			$ret = array("code"=>-1,"msg"=>'',"data"=>"");
             do{ 
 				$data = $_POST;
-				$checkresult = $class->checkData($data);						
+				//检查数据
+				$checkresult = $class->checkData($data);				
 				if($checkresult['code']!=1){
 					$ret = $checkresult;
 					break;
-				}					
+				}
+				//整理数据
+				$data = $class->filter($data);				
 				$content = M($classname);
 				$data['addtime']=time();
 				//对栏目进行过滤
@@ -250,35 +253,37 @@ class ContentController extends CommonController {
 
 	//内容删除
 	public function content_upd(){
-		$return = array("state"=>-1,"msg"=>'',"data"=>"");
-		do{ 	
-		
-			$id =  $_REQUEST ['id'];
-			$mid =  $_REQUEST ['mid'];
-			if($mid){
-				$result = M('model')->where("id=".$mid)->find();
-			}else{
-				$ret['code'] = -1;
-				$ret['msg'] = '无模型，数据错误';
-				break;
-			}
-			$classname =ucfirst(strtolower($result['class']));
-			import('Common/Vendor/Model/'.$classname);		
-			$class    = new $classname();
-			if($_POST){
+		$aid =  $_REQUEST ['aid'];
+		$mid =  $_REQUEST ['mid'];
+		if($mid){
+			$result = M('model')->where("id=".$mid)->find();
+		}else{
+			$ret['code'] = -1;
+			$ret['msg'] = '无模型，数据错误';
+			break;
+		}
+		$classname =ucfirst(strtolower($result['class']));
+		import('Common/Vendor/Model/'.$classname);		
+		$class    = new $classname();
+		if($_POST){
+			$return = array("state"=>-1,"msg"=>'',"data"=>"");
+			do{	
 				
-			}else{
-				//这些案例所有都有对应栏目，所以是公用的
-				$cate  = M('cate')->select();
-				$cate = $this->unlimitedForLevel($cate);
-				$this->assign('mid',$mid);				
-				$this->assign('cate',$cate);	
-				$this->display('content/content/content_upd');
-			} 
-			
-			
-		}while(0);
-		exit(json_encode($ret));
+			}while(0);
+			exit(json_encode($ret));		
+		}else{
+			//这些案例所有都有对应栏目，所以是公用的
+			$cate  = M('cate')->select();
+			$cate = $this->unlimitedForLevel($cate);
+			$content = M($classname);			
+			$where['aid'] =$aid;
+			$detail_info = $content->where($where)->find();			
+			$html = $class->edit_html($detail_info);			
+			$this->assign('html',$html);
+			$this->assign('mid',$mid);				
+			$this->assign('cate',$cate);	
+			$this->display('content/content/content_upd');			
+		}		
 	}
 	
 	//内容删除

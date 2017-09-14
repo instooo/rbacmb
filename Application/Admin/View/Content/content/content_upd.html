@@ -51,7 +51,7 @@
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script> 
 <script type="text/javascript">	
-    $(function(){ 	
+    $(function(){ 
 		var test= {};
 		var len = $("textarea[data-type=editor]").length;		
 		for(var i=0;i<len;i++){
@@ -62,39 +62,21 @@
 			});	
 							 
 		}
-        $('#dosubmit').live('click',function() {		
-			for(var i=0;i<len;i++){
-				editor_name = $("textarea[data-type=editor]").eq(i).attr('name');				
-				//UE.getEditor(editor_name).sync();
-			}
-            var options = {
-                url: "/content/content_add",
-                type:"post",
-                data: {},
-                success: function (data) {
-                    data=jQuery.parseJSON(data);
-                    if(data.code==1){
-                        layer.msg('修改成功', {icon:6,time:1000}, function () {
-							 var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-							 parent.location.reload()
-							 parent.layer.close(index);
-						}); 
-                        return false; 
-                    }else{
-                        layer.msg(data.msg, {icon:5,time:1000});
-                        return false;
-                    }
-                    
-                },
-                error:function () {
-                    layer.msg('未知错误', {icon:5,time:1000});
-                },
-            };  
-				
-            $("form").ajaxSubmit(options);      
-        });
-    })
 	
+		$(".havepic").click(function(){
+			// 清除input文本
+			var datasrc=$(this).parents(".preview-small").attr('data-src');
+			var nowval = $(this).parents("tr").find("td").eq(0).find("input").val();							
+			var new_val = nowval.replace(datasrc,'');
+			new_val = new_val.replace("||",'|');
+			$(this).parents("tr").find("td").eq(0).find("input").val(new_val);			
+			// 移除上传文本框
+			$(this).parents(".preview-small").fadeOut(500, function(){
+				$(this).remove();
+			});
+		})
+    })
+
 	function closelayr(){
 			var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 			parent.layer.close(index);
