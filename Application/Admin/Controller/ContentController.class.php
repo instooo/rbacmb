@@ -170,7 +170,7 @@ class ContentController extends CommonController {
 	//内容列表页
 	public function content_list(){
 		$mid = session('content_mid');
-		$mid = $mid?$mid:0;
+		$mid = $mid?$mid:1;
 		
 		//找到相应模型并获得类
 		$result = M('model')->where("id=".$mid)->find();
@@ -268,7 +268,37 @@ class ContentController extends CommonController {
 		if($_POST){
 			$return = array("state"=>-1,"msg"=>'',"data"=>"");
 			do{	
-				
+				$data = $_POST;
+				//检查数据
+				$checkresult = $class->checkData($data);				
+				if($checkresult['code']!=1){
+					$ret = $checkresult;
+					break;
+				}
+				//整理数据
+				$data = $class->filter($data);				
+				$content = M($classname);			
+				//对栏目进行过滤
+				if(!$data['typeid'] || $data['typeid']==-1){
+					$ret['code'] = -1;
+					$ret['msg'] = '请选择栏目';
+					break;			
+				}
+				if(!$data['aid']){
+					$ret['code'] = -1;
+					$ret['msg'] = '更新数据出错';
+					break;	
+				}
+				$map['aid'] = $data['aid'];
+				$st = $content->where($map)->save($data);					
+				if($st===false){
+					$ret['code'] = 0;
+					$ret['msg'] = '添加失败';
+					break;					
+				}			
+				$ret['code'] = 1;
+				$ret['msg'] = '添加成功';
+				break;
 			}while(0);
 			exit(json_encode($ret));		
 		}else{
@@ -281,7 +311,8 @@ class ContentController extends CommonController {
 			$html = $class->edit_html($detail_info);			
 			$this->assign('html',$html);
 			$this->assign('mid',$mid);				
-			$this->assign('cate',$cate);	
+			$this->assign('cate',$cate);
+			$this->assign('detail_info',$detail_info);				
 			$this->display('content/content/content_upd');			
 		}		
 	}

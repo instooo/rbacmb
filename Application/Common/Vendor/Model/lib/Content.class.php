@@ -91,7 +91,8 @@ class Content{
 	
 	//根据类型获得不同类型的前端代码
 	public function edit_html($fields,$info){		
-		$html = "";		
+		$html = "";
+		$html .= "<input type='hidden' name='aid' id='aid'  value='".$info['aid']."'>";	
 		foreach($fields as $key=>$val){
 			if($key!=='val'){			
 				switch($val[2]){

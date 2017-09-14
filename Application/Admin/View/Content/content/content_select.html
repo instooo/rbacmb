@@ -39,7 +39,7 @@
 				data:{id:id},
 				url:'/content/content_select',				
 				success:function (data) {
-					parent.location.reload();
+					parent.location.href="/content/content_list";
 					var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 					parent.layer.close(index);
 					

@@ -4,7 +4,7 @@ function upload(id,uploadname){
 	uploadname = WebUploader.create({
 		pick: {
 			id: id,				
-			multiple: true			
+			multiple: false			
 		},
 		formData: {},		
 		compress:false,
@@ -21,7 +21,7 @@ function upload(id,uploadname){
 		fileNumLimit: 1,
 		fileSizeLimit: 1.5 * 1024 * 1024,           // 300 M
 		fileSingleSizeLimit: 1.5 * 1024 * 1024,     // 300 M
-		duplicate: true
+		duplicate: false
 	});	
 	
 	// 文件加入队列时触发
@@ -173,7 +173,7 @@ function upload(id,uploadname){
 		var thumbnailHeight = 131;
 		
 		// 生成缩略图		
-		$("input[name='"+name_str+"']").closest('tr').find('.wait-upload').append(
+		$("input[name='"+name_str+"']").closest('tr').find('.wait-upload').html(
 			'<div class="preview-small imgWrap fl" id="preview_' + file[0]['id'] + '">' +
 				'<i class="position-ab"></i>' +
 				'<div class="preview-progress">' +
