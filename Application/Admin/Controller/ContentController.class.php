@@ -237,7 +237,7 @@ class ContentController extends CommonController {
 			exit(json_encode($ret));
 		}else{
 			//这些案例所有都有对应栏目，所以是公用的
-			$cate  = M('cate a')->join('youzhan_model b on a.m_id=b.id')->select();
+			$cate  = M('cate')->select();
 			$cate = $this->unlimitedForLevel($cate);		
 			$html = $class->get_html();
 			$this->assign('html',$html);
@@ -247,4 +247,69 @@ class ContentController extends CommonController {
 		} 
 		
 	}
+
+	//内容删除
+	public function content_upd(){
+		$return = array("state"=>-1,"msg"=>'',"data"=>"");
+		do{ 	
+		
+			$id =  $_REQUEST ['id'];
+			$mid =  $_REQUEST ['mid'];
+			if($mid){
+				$result = M('model')->where("id=".$mid)->find();
+			}else{
+				$ret['code'] = -1;
+				$ret['msg'] = '无模型，数据错误';
+				break;
+			}
+			$classname =ucfirst(strtolower($result['class']));
+			import('Common/Vendor/Model/'.$classname);		
+			$class    = new $classname();
+			if($_POST){
+				
+			}else{
+				//这些案例所有都有对应栏目，所以是公用的
+				$cate  = M('cate')->select();
+				$cate = $this->unlimitedForLevel($cate);
+				$this->assign('mid',$mid);				
+				$this->assign('cate',$cate);	
+				$this->display('content/content/content_upd');
+			} 
+			
+			
+		}while(0);
+		exit(json_encode($ret));
+	}
+	
+	//内容删除
+	public function content_del(){
+		$return = array("state"=>-1,"msg"=>'',"data"=>"");
+		do{ 	
+		
+			$id =  $_REQUEST ['id'];
+			$mid =  $_REQUEST ['mid'];
+			if($mid){
+				$result = M('model')->where("id=".$mid)->find();
+			}else{
+				$ret['code'] = -1;
+				$ret['msg'] = '无模型，数据错误';
+				break;
+			}
+			$classname =ucfirst(strtolower($result['class']));			
+			$content = M($classname);			
+			$where['aid'] =$id;
+			$st = $content->where($where)->delete();			
+			if($st){
+				$ret['code'] = 0;
+				$ret['msg'] = '删除成功';
+				break;
+			}else{
+				$ret['code'] = -1;
+				$ret['msg'] = '删除失败';
+				break;
+			}				
+		}while(0);
+		exit(json_encode($ret));
+	}
+	
 }

@@ -24,7 +24,7 @@
                         <a onclick="select_model()" class="manager-btn s-btn search-btn" style="margin:0;padding:"; >模型选择</a>
                     </li>
 					<li class="line" style=" float:right;">					
-                        <a  class="manager-btn s-btn search-btn content-sub" style="margin:0;padding:"; data-mid="<{$mid}>">添加文章</a>
+                        <a class="manager-btn s-btn search-btn content-sub" style="margin:0;padding:" id="meitiid" data-mid="<{$mid}>">添加文章</a>
                     </li>					
                 </ul>
             </div>
@@ -43,13 +43,13 @@
                     <tbody>
                     <if condition="$list">
                         <volist name="list" id="vo">
-                            <tr data-id="<{$vo.typeid}>" align="center">
+                            <tr data-id="<{$vo.aid}>" align="center">
 								<volist name="fileds" id="v">
-								<if condition="$v[4] eq 1">
-                                <td><{$vo["$v[0]"]}></td>
-								</if>
+									<if condition="$v[4] eq 1">
+									<td><{$vo["$v[0]"]}></td>
+									</if>
 								</volist>
-                                <td style="text-align:left; padding-left:30px;"><a class="btn-w btn-block btn-info btn-flat" href="/content/cate_upd/id/<{$vo.typeid}>">修改</a>
+                                <td style="text-align:left; padding-left:30px;"><a class="btn-w btn-block btn-info btn-flat btn-upd" "  href="javascript:void(0);" >修改</a>
 									<a class="btn_dele btn-w btn-block btn-info btn-warning" href="javascript:void(0);">删除</a>
                             </tr>
                         </volist>
@@ -88,5 +88,50 @@
 			
 		});			
 	})
+	
+	$(".btn-upd").click(function(){
+		var id = $(this).parents('tr').attr('data-id');
+		if (id == '') return false;
+		var mid = $("#meitiid").attr('data-mid');
+		layer.open({
+			type: 2,
+			title: '修改文章',				
+			area: ["100%", "100%"], //宽高
+			content: "/content/content_upd/mid/"+mid+"/aid/"+id,
+			
+		});			
+	})
+	
+	//删除提示
+	$('.btn_dele').click(function () {
+		var id = $(this).parents('tr').attr('data-id');
+		if (id == '') return false;
+		layer.confirm('确定要删除该类型？', {
+			btn: ['确定','取消']
+		}, function(){
+			doDele(id);
+		});
+	});
+	//删除内容
+	function doDele(id) {
+		var mid = $("#meitiid").attr('data-mid');
+		$.ajax({
+			type:'post',
+			dataType:'json',
+			data:{id:id,mid:mid},
+			url:'/content/content_del',
+			error:function () {
+				layer.msg('未知错误', {icon:5,time:1000});
+			},
+			success:function (data) {
+				if (data.code == 0) {
+					layer.msg('删除成功', {icon:6,time:1000}, function () {location.reload()});
+				}else {
+					layer.msg(data.msg, {icon:5,time:1000});
+				}
+			}
+		});
+	}
+	
 </script>	
 <include file="Public/footer" />
