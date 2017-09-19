@@ -9,27 +9,18 @@
 		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="__CSS__/effects/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="__CSS__/effects/css/set1.css" />
-		    <script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />		
+		<script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
 		<script type="text/javascript" src="__JS__/layer/layer.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">				
-			
-				<div class="grid">
-					<volist name="modellist" id="vo">
-					<figure class="effect-layla">
-						<img/>
-						<figcaption>
-							<h2><{$vo.name}> <span><{$vo.class}></span></h2>						
-							<a onclick="select_model(<{$vo.id}>)"></a>
-						</figcaption>			
-					</figure>
+				<ul>
+					<volist name="list" id="vo">
+					<li><a onclick="select_model(<{$vo.typeid}>)"><{$vo.typename}></a></li>
 					</volist>
-				</div>
-		      </div>		
+				</ul>
 		</div><!-- /container -->
 		<script>
 			function select_model(id){

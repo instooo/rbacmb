@@ -26,7 +26,7 @@
 					<select class='manager-input s-input' name='typeid' id='typeid' style='width:300px'>
 						<option value="-1">选择栏目</type>
 						<volist name="cate" id="vo">
-						<option value="<{$vo.typeid}>" <if condition="$vo['m_id'] neq $mid">disabled style="background:#e1e1e1;"</if>><{$vo.html}><{$vo.typename}></type>
+						<option value="<{$vo.typeid}>" <if condition="$vo['typeid'] eq $typeid">selected</if>  <if condition="$vo['m_id'] neq $mid">disabled style="background:#e1e1e1;"</if>><{$vo.html}><{$vo.typename}></type>
 						</volist>
 					</select>
 					</td></tr>				

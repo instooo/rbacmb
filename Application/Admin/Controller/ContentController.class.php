@@ -156,12 +156,13 @@ class ContentController extends CommonController {
 		if ($_POST) {
 			$id = $_REQUEST['id'];
 			$id = $id?$id:0;
-			session('content_mid',$id);
+			session('cate_id',$id);
 		}else{
 			//查找对应模型
-			$map['id']=array('neq',0);
-			$modellist = M('model')->where($map)->select();
-			$this->assign('modellist',$modellist);
+			$map['a.m_id']=array('neq',0);
+			$list = M('cate a')->join('youzhan_model b on a.m_id=b.id')->where($map)->select();			
+			$this->assign('list',$list);
+			
 			$this->display('content/content/content_select');		
 		}
 		
@@ -169,9 +170,10 @@ class ContentController extends CommonController {
 	
 	//内容列表页
 	public function content_list(){
-		$mid = session('content_mid');
-		$mid = $mid?$mid:1;
-		
+		$typeid = session('cate_id');		
+		//查找对应栏目的模型
+		$cateinfo = M('cate')->where('typeid='.$typeid)->find();		
+		$mid = $cateinfo['m_id']?$cateinfo['m_id']:1;		
 		//找到相应模型并获得类
 		$result = M('model')->where("id=".$mid)->find();
 		$classname =ucfirst(strtolower($result['class']));
@@ -180,6 +182,7 @@ class ContentController extends CommonController {
 		$fileds =$class->getFields();
 		//查找对应的栏目id		
 		$content = M($classname);
+		$contentmap['typeid']= $typeid;
 		$count = $content	
 				->where($contentmap)					
 				->count();	
@@ -194,6 +197,7 @@ class ContentController extends CommonController {
 		$this->assign ( 'page', $page->show () );
 		$this->assign('fileds',$fileds);
 		$this->assign('mid',$mid);
+		$this->assign('cateinfo',$cateinfo);
 		$this->display('content/content/content_list');		
 	}
 	
@@ -201,6 +205,7 @@ class ContentController extends CommonController {
 	public function content_add(){
 		//模型默认为文章模型
 		$mid=$_REQUEST ['mid'];
+		$typeid=$_REQUEST ['typeid'];
 		$mid=$mid?$mid:1;
 		//查找模型对应的表格和对应的类名
 		$result = M('model')->where("id=".$mid)->find();
@@ -244,7 +249,8 @@ class ContentController extends CommonController {
 			$cate = $this->unlimitedForLevel($cate);		
 			$html = $class->get_html();
 			$this->assign('html',$html);
-			$this->assign('mid',$mid);				
+			$this->assign('mid',$mid);
+			$this->assign('typeid',$typeid);				
 			$this->assign('cate',$cate);	
 			$this->display('content/content/content_add');
 		} 
