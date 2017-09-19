@@ -17,7 +17,8 @@ $config = array(
 		'IS_NEW'				    =>  true,
 		'APP_SUB_DOMAIN_DEPLOY'=>1, // 开启子域名配置
 		'APP_SUB_DOMAIN_RULES'    =>    array(   
-			'admin.dongguan.me'  => 'Admin', 	
+			'admin.dongguan.me'  => 'Admin',
+			'www.dongguan.me'  => 'Home',	
 		),	
 
 );

@@ -170,7 +170,8 @@ class ContentController extends CommonController {
 	
 	//内容列表页
 	public function content_list(){
-		$typeid = session('cate_id');		
+		$typeid = session('cate_id');	
+		$typeid = $typeid?$typeid:0;	
 		//查找对应栏目的模型
 		$cateinfo = M('cate')->where('typeid='.$typeid)->find();		
 		$mid = $cateinfo['m_id']?$cateinfo['m_id']:1;		
@@ -197,6 +198,7 @@ class ContentController extends CommonController {
 		$this->assign ( 'page', $page->show () );
 		$this->assign('fileds',$fileds);
 		$this->assign('mid',$mid);
+		$this->assign('typeid',$typeid);		
 		$this->assign('cateinfo',$cateinfo);
 		$this->display('content/content/content_list');		
 	}

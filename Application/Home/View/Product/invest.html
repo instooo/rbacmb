@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/swiper.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/module.js"></script>
+<script src="js/swiper.min.js"></script>
+</head>
+<body>
+    <div class="common-box">
+        <div class="nav">
+            <div class="logo"></div>
+            <div class="nav-list">
+                <ul>
+                    <a href="index.html"><li>首页</li></a>
+                    <a href="dongguan.html"><li>走进东关</li></a>
+                    <a href="news.html"><li>新闻中心</li></a>
+                    <a href="product.html"><li class="active">集团产业</li></a>
+                    <a href="commonweal.html"><li>社会公益</li></a>
+                    <a href="join.html"><li>加入我们</li></a>
+                    <a href="contact.html"><li>联络我们</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <ul>
+                <li style="margin-right:70px;"></li>
+                <a href="product.html"><li>房地产开发</li></a>
+                <a href="product-update.html"><li>城市更新</li></a>
+                <a href="product-invest.html"><li class="active">置业投资</li></a>
+                <a href="product-service.html"><li>物业服务</li></a>
+            </ul>
+        </div>
+    </div>
+    <div class="common-box"><div class="inside-banner"><img src="images/inside-banner.jpg" alt=""></div></div>
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                集团产业<span>＞</span>置业投资
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>置业投资<span>REAL ESTATE INVESTMENT </span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="product invest-box">
+        <div class="product-text">
+            <div class="red-box"></div>
+            <p>在置业投资领域，集金融与房地产开发前期运营策划，土地包装及推广，通过商业运营，收购物业进行资产重组，激活置业投资产业链，携手合作伙伴共赢未来。</p>
+        </div>
+        <div class="invest">
+            <div class="left">
+                <ul>
+                    <li class="active">深圳龙华新区·观澜皇帝印工业区</li>
+                    <li>深圳福田·福田保税区</li>
+                    <li>深圳龙岗·百富城</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="swiper-container swiper-container1 bulid-banner">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination swiper-pagination1"></div>
+                </div>
+
+                <div class="swiper-container swiper-container2 bulid-banner" style="opacity: 0;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination swiper-pagination2"></div>
+                </div>
+
+                <div class="swiper-container swiper-container3 bulid-banner" style="opacity: 0;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                        <div class="swiper-slide"><img src="images/5.png" alt=""></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination swiper-pagination3"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="common-box">
+        <div class="footer">
+            <h3>版权说明</h3>
+            <p>东关集团版权所有 粤ICP备17094323号</p>
+            <p>深圳市东关投资集团有限公司   深圳市福田区上梅林梅东二路3-18号   0755-83674811</p>
+        </div>
+    </div> 
+<script>
+var swiper1 = new Swiper('.swiper-container1', {
+    pagination: '.swiper-pagination1',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+var swiper2 = new Swiper('.swiper-container2', {
+    pagination: '.swiper-pagination2',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+var swiper3 = new Swiper('.swiper-container3', {
+    pagination: '.swiper-pagination3',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+var obj = new Obj();
+obj.invest();
+</script>   
+</body>
+</html>
