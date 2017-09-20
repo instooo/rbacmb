@@ -543,7 +543,15 @@ body{
 		width: 1200px;
 		overflow: hidden;
 		margin: 30px auto 0;
-		border-bottom:#ddd 1px solid;	
+		border-bottom:#ddd 1px solid;
+		li{
+			width: 300px;
+			overflow: hidden;
+			display: block;
+			float: left;
+			height: 100px;
+			margin-bottom: 30px;
+		}	
 	}
 
 	.news-box{
@@ -1496,18 +1504,7 @@ body{
 					top: -25px;
 					z-index: 2;
 				}
-				li.active1-1:hover .active1{
-					display: block;
-				}
-				li.active1-2:hover .active2{
-					display: block;
-				}
-				li.active1-3:hover .active3{
-					display: block;
-				}
-				li.active1-4:hover .active4{
-					display: block;
-				}				
+			
 				.active1{
 					display: none;
 					left: -50px;

@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="title" content="东关集团">
-<meta name="keywords" content="东关集团">
-<meta name="description" content="东关集团">
-<title>东关集团</title>
+<meta name="title" content="<{$webinfo.sitename}>">
+<meta name="keywords" content="<{$webinfo.keywords}>">
+<meta name="description" content="<{$webinfo.descriptions}>">
+<title>东关集团-<{$smalltitle}></title>
 <link rel="stylesheet" href="__CSS__/style.css">
 <link rel="stylesheet" href="__CSS__/swiper.min.css">
 <script src="__JS__/jquery.min.js"></script>
@@ -35,16 +35,13 @@
             </div>
             <div class="swiper-container swiper-container2 content">
                 <div class="swiper-wrapper">
+					<volist name="list" id="vo">
                     <div class="swiper-slide">
-                        <h3><a href="news-content.html">拾悦城乐高嘉年华惊喜上映</a></h3>
+                        <h3><a href="news-content.html"><{$vo.title}></a></h3>
                         <div class="line-bottom"></div>
-                        <p><a href="news-content.html">东关·拾悦城位于沙井核心地带，地处宝安区沙井地铁11号线沿线旧改重点区域。毗邻地铁11号线沙井站，高效连接福田、南山。项目分为两期开发，一期规划总建筑面积约17万㎡，商业规划约8700㎡，包含4000㎡风情商业街，还规划一所优质小学。</a></p>
+                        <p><a href="news-content.html"><{$vo.description}></a></p>
                     </div>
-                    <div class="swiper-slide">
-                        <h3><a href="news-content.html">业界名家齐聚拾悦城 为你解读湾区未来发展价值</a></h3>
-                        <div class="line-bottom"></div>
-                        <p><a href="news-content.html">2017年6月18日，世界湾价值高峰论坛——暨东关·拾悦城体验中心开放活动隆重举行。现场特邀综合开发研究院（深圳）旅游与地产研究中心主任宋丁、深职院房地产研究所所长邓志旺、知名城市学者、资深地产评论家王世泰、中原二级市场董事总经理玉家雄、深圳市网上行互动传媒有限公司总经理华仲占等十几位业界大咖齐聚论坛，为你深入解读世界的湾，生活的城！</a></p>
-                    </div>
+                    </volist>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination swiper-pagination2"></div>
@@ -54,10 +51,10 @@
         </div>
         <div class="right">
             <ul>
-                <li class="active1-1"><a href="product.html"><img src="__IMAGE__/index-1.jpg" alt=""></a><div class="active1"><a href="product.html"><img src="__IMAGE__/index-1h.jpg" alt=""></a></div></li>
-                <li class="active1-2"><a href="product-update.html"><img src="__IMAGE__/index-2.jpg" alt=""></a><div class="active2"><a href="product-update.html"><img src="__IMAGE__/index-2h.jpg" alt=""></a></div></li>
-                <li class="active1-3"><a href="product-invest.html"><img src="__IMAGE__/index-3.jpg" alt=""></a><div class="active3"><a href="product-invest.html"><img src="__IMAGE__/index-3h.jpg" alt=""></a></div></li>
-                <li class="active1-4"><a href="product-service.html"><img src="__IMAGE__/index-4.jpg" alt=""></a><div class="active4"><a href="product-service.html"><img src="__IMAGE__/index-4h.jpg" alt=""></a></div></li>
+                <li class="active1-1"><a href="/product.html"><img src="__IMAGE__/index-1.jpg" alt=""></a><div class="active1 active-hover" style="display:block"><a href="/product.html"><img src="__IMAGE__/index-1h.jpg" alt=""></a></div></li>
+                <li class="active1-2"><a href="/product/update.html"><img src="__IMAGE__/index-2.jpg" alt=""></a><div class="active2 active-hover"><a href="/product/update.html"><img src="__IMAGE__/index-2h.jpg" alt=""></a></div></li>
+                <li class="active1-3"><a href="/product/invest.html"><img src="__IMAGE__/index-3.jpg" alt=""></a><div class="active3 active-hover"><a href="/product/invest.html"><img src="__IMAGE__/index-3h.jpg" alt=""></a></div></li>
+                <li class="active1-4"><a href="/product/service.html"><img src="__IMAGE__/index-4.jpg" alt=""></a><div class="active4 active-hover"><a href="/product/service.html"><img src="__IMAGE__/index-4h.jpg" alt=""></a></div></li>
 
             </ul>
         </div>
@@ -81,6 +78,9 @@ var swiper1 = new Swiper('.swiper-container2', {
     paginationClickable: true,
     direction: 'vertical'
 });
+$(".index-content .right li").hover(function(){
+    $(this).find(".active-hover").fadeIn(100).parents('li').siblings().find('.active-hover').fadeOut(100);
+})
 </script>   
 </body>
 </html>

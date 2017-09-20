@@ -408,6 +408,13 @@ body .partners {
   overflow: hidden;
   margin: 30px auto 0;
   border-bottom: #ddd 1px solid; }
+  body .partners li {
+    width: 300px;
+    overflow: hidden;
+    display: block;
+    float: left;
+    height: 100px;
+    margin-bottom: 30px; }
 body .news-box {
   width: 1200px;
   overflow: hidden;
@@ -1176,14 +1183,6 @@ body .index-content {
         left: 0;
         top: -25px;
         z-index: 2; }
-      body .index-content .right ul li.active1-1:hover .active1 {
-        display: block; }
-      body .index-content .right ul li.active1-2:hover .active2 {
-        display: block; }
-      body .index-content .right ul li.active1-3:hover .active3 {
-        display: block; }
-      body .index-content .right ul li.active1-4:hover .active4 {
-        display: block; }
       body .index-content .right ul .active1 {
         display: none;
         left: -50px; }
