@@ -11,7 +11,8 @@ class Picture extends Content implements ContentInterface
     //获取模型字段和类型
     function getFields(){
 		$common_fields = parent::getFields();
-		$fields[]=array('img_duo',"多张图片",'mu_file',10);			
+		$fields[]=array('des',"内容描述",'text','',1);
+		$fields[]=array('img_duo',"单张图片",'file',10);			
 		$common_fields = array_merge($common_fields,$fields);
 		return $common_fields;		
 	}

@@ -42,8 +42,9 @@
     </div>
     <div class="swiper-container swiper-container1 idea-banner">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><a href=""><img src="__IMAGE__/idea-banner.jpg" alt=""></a></div>
-            <div class="swiper-slide"><a href=""><img src="__IMAGE__/idea-banner1.jpg" alt=""></a></div>
+			<volist name="list" id="vo">
+            <div class="swiper-slide"><a href="javascript:void()"><img src="<{$vo.img_duo}>" alt=""></a></div>
+			</volist>
         </div>
         <!-- Add Arrows -->
         <div class="swiper-button-next swiper-button-next1"></div>

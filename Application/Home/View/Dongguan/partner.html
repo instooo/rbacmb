@@ -38,29 +38,9 @@
     </div>
     <div class="partners">
 	<ul>
-            <li><img src="__IMAGE__/friend/partners_01.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_02.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_03.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_04.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_05.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_06.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_07.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_08.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_09.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_10.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_11.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_12.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_13.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_14.jpg" alt=""></li>           
-            <li><img src="__IMAGE__/friend/partners_15.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_16.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_17.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_18.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_19.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_20.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_21.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_22.jpg" alt=""></li>
-            <li><img src="__IMAGE__/friend/partners_23.jpg" alt=""></li>
+			<volist name="list" id="vo" mod='2'>
+            <li><img src="<{$vo.img_duo}>" alt="<{$vo.title}>"></li>
+            </volist>                
         </ul>
     </div>
     <include file="Public/footer" />

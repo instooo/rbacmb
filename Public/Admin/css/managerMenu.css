@@ -57,6 +57,7 @@ table.huitable td {
     border-bottom: 1px dashed #ddd;
     font: 14px/1.6 Arial,"Microsoft YaHei";	
 	position:relative;
+	text-align:left;
 }
 table.huitable td .normorinput{
 	height:26px; width:90%;;

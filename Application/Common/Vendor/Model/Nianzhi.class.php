@@ -7,23 +7,12 @@ class Nianzhi extends Content implements ContentInterface
 {	
 	protected $_validate = array(
 		array('title','require','项目名称不能为空'), //默认情况下用正则进行验证	
-		array('zdmianji','require','不能为空'), //默认情况下用正则进行验证	
-		array('jzmianji','require','不能为空'), //默认情况下用正则进行验证	
-		array('rongji','require','不能为空'), //默认情况下用正则进行验证	
-		array('count','require','不能为空'), //默认情况下用正则进行验证		
-		array('img_duo','require','至少一张'), //默认情况下用正则进行验证
-		array('content','require','不能为空'), //默认情况下用正则进行验证		
 	);
     //获取模型字段和类型
     function getFields(){
-		$common_fields = parent::getFields();
-		$fields[]=array('zdmianji',"占地面积（m2）",'input','',1);
-		$fields[]=array('jzmianji',"建筑面积（m2）",'input','',1);
-		$fields[]=array('rongji',"容积率",'input','',1);
-		$fields[]=array('count',"总户数",'input','',1);		
-		$fields[]=array('kftime',"开发时间",'date','',0);		
-		$fields[]=array('img_duo',"项目图片",'mu_file',10);	
-		$fields[]=array('content',"项目介绍",'editor','',0);	
+		$common_fields = parent::getFields();	
+		$fields[]=array('htime',"历史时间",'input','',1);		
+		$fields[]=array('des',"内容描述",'text',10);
 		$common_fields = array_merge($common_fields,$fields);
 		return $common_fields;		
 	}

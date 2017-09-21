@@ -39,31 +39,16 @@
     <div class="year-book honor">
         <div class="year">
             <div class="start left">
-                <h3>2011年</h3>
-                <p>荣获“深圳市福田区教育系统2011年先进基层党组织”</p>
-                <img src="__IMAGE__/honor1.jpg" alt="">
+             
             </div>
             <ul>
-                <li class="right">
-                    <h3>2015年</h3>
-                    <p>东关·岸上林居荣获“2015中国宜居示范楼盘”</p>
-                    <img src="__IMAGE__/honor2.jpg" alt="">
+				<volist name="list" id="vo" mod='2'>
+                <li <eq name='mod' value='1'>class="right"<else/>class="left"</eq>>
+                    <h3><{$vo.title}></h3>
+                    <p><{$vo.des}></p>
+                    <img src="<{$vo.img_duo}>" alt="">
                 </li>
-                <li class="left">
-                    <h3>2015年</h3>
-                    <p> 东关·岸上林居荣获“2015中国房产风云榜最具影响力楼盘”</p>
-                    <img src="__IMAGE__/honor3.jpg" alt="">
-                </li>
-                <li class="right">
-                    <h3>2015年</h3>
-                    <p>荣获“汕尾市2015年度扶贫济困突出贡献”</p>
-                    <img src="__IMAGE__/honor4.jpg" alt="">
-                </li>
-                <li class="left">
-                    <h3>2016年</h3>
-                    <p>成为“深圳市城市更新开发企业协会会员单位”</p>
-                    <img src="__IMAGE__/honor5.jpg" alt="">
-                </li>
+				</volist> 
             </ul>
             <div class="end"></div>
         </div>
