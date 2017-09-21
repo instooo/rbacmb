@@ -12,7 +12,7 @@ class Content{
 		$fields = array();
 		//显示的字段-start
 		$fields[]=array('title',"标题",'input','',1);
-		$fields[]=array('weight',"权重",'input',0,1);
+		$fields[]=array('weight',"排序",'input',0,1);
 		//显示的字段-end		
 		$fields['val']['status'] =array("开启:1:checked","关闭:0");
 		return $fields;
@@ -170,7 +170,7 @@ class Content{
 						$html.="<tr><td>".$val['1']."</td><td>";
 						foreach($fields['val'][$val['0']] as $k=>$v){
 							$tmpdata = explode(":",$v);
-							$html.='<input name='.$val["1"].' value="'.$tmpdata[1].'" type="radio" '.$tmpdata[2].'>'.$tmpdata["0"];		
+							$html.='<input name='.$val["0"].' value="'.$tmpdata[1].'" type="radio" '.$tmpdata[2].'>'.$tmpdata["0"];		
 						}						
 						$html.="</td></tr>";
 						break;

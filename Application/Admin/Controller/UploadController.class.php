@@ -38,7 +38,7 @@ class UploadController extends CommonController {
 	//文件上传处理
 	public function uploadImage_do() {		
 		$upload = new \Think\Upload();// 实例化上传类
-		$upload->maxSize   =     2*1024*1024;// 设置附件上传大小
+		$upload->maxSize   =     20*1024*1024;// 设置附件上传大小
 		$upload->exts      =     array('png','gif','jpg','jpeg','bmp');// 设置附件上传类型		
 		$upload->rootPath  =     C("UPLOAD_PATH"); // 设置附件上传根目录
 		$upload->savePath  =     ''; // 设置附件上传（子）目录\		

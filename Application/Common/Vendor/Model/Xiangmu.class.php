@@ -17,13 +17,15 @@ class Xiangmu extends Content implements ContentInterface
     //获取模型字段和类型
     function getFields(){
 		$common_fields = parent::getFields();
+		$fields[]=array('kaifazt',"开发状态",'radio',array('0','1','2'));	
 		$fields[]=array('zdmianji',"占地面积（m2）",'input','',1);
 		$fields[]=array('jzmianji',"建筑面积（m2）",'input','',1);
 		$fields[]=array('rongji',"容积率",'input','',1);
 		$fields[]=array('count',"总户数",'input','',1);		
 		$fields[]=array('kftime',"开发时间",'date','',0);		
 		$fields[]=array('img_duo',"项目图片",'mu_file',10);	
-		$fields[]=array('content',"项目介绍",'editor','',0);	
+		$fields[]=array('content',"项目介绍",'editor','',0);		
+		$fields['val']['kaifazt'] =array("热销项目:0:checked","在建项目:1","已完成项目:2");	
 		$common_fields = array_merge($common_fields,$fields);
 		return $common_fields;		
 	}

@@ -35,51 +35,30 @@
             <div class="common-box3"><div class="arrow"></div></div>
         </div>
         <div class="right">
+			<volist name="list" id="vo" offset="0" length='1'>
             <div class="header-news">
-                <div class="time">JUL 20,2017</div>
-                <div class="title"><a href="news-content.html">东关·拾悦城封顶</a></div>
-                <p><a href="news-content.html">2017年7月20日</a></p>
-                <p><a href="news-content.html">由深圳市东关投资集团有限公司开发的城市西部力作——拾悦城，如期封顶。</a></p>
+                <div class="time"><{$vo.addtime|date='M d,Y',###}></div>
+                <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
+                <p><a href="news-content.html"><{$vo.addtime|date='Y年m月d日',###}></a></p>
+                <p><a href="news-content.html"><{$vo.des}></a></p>
                 <div class="view"><a href="news-content.html"></a></div>
             </div>
+			</volist>
             <ul>
+				<volist name="list" id="vo">
                 <li>
                     <div class="time">
-                        <div class="day">20</div>
-                        <p>JUL</p>
-                        <p>2017</p>
+                        <div class="day"><{$vo.addtime|date='d',###}></div>
+                        <p><{$vo.addtime|date='M',###}></p>
+                        <p><{$vo.addtime|date='Y',###}></p>
                     </div>
                     <div class="content">
-                        <div class="title"><a href="news-content.html">东关·拾悦城封顶</a></div>
+                        <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
                         <div class="author">发布者：东关集团</div>
-                        <p><a href="news-content.html">2017年7月20日，由深圳市东关投资集团有限公司开发的城市西部力作——拾悦城，如期封顶。</a></p>
+                        <p><a href="news-content.html"><{$vo.des}></a></p>
                     </div>
-                </li>
-                <li>
-                    <div class="time">
-                        <div class="day">18</div>
-                        <p>JUL</p>
-                        <p>2017</p>
-                    </div>
-                    <div class="content">
-                        <div class="title"><a href="news-content.html">拾悦城世界湾价值高峰论坛暨体验中心开放</a></div>
-                        <div class="author">发布者：东关集团</div>
-                        <p><a href="news-content.html">017年6月18日，东关·拾悦城体验中心盛大开放，“世界的湾 生活的城”世界湾价值高峰论坛也于项目现场揭幕。深圳主流地产媒体、业界众多大咖齐聚一堂。</a></p>
-                    </div>
-                </li>
-                <li style="border-bottom:none;">
-                    <div class="time">
-                        <div class="day">10</div>
-                        <p>JUL</p>
-                        <p>2017</p>
-                    </div>
-                    <div class="content">
-                        <div class="title"><a href="news-content.html">集团与建设银行深圳分行达成战略合作，获20亿元人民币授信额度</a></div>
-                        <div class="author">发布者：东关集团</div>
-                        <p><a href="news-content.html">2013年，东关集团投资有限公司（以下简称东关集团）与建设银行深圳分行在深圳签署战略合作协议，东关集团获20亿元人民币授信额度。</a></p>
-                    </div>
-                </li>
-
+                </li>              
+				</volist>
             </ul>
             <div class="more"></div>
         </div>

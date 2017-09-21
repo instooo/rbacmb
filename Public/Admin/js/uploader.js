@@ -220,29 +220,7 @@ function upload_many(id,uploadname,num){
 			multiple: true			
 		},
 		formData: {},
-		compress: {
-			width: 20,
-			height: 20,
-
-			// 图片质量，只有type为`image/jpeg`的时候才有效。
-			quality: 90,
-
-			// 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为false.
-			allowMagnify: false,
-
-			// 是否允许裁剪。
-			crop: false,
-
-			// 是否保留头部meta信息。
-			preserveHeaders: true,
-
-			// 如果发现压缩后文件大小比原来还大，则使用原来图片
-			// 此属性可能会影响图片自动纠正功能
-			noCompressIfLarger: false,
-
-			// 单位字节，如果图片大小小于此值，不会采用压缩。
-			compressSize: 0
-		},
+		compress: false,
 		auto: false,		 
 		fileVal: 'sourceFile',      // 设置文件上传域的name
 		disableGlobalDnd: true,     // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
@@ -254,8 +232,8 @@ function upload_many(id,uploadname,num){
 		server: '/upload/uploadImage_do',
 		threads: num,
 		fileNumLimit: num,
-		fileSizeLimit: 1.5 * 1024 * 1024,           // 300 M
-		fileSingleSizeLimit: 1.5 * 1024 * 1024,     // 300 M
+		fileSizeLimit: 30 * 1024 * 1024,           // 300 M
+		fileSingleSizeLimit: 30 * 1024 * 1024,     // 300 M
 		duplicate: true
 	});	
 	
