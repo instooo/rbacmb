@@ -13,6 +13,14 @@ class DongguanController extends CommonController {
 	}
 	//
     public function index(){
+		
+		$typeid =36;
+		$dgjt = $this->get_cate_info($typeid);		
+		$typeid =37;
+		$jtzdr = $this->get_cate_info($typeid);	
+		
+		$this->assign('dgjt',$dgjt);
+		$this->assign('jtzdr',$jtzdr);
         $this->display();
     }
 	//企业理念

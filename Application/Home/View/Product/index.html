@@ -33,7 +33,7 @@
             </div>
             <div class="left-content">
                 <div class="font-bg">
-                      集团房地产开发团队善于发现客户需求，从关怀人性、关注生活本源为根本出发点，凝萃二十余载开发智慧，专注于精品物业的设计与生活氛围营造。团队对每个细节都精益求精，致力于将产品做到极致，从项目规划、建筑、景观、户型研究到交付，只为品质一步到位，打造世人期待的理想家园。
+                      <{$des.content}>
                 </div>
                 <ul class="nav">
                     <li <if condition="$typeid eq 33">class="active"</if>><a href="/product.html?id=33"><h3>热销项目</h3><span>HOT PROJECTS</span></a></li>
@@ -72,6 +72,9 @@
             </div>
 			</volist>           
             <div class="content"><img src="__IMAGE__/map.jpg" style="width:100%" alt=""></div>
+			<div class="page">
+				<{$page}>
+			</div>
         </div>
     </div>
     <include file="Public/footer" />

@@ -18,7 +18,10 @@ class ProductController extends CommonController {
 		foreach($list as $key=>$val){
 			$listnew[$key]=$val;
 			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
-		}				
+		}		
+		$typeid =15;
+		$des = $this->get_cate_info($typeid);	
+		$this->assign('des',$des);		
 		$this->assign('list',$listnew);		
 		$this->assign ( 'typeid', $typeid );
         $this->display();

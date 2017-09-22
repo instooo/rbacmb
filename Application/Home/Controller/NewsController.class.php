@@ -13,8 +13,11 @@ class NewsController extends CommonController {
 	}
     public function index(){
 		$typeid = 13;
-		$list = $this->get_list($typeid);
-		$this->assign('list',$list);			
+		$data = $this->get_list_page($typeid,10);
+		$topdata = $this->get_top_list($typeid,1);
+		$this->assign('list',$data['list']);
+		$this->assign('page',$data['page']);	
+		$this->assign('topdata',$topdata);			
         $this->display();
     }
 	public function content(){

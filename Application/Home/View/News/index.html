@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="title" content="东关集团">
-<meta name="keywords" content="东关集团">
-<meta name="description" content="东关集团">
-<title>东关集团</title>
+<meta name="title" content="<{$webinfo.sitename}>">
+<meta name="keywords" content="<{$webinfo.keywords}>">
+<meta name="description" content="<{$webinfo.descriptions}>">
+<title>东关集团-<{$smalltitle}></title>
 <link rel="stylesheet" href="__CSS__/style.css">
 <script src="__JS__/jquery.min.js"></script>
 <script src="__JS__/module.js"></script>
@@ -35,13 +35,13 @@
             <div class="common-box3"><div class="arrow"></div></div>
         </div>
         <div class="right">
-			<volist name="list" id="vo" offset="0" length='1'>
+			<volist name="topdata" id="vo" offset="0" length='1'>
             <div class="header-news">
                 <div class="time"><{$vo.addtime|date='M d,Y',###}></div>
                 <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
                 <p><a href="news-content.html"><{$vo.addtime|date='Y年m月d日',###}></a></p>
                 <p><a href="news-content.html"><{$vo.des}></a></p>
-                <div class="view"><a href="news-content.html"></a></div>
+                <div class="view"><a href="/news/content.html?id=<{$vo.aid}>"></a></div>
             </div>
 			</volist>
             <ul>
@@ -60,7 +60,9 @@
                 </li>              
 				</volist>
             </ul>
-            <div class="more"></div>
+           <div class="page">
+				<{$page}>
+			</div>
         </div>
 
     </div>

@@ -1209,3 +1209,8 @@ body .footer {
     color: #a4a4a4; }
 
 /*# sourceMappingURL=style.css.map */
+/*分页*/
+.page{clear: both; text-align: center; font-size: 0; padding: 14px 0 50px;}
+.page a{display: inline-block; padding: 0 13px; height: 31px; line-height: 31px; border: 1px solid #c4c4c4; text-align: center; margin-right: 2px; color: #606060; font-size: 14px; text-decoration: none;}
+.page a.on{color: #2b6f37; font-size: 16px; height: 33px; line-height: 33px; border: 0;}
+.page a:hover{background: #a40000; color: #fff; border-color: #a40000;}
