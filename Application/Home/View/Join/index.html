@@ -105,12 +105,10 @@
                 <div class="right">
                     <div class="swiper-container swiper-container1 ">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/join6.jpg" alt=""></div>
+                           <volist name="list" id="vo">
+                            <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+							<div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>						
+							</volist>  
 
                         </div>
                         <!-- Add Pagination -->

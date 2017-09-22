@@ -87,10 +87,7 @@
             <div class="top">
                 <div class="left">社会公益</div>
                 <div class="right">
-                    <h3>弘英明德 止于至善</h3>
-                    <p>慈善是一份责任。</p>
-                    <p>集团在企业健康发展的同时，也持续践行企业社会责任，并设立深圳明英慈善基金会，与全体员工携手积极投身社会公益事业与慈善事业回馈社会。</p>
-                    <p>深圳市明英慈善基金会以“关注慈善，回报社会，扶贫济困，促进和谐”为使命，关注范围涵括扶贫、教育、赈灾、环保及文化事业等领域。</p>
+                   <{$des.content}>
                 </div>
             </div>
             <div class="bottom">
@@ -104,14 +101,10 @@
                 <div class="right">
                     <div class="swiper-container swiper-container1 ">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="__IMAGE__/weal1.jpg" alt=""></div>
-
-
+						<volist name="list" id="vo">
+                            <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+							<div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>						
+                        </volist>  
                             
                         </div>
                         <!-- Add Pagination -->

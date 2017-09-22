@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class JoinController extends Controller {
+class JoinController extends CommonController {
 	public function __construct() {	
 		parent::__construct();		
 		$webinfo = M('webconfig')->where('id=1')->find();		
@@ -12,9 +12,16 @@ class JoinController extends Controller {
 		$webinfo = M('webconfig')->where('id=1')->find();
 	}
     public function index(){
+       
+		$typeid =22;
+		$list = $this->get_list($typeid);			
+		$this->assign('list',$list);
         $this->display();
     }
 	public function us(){
+        $typeid =23;
+		$list = $this->get_list($typeid);			
+		$this->assign('list',$list);
         $this->display();
     }
 }
