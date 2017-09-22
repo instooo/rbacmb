@@ -40,16 +40,22 @@
     </div>
     <div class="product">
         <div class="product-text">
-        土地的二次利用和开发，将是未来中国地产行业的重大机遇！<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2014年，东关集团紧抓城市规划改革契机，组建城市更新专业团队拓展城市更新版图，在满足城市价值重塑与居民生活品质提升的前提下，通过科学、系统和有效的质量保证体系，将完善的配套与丰富功能融入项目设计中，使每个更新项目成为拉动区域腾飞的核心力量！
+        <{$des.content}>
         </div>
         <div class="product-update">
             <div class="head">
-                <div class="text">截止目前，集团未来在深圳的土地及旧改项目储备土地约50万平方米，建筑面积约250万平方米，按照4万元/平方米的销售价格，未来房地产开发销售额将达到近1000亿元！</div>
+                <div class="text">{$des.content}</div>
                 <div class="swiper-container swiper-container1 product-banner1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="__IMAGE__/6.jpg" alt=""><div class="font">坪山·江岭广场片区城市更新项目</div></div>
-                        <div class="swiper-slide"><img src="__IMAGE__/6.jpg" alt=""><div class="font">坪山·江岭广场片区城市更新项目</div></div>
+						<volist name="list" id="vo">
+                        <div class="swiper-slide">
+							<volist name='vo.imgarr' id='v'>
+							<img src="<{$v}>" alt="">							
+							</volist>                       
+							
+							<div class="font"><{$vo.title}></div>
+						</div> 
+						</volist>
                     </div>
                     <!-- Add Arrows -->
                     <div class="swiper-button-next swiper-button-next1"></div>
@@ -58,15 +64,7 @@
 
 
 
-            </div>
-            <!--<ul class="choose">
-                <li><img src='images/product2.jpg' /></li>
-                <li><img src='images/product3.jpg' /></li>
-            </ul>
-            <ul class="choose-content">
-                <li><img src='images/product4.jpg' /><p>坪山·三洋湖工业区城市更新项目</p></li>
-                <li style="float:right"><img src='images/product5.jpg' /><p>坪山·江岭广场片区城市更新项目</p></li>
-            </ul>-->
+            </div>       
 
         </div>
     </div>

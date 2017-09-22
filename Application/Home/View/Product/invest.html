@@ -41,76 +41,48 @@
     <div class="product invest-box">
         <div class="product-text">
             <div class="red-box"></div>
-            <p>在置业投资领域，集金融与房地产开发前期运营策划，土地包装及推广，通过商业运营，收购物业进行资产重组，激活置业投资产业链，携手合作伙伴共赢未来。</p>
+			<div>
+			<{$des.content}>
+			</div>
         </div>
         <div class="invest">
             <div class="left">
                 <ul>
-                    <li class="active">深圳龙华新区·观澜皇帝印工业区</li>
-                    <li>深圳福田·福田保税区</li>
-                    <li>深圳龙岗·百富城</li>
+					<volist name="list" id="vo">
+                    <li <if condition="$key eq 0">class="active"</if>><{$vo.title}></li>                  
+					</volist>
                 </ul>
             </div>
             <div class="right">
-                <div class="swiper-container swiper-container1 bulid-banner">
+				<volist name="list" id="vo">
+                <div class="swiper-container swiper-container<{$key+1}> bulid-banner" <if condition="$key neq 0">style="opacity: 0;"</if>>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
+					<volist name='vo.imgarr' id='v'>							
+					<div class="swiper-slide"><img src="<{$v}>" alt=""></div>							
+					</volist>
                     </div>
                     <!-- Add Pagination -->
-                    <div class="swiper-pagination swiper-pagination1"></div>
+                    <div class="swiper-pagination swiper-pagination<{$key+1}>"></div>
                 </div>
-
-                <div class="swiper-container swiper-container2 bulid-banner" style="opacity: 0;">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
-                    </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination swiper-pagination2"></div>
-                </div>
-
-                <div class="swiper-container swiper-container3 bulid-banner" style="opacity: 0;">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
-                        <div class="swiper-slide"><img src="__IMAGE__/5.png" alt=""></div>
-                    </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination swiper-pagination3"></div>
-                </div>
-
+				</volist>
             </div>
         </div>
     </div>
     <include file="Public/footer" />
+	<volist name="list" id="vo">
+	<script>
+	var swiper1 = new Swiper('.swiper-container<{$key+1}>', {
+		pagination: '.swiper-pagination<{$key+1}>',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplay: 5000,
+		spaceBetween: 0,
+		autoplayDisableOnInteraction: false,
+		loop: true
+	});
+	</script>
+	</volist>
 <script>
-var swiper1 = new Swiper('.swiper-container1', {
-    pagination: '.swiper-pagination1',
-    slidesPerView: 1,
-    paginationClickable: true,
-    autoplay: 5000,
-    spaceBetween: 0,
-    autoplayDisableOnInteraction: false,
-    loop: true
-});
-var swiper2 = new Swiper('.swiper-container2', {
-    pagination: '.swiper-pagination2',
-    slidesPerView: 1,
-    paginationClickable: true,
-    autoplay: 5000,
-    spaceBetween: 0,
-    autoplayDisableOnInteraction: false,
-    loop: true
-});
-var swiper3 = new Swiper('.swiper-container3', {
-    pagination: '.swiper-pagination3',
-    slidesPerView: 1,
-    paginationClickable: true,
-    autoplay: 5000,
-    spaceBetween: 0,
-    autoplayDisableOnInteraction: false,
-    loop: true
-});
 var obj = new Obj();
 obj.invest();
 </script>   

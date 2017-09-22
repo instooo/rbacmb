@@ -40,8 +40,9 @@
     <div class="service">
             <div class="swiper-container swiper-container2 ">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="__IMAGE__/service1.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="__IMAGE__/service1.jpg" alt=""></div>
+				<volist name="toplist" id="vo">
+                    <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+                </volist>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination swiper-pagination2"></div>
@@ -63,12 +64,13 @@
                     <h3>一站式管家服务</h3>
                     <span>ONE-STOP</span>
                     <span>BUTLER SERVICE</span>
-                    <p>万家好物业以“贴心服务 永无止境”作为服务理念，打破传统物业管理服务的疆界，由对建筑物的管理延展至物业持有人及物业使用人的服务，真正将“家人”和“管家”意识和服务融会贯通，提供除传统物业管理服务外还涵盖社区食堂、公寓租赁等增值服务以提升商业价值。</p>
+                    <{$des.content}>
                 </div>
                 <div class="swiper-container swiper-container1 ">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="__IMAGE__/service4.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="__IMAGE__/service4.jpg" alt=""></div>
+						<volist name="botlist" id="vo">
+						<div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+						</volist>                       
                     </div>
                     <!-- Add Pagination -->
                     <div class="swiper-pagination swiper-pagination1"></div>
