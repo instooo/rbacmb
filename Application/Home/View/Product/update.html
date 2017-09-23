@@ -43,18 +43,15 @@
         <{$des.content}>
         </div>
         <div class="product-update">
-            <div class="head">
-                <div class="text">{$des.content}</div>
+            <div class="head">            
                 <div class="swiper-container swiper-container1 product-banner1">
                     <div class="swiper-wrapper">
-						<volist name="list" id="vo">
-                        <div class="swiper-slide">
-							<volist name='vo.imgarr' id='v'>
-							<img src="<{$v}>" alt="">							
-							</volist>                       
-							
-							<div class="font"><{$vo.title}></div>
-						</div> 
+						<volist name="list" id="vo">                      
+						 <div class="swiper-slide">
+                            <div class="text"><{$vo.des}></div>
+                            <img src="<{$vo.img_duo}>" alt="">
+                            <div class="font"><{$vo.title}></div>
+                        </div>
 						</volist>
                     </div>
                     <!-- Add Arrows -->

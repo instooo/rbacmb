@@ -17,9 +17,9 @@
     background: #4051aa;
     opacity: 0.5;
     bottom: 0!important;
-    width: 100%;
+    width: 774px!important;
     position: absolute;;
-    left: 0;
+    left: 426px;
     height: 86px;
     padding-top: 12px;
     z-index: 2;
@@ -30,13 +30,13 @@
     bottom: 10px;
     height: 73px;
     width: 496px;
-    left: 145px;
+    left: 571px;
 }
 
 .swiper-pagination-prev,.swiper-pagination-next{
     width: 18px;
     height: 32px;
-    background: url(images/prev2.png) no-repeat;
+    background: url(__IMAGE__/prev2.png) no-repeat;
     position: absolute;
     bottom: 31px;
     z-index: 2;
@@ -44,10 +44,10 @@
 }
 
 .swiper-pagination-prev{
-    left: 114px;
+    left: 540px;
 }
 .swiper-pagination-next{
-    background: url(images/next2.png) no-repeat;
+    background: url(__IMAGE__/next2.png) no-repeat;
     right: 114px;
 }
 .swiper-pagination-bullet{
@@ -63,6 +63,9 @@
 }
 .swiper-pagination-bullet-active img{
     border:5px solid #f49200!important;
+}
+.swiper-button-prev{
+    left: 456px!important;
 }
 </style>
 <body>
@@ -91,23 +94,38 @@
                 </div>
             </div>
             <div class="bottom">
-                <div class="left">
-                    <div class="font-box">
-                        <h3>慈善行动</h3>
-                        <span>CHARITY ACTION</span>
-                        <p>2008年，参加龙岗社区居委会，龙岗总支委员会活动，获得"支持龙岗文体事业，关心群众文化生活"的殊荣。</p>
-                    </div>
-                </div>
-                <div class="right">
+				<div class="right">
                     <div class="swiper-container swiper-container1 ">
                         <div class="swiper-wrapper">
-						<volist name="list" id="vo">
-                            <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
-							<div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>						
+						<volist name="list" id="vo">							
+							<div class="swiper-slide">
+                                <div class="left">
+                                    <div class="font-box">
+                                        <h3><{$vo.title}></h3>
+                                        <span>CHARITY ACTION</span>
+                                        <p><{$vo.des}></p>
+                                    </div>
+                                </div>  
+								<div class="img">
+                                    <img src="<{$vo.img_duo}>" alt="">
+                                </div>		
+                            </div>
+							<div class="swiper-slide">
+                                <div class="left">
+                                    <div class="font-box">
+                                        <h3><{$vo.title}></h3>
+                                        <span>CHARITY ACTION</span>
+                                        <p><{$vo.des}></p>
+                                    </div>
+                                </div>  
+								<div class="img">
+                                    <img src="<{$vo.img_duo}>" alt="">
+                                </div>		
+                            </div>										
                         </volist>  
                             
                         </div>
-                        <!-- Add Pagination -->
+						<!-- Add Pagination -->
                         <div class="swiper-bg"></div>
                         <div class="swiper-pagination-prev"></div>
                         <div class="swiper-pagination-box">
@@ -164,7 +182,8 @@ $(".swiper-pagination-next").click(function(event) {
 });
 function img(){
     $(".swiper-slide").each(function(index, el) {
-        var img = $(this).html();
+        var img = $(this).find(".img").html();
+        console.log(img)
         $(".swiper-pagination span").eq(index).html(img);   
     });    
 }

@@ -15,6 +15,7 @@ class ProductController extends CommonController {
     public function index(){
 		$typeid = $_GET['id'];
 		$typeid = $typeid?$typeid:33;
+		$this->assign ( 'typeid', $typeid );
 		$list = $this->get_list($typeid);	
 		foreach($list as $key=>$val){
 			$listnew[$key]=$val;
@@ -24,7 +25,7 @@ class ProductController extends CommonController {
 		$des = $this->get_cate_info($typeid);	
 		$this->assign('des',$des);		
 		$this->assign('list',$listnew);		
-		$this->assign ( 'typeid', $typeid );
+		
         $this->display();
     }
 	//城市更新

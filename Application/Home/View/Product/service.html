@@ -54,22 +54,23 @@
             <div class="top">
                 <div class="left">物业服务</div>
                 <div class="right">
-                    <p>集团二十余年来不断洞悉客户需求，更将客户视为终生服务与关注的对象，不仅在房地产开发层面以品质致胜，还要致力使客户能全方位享受到高品质人居体验。</p>
-                    <p>万家好物业服务有限公司秉承“贴心服务，永无止境”的服务理念，以服务集团地产项目为主，为客户提供专业化、智能化、一站式的物业管理服务，使住户始终能享有安全、优美、和谐的居住环境与生活氛围。</p>
+                   <{$des.content}>
                 </div>
             </div>
-            <div class="bottom">
-                <div class="bg"></div>
-                <div class="bg1">
-                    <h3>一站式管家服务</h3>
-                    <span>ONE-STOP</span>
-                    <span>BUTLER SERVICE</span>
-                    <{$des.content}>
-                </div>
+            <div class="bottom"> 
                 <div class="swiper-container swiper-container1 ">
                     <div class="swiper-wrapper">
 						<volist name="botlist" id="vo">
-						<div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+						<div class="swiper-slide">
+						<div class="bg"></div>
+						<div class="bg1">
+						<h3><{$vo.title}></h3>
+						<span>ONE-STOP</span>
+						<span>BUTLER SERVICE</span>
+						<p><{$vo.des}></p>
+						</div>
+						<img src="<{$vo.img_duo}>" alt="">
+						</div>
 						</volist>                       
                     </div>
                     <!-- Add Pagination -->
