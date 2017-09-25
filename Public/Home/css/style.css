@@ -583,12 +583,19 @@ body .product {
         padding: 170px 0 0 28px;
         float: left; }
     body .product .product-update .product-banner1 {
-      width: 777px;
-      float: left;
-      margin-left: 40px; }
+      width: 1200px;
+      float: left; }
       body .product .product-update .product-banner1 .swiper-slide {
-        background: #f4f4f4 !important;
+        background: transparent !important;
         display: block !important; }
+        body .product .product-update .product-banner1 .swiper-slide .text {
+          width: 348px;
+          float: left;
+          font-size: 14px;
+          text-align: left;
+          margin-right: 40px; }
+        body .product .product-update .product-banner1 .swiper-slide img {
+          max-width: 771px; }
       body .product .product-update .product-banner1 .swiper-button-next {
         background: url(../images/next.png) no-repeat;
         right: 30px; }
@@ -601,7 +608,8 @@ body .product {
         line-height: 73px;
         text-align: center;
         font-size: 18px;
-        color: #c99a79; }
+        color: #c99a79;
+        margin-left: 423px; }
     body .product .product-update img {
       display: block; }
     body .product .product-update .choose {
@@ -847,21 +855,25 @@ body .commonweal {
         body .commonweal .bottom .left div.font-box h3 {
           font-weight: normal;
           font-size: 26px;
-          letter-spacing: 10px; }
+          letter-spacing: 10px;
+          text-align: left; }
         body .commonweal .bottom .left div.font-box span {
           font-size: 14px;
           color: #cdcdcd;
           font-weight: bolder;
-          letter-spacing: 1px; }
+          letter-spacing: 1px;
+          text-align: left;
+          width: 100%;
+          display: block; }
         body .commonweal .bottom .left div.font-box p {
           margin-top: 10px;
           display: block;
           font-size: 14px;
           letter-spacing: 2px;
-          line-height: 26px; }
+          line-height: 26px;
+          text-align: left; }
     body .commonweal .bottom .right {
-      float: left;
-      width: 774px;
+      width: 1200px;
       height: 534px; }
       body .commonweal .bottom .right .swiper-button-next {
         width: 47px;
@@ -958,18 +970,21 @@ body .service {
         color: #fff;
         letter-spacing: 10px;
         font-size: 18px;
+        text-align: left;
         font-weight: normal; }
       body .service .bottom .bg1 span, body .service .swiper-container2 .bg1 span {
         color: #cdcdcd;
         font-size: 16px;
         font-weight: bolder;
         opacity: 0.5;
+        text-align: left;
         display: block; }
       body .service .bottom .bg1 p, body .service .swiper-container2 .bg1 p {
         margin-top: 5px;
         color: #fff;
         font-size: 12px;
         line-height: 24px;
+        text-align: left;
         letter-spacing: 4px; }
   body .service .swiper-container2 {
     height: 401px; }
@@ -1209,8 +1224,3 @@ body .footer {
     color: #a4a4a4; }
 
 /*# sourceMappingURL=style.css.map */
-/*分页*/
-.page{clear: both; text-align: center; font-size: 0; padding: 14px 0 50px;}
-.page a{display: inline-block; padding: 0 13px; height: 31px; line-height: 31px; border: 1px solid #c4c4c4; text-align: center; margin-right: 2px; color: #606060; font-size: 14px; text-decoration: none;}
-.page a.on{color: #2b6f37; font-size: 16px; height: 33px; line-height: 33px; border: 0;}
-.page a:hover{background: #a40000; color: #fff; border-color: #a40000;}
