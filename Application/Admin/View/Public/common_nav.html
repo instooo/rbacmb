@@ -18,8 +18,11 @@
 	<a style="font-size:24px; font-weight:bold;float:left;height: 72px; line-height: 72px; margin-right:10px;">半兽人科技</a>
     <if condition="$_SESSION['user']"><a class="nav-user">你好(<{$_SESSION.user}>)</a></if>
     <ul class="main-nav-wrapper cl" id="J_mainNavWrapper">
+	  <li>
+        <a href="/index/doc.html" target="_blank" class="nav-menu" id="J_mainMenu_sy">说明文档</a>
+      </li>
       <li>
-        <a href="http://www.dongguan.com" target="_blank" class="nav-menu current" id="J_mainMenu_sy">网站首页</a>
+        <a href="http://www.dongguan-group.com" target="_blank" class="nav-menu current" id="J_mainMenu_sy">网站首页</a>
       </li>
       <if condition="$_SESSION['user']"><li><a href="/public/loginout" class="nav-menu">退出</a></li></if>
   
