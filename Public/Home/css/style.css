@@ -264,12 +264,38 @@ body .bulid-banner {
   width: 881px;
   overflow: hidden;
   margin: 0 auto 20px; }
-  body .bulid-banner .swiper-button-next {
-    background: url(../images/next.png) no-repeat;
-    right: 50px; }
-  body .bulid-banner .swiper-button-prev {
-    background: url(../images/prev.png) no-repeat;
-    left: 50px; }
+body .bulid-banner .swiper-button-next {	
+	width: 49px;
+    height: 49px;
+	background-size: 49px;
+    background: url(../images/rd-rightbtn.png) no-repeat;
+    right: 50px; 
+	background-size: contain;
+	}
+body .bulid-banner .swiper-button-next:hover {
+	width: 49px;
+    height: 49px;
+	background-size: 49px;
+    background: url(../images/rd-rightbtn-hover.png) no-repeat;
+    right: 50px; 
+	background-size: contain;
+	}
+body .bulid-banner .swiper-button-prev {
+	width: 49px;
+    height: 49px;
+	background-size: 49px;
+    background: url(../images/rd-leftbtn.png) no-repeat;
+    left: 50px; 
+	background-size: contain;
+	}
+body .bulid-banner .swiper-button-prev:hover {
+	width: 49px;
+    height: 49px;
+	background-size: 49px;
+    background: url(../images/rd-leftbtn-hover.png) no-repeat;
+    left: 50px;
+	background-size: contain;
+}
 body .product-link {
   position: absolute;
   width: 170px;
@@ -580,7 +606,7 @@ body .product {
         width: 348px;
         line-height: 28px;
         letter-spacing: 1px;
-        padding: 170px 0 0 28px;
+        margin: 170px 0 0 28px;
         float: left; }
     body .product .product-update .product-banner1 {
       width: 1200px;
@@ -593,15 +619,41 @@ body .product {
           float: left;
           font-size: 14px;
           text-align: left;
-          margin-right: 40px; }
+          margin-right: 40px;min-height:300px;
+		  background:#f4f4f4}
         body .product .product-update .product-banner1 .swiper-slide img {
           max-width: 771px; }
-      body .product .product-update .product-banner1 .swiper-button-next {
-        background: url(../images/next.png) no-repeat;
-        right: 30px; }
-      body .product .product-update .product-banner1 .swiper-button-prev {
-        background: url(../images/prev.png) no-repeat;
-        left: 440px; }
+		  
+body .product .product-update .product-banner1 .swiper-button-next {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .product .product-update .product-banner1 .swiper-button-prev {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn.png) no-repeat;
+background-size: contain;
+left: 440px; 
+}
+body .product .product-update .product-banner1 .swiper-button-next:hover {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn-hover.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .product .product-update .product-banner1 .swiper-button-prev:hover {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn-hover.png) no-repeat;
+background-size: contain;
+left: 440px; 
+}
+
+
       body .product .product-update .product-banner1 .font {
         width: 777px;
         height: 73x;
@@ -710,21 +762,38 @@ body .join-detail {
       float: left;
       width: 767px;
       height: 404px; }
-      body .join-detail .bottom .right .swiper-button-next {
-        width: 47px;
-        height: 47px;
-        background: url(../images/next.png) no-repeat;
-        background-size: 100% 100%;
-        right: 30px; }
+body .join-detail .bottom .right .swiper-button-next  {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .join-detail .bottom .right .swiper-button-prev {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn.png) no-repeat;
+background-size: contain;
+left: 30px; 
+}
+body .join-detail .bottom .right .swiper-button-next:hover {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn-hover.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .join-detail .bottom .right .swiper-button-prev:hover {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn-hover.png) no-repeat;
+background-size: contain;
+left: 30px; 
+}
       body .join-detail .bottom .right .swiper-pagination-bullet {
         width: 8px;
         height: 8px; }
-      body .join-detail .bottom .right .swiper-button-prev {
-        width: 47px;
-        height: 47px;
-        background: url(../images/prev.png) no-repeat;
-        background-size: 100% 100%;
-        left: 30px; }
+
       body .join-detail .bottom .right img {
         width: 767px; }
 body .commonweal {
@@ -875,21 +944,39 @@ body .commonweal {
     body .commonweal .bottom .right {
       width: 1200px;
       height: 534px; }
-      body .commonweal .bottom .right .swiper-button-next {
-        width: 47px;
-        height: 47px;
-        background: url(../images/next.png) no-repeat;
-        background-size: 100% 100%;
-        right: 30px; }
+body .commonweal .bottom .right .swiper-button-next  {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .commonweal .bottom .right .swiper-button-prev {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn.png) no-repeat;
+background-size: contain;
+left: 30px; 
+}
+body .commonweal .bottom .right .swiper-button-next :hover {
+width:50px;
+height:50px;
+background: url(../images/rd-rightbtn-hover.png) no-repeat;
+background-size: contain;
+right: 30px; 
+}
+body .commonweal .bottom .right .swiper-button-prev:hover {
+width:50px;
+height:50px;
+background: url(../images/rd-leftbtn-hover.png) no-repeat;
+background-size: contain;
+left: 30px; 
+}
+		
       body .commonweal .bottom .right .swiper-pagination-bullet {
         width: 8px;
         height: 8px; }
-      body .commonweal .bottom .right .swiper-button-prev {
-        width: 47px;
-        height: 47px;
-        background: url(../images/prev.png) no-repeat;
-        background-size: 100% 100%;
-        left: 30px; }
+
       body .commonweal .bottom .right img {
         width: 774px; }
 body .service {
@@ -937,15 +1024,39 @@ body .service {
     overflow: hidden;
     position: relative;
     height: 534px; }
-    body .service .bottom .swiper-button-next, body .service .swiper-container2 .swiper-button-next {
-      background: url(../images/next.png) no-repeat;
-      right: 10px; }
+body .service .bottom .swiper-button-next, body .service .swiper-container2 .swiper-button-next {
+width:70px;
+height:70px;
+background: url(../images/rd-rightbtn.png) no-repeat;
+background-size: contain;
+right: 10px; 
+}
+body .service .bottom .swiper-button-prev, body .service .swiper-container2 .swiper-button-prev {
+width:70px;
+height:70px;
+background: url(../images/rd-leftbtn.png) no-repeat;
+background-size: contain;
+left: 10px; 
+}
+body .service .bottom .swiper-button-next, body .service .swiper-container2 .swiper-button-next:hover {
+width:70px;
+height:70px;
+background: url(../images/rd-rightbtn-hover.png) no-repeat;
+background-size: contain;
+right: 10px; 
+}
+body .service .bottom .swiper-button-prev, body .service .swiper-container2 .swiper-button-prev:hover {
+width:70px;
+height:70px;
+background: url(../images/rd-leftbtn-hover.png) no-repeat;
+background-size: contain;
+left: 10px; 
+}
+	 
     body .service .bottom .swiper-pagination-bullet, body .service .swiper-container2 .swiper-pagination-bullet {
       width: 8px;
       height: 8px; }
-    body .service .bottom .swiper-button-prev, body .service .swiper-container2 .swiper-button-prev {
-      background: url(../images/prev.png) no-repeat;
-      left: 10px; }
+
     body .service .bottom img, body .service .swiper-container2 img {
       width: 1200px; }
     body .service .bottom .bg, body .service .swiper-container2 .bg {
@@ -1098,11 +1209,21 @@ body .build-box {
       body .build-box .content .red span {
         margin-right: 30px; }
 body .index-banner .swiper-button-next {
-  background: url(../images/next.png) no-repeat;
+	width: 79px;
+    height: 79px;
+  background: url(../images/rd-rightbtn.png) no-repeat;
+  right: 287px; }
+body .index-banner .swiper-button-next:hover {
+  background: url(../images/rd-rightbtn-hover.png) no-repeat;
   right: 287px; }
 body .index-banner .swiper-button-prev {
-  background: url(../images/prev.png) no-repeat;
+	width: 79px;
+    height: 79px;
+  background: url(../images/rd-leftbtn.png) no-repeat;
   left: 287px; }
+body .index-banner .swiper-button-prev:hover {
+  background: url(../images/rd-leftbtn-hover.png) no-repeat;
+  left: 287px; }  
 body .index-banner .swiper-pagination-bullets {
   bottom: 30px; }
 body .index-banner .swiper-pagination {
