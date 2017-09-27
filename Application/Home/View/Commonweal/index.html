@@ -152,8 +152,9 @@ var swiper = new Swiper('.swiper-container1', {
     autoplay: 5000,
     spaceBetween: 0,
     autoplayDisableOnInteraction: false,
-    onSlideChangeEnd: function(swiper){
-
+	effect: 'fade',
+    onImagesReady: function(swiper){      
+	    img();
     }
 });
 
@@ -167,7 +168,7 @@ $(".swiper-pagination-prev").click(function(event) {
         count--;
         $(".swiper-pagination").stop().animate({
             left: (124*-4)*count+'px'
-        });
+        },10);
     }
 });
 $(".swiper-pagination-next").click(function(event) {
@@ -177,21 +178,17 @@ $(".swiper-pagination-next").click(function(event) {
         count++;
         $(".swiper-pagination").stop().animate({
             left: (124*-4)*count+'px'
-        });
+        },10);
     }
 });
 function img(){
     $(".swiper-slide").each(function(index, el) {
-        var img = $(this).find(".img").html();
-        console.log(img)
+        var img = $(this).find(".img").html();        
         $(".swiper-pagination span").eq(index).html(img);   
     });    
 }
-img()
-
-
 $(window).resize(function() {
-    img()
+    img();
 }); 
 </script>
 </body>
