@@ -17,9 +17,9 @@
     background: #f28d01;
     opacity: 0.5;
     bottom: 0!important;
-    width: 100%;
+    width: 774px!important;
     position: absolute;;
-    left: 0;
+   left: 426px;
     height: 86px;
     padding-top: 12px;
     z-index: 2;
@@ -30,7 +30,7 @@
     bottom: 10px;
     height: 73px;
     width: 496px;
-    left: 145px;
+    left: 473px;
 }
 
 .swiper-pagination-prev,.swiper-pagination-next{
@@ -44,7 +44,7 @@
 }
 
 .swiper-pagination-prev{
-    left: 114px;
+    left: 434px;
 }
 .swiper-pagination-next{
     background: url(__IMAGE__/next2.png) no-repeat;
@@ -95,18 +95,23 @@
                 <div class="left"><img src="__IMAGE__/join3.jpg" alt=""></div>
                 <div class="right">人在东关</div>
             </div>
-            <div class="bottom">
-                <div class="left">
-                    <div class="font-box">
-                        <p>共同成长在东关</p>
-                        <p>丰富的员工活动</p>
-                    </div>
-                </div>
+            <div class="bottom">             
                 <div class="right">
                     <div class="swiper-container swiper-container1 ">
                         <div class="swiper-wrapper">
                            <volist name="list" id="vo">
-                            <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>							
+						   <div class="swiper-slide">
+                                <div class="left">
+                                    <div class="font-box">
+                                        <h3><{$vo.title}></h3>
+                                        <span></span>
+                                        <p><{$vo.des}></p>
+                                    </div>
+                                </div>  
+								<div class="img">
+                                    <img src="<{$vo.img_duo}>" alt="">
+                                </div>		
+                            </div>			                           		
 							</volist>  
 
                         </div>
@@ -168,7 +173,7 @@ $(".swiper-pagination-next").click(function(event) {
 });
 function img(){
     $(".swiper-slide").each(function(index, el) {
-        var img = $(this).html();
+        var img = $(this).find(".img").html();
         $(".swiper-pagination span").eq(index).html(img);   
     });    
 }
