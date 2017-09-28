@@ -1297,7 +1297,7 @@ body .index-content {
         background: #7b7b7b; }
   body .index-content .right {
     width: 520px;
-    height: 338px;
+    height: 280px;
     float: right; }
     body .index-content .right ul {
       width: 520px;
@@ -1311,8 +1311,8 @@ body .index-content {
         display: block;
         position: relative; }
       body .index-content .right ul .active1, body .index-content .right ul .active2, body .index-content .right ul .active3, body .index-content .right ul .active4 {
-        width: 222px;
-        height: 328px;
+        width: 220px;
+        height: 245px;
         margin-top: 0;
         box-shadow: 5px 5px 10px #999;
         position: absolute;
