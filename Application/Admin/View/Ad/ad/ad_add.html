@@ -1,0 +1,102 @@
+ <link rel="stylesheet" type="text/css" href="__CSS__/AdminLTE.min.css" />
+<link href="__CSS__/global.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/manager-common.css">
+<link href="__CSS__/Manager.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__/upload.css" rel="stylesheet" type="text/css" />
+<!--上传文件插件-->
+<script type="text/javascript" src="__JS__/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="__JS__/uploader.js"></script>
+<!--时间插件-->
+<script src="__JS__/laydatea/laydate.js"></script> <!-- 改成你的路径 -->
+<style>.url_td{display:block;white-space: nowrap;text-overflow:ellipsis;width:350px;overflow: hidden}</style>
+<div id="laycontent" style="padding:10px">
+<link rel="stylesheet" type="text/css" href="__CSS__/managerMenu.css">
+	<div id="count_body" style="margin-top: 20px;">
+		<form name="myform" id="myform">
+			<input type="hidden" name="mid" value="<{$mid}>"/>
+            <table class="huitable">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <tbody>	
+					<tr><td>广告类型</td>
+					<td>
+					<select class='manager-input s-input' name='typeid' id='typeid' style='width:300px'>
+						<option value="-1">选择广告类型</type>
+						<volist name="cate" id="vo">
+						<option value="<{$vo.id}>"><{$vo.title}></type>
+						</volist>
+					</select>
+					</td></tr>							
+					<{$html}>
+                </tbody>
+            </table>
+			<input type="button" name="dosubmit" id="dosubmit" value="添加" class="manager-btn s-btn search-btn">
+			<input type="button" value="取消" class="manager-btn s-btn search-btn" onclick="closelayr()">
+			<span id="tips" style="display: none"></span>
+        </form>
+	</div>
+</div>
+
+
+
+<script src="__JS__/jquery.form.js"></script> 
+<script type="text/javascript" src="__JS__/layer/layer.js"></script>
+<script type="text/javascript" src="__JS__/date/dateRange.js"></script>
+<script type="text/javascript" src="__JS__/typeahead/bootstrap3-typeahead.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__JS__/date/dateRange.css" />
+<!--百度编辑器-->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script> 
+<script type="text/javascript">	
+    $(function(){ 	
+		var test= {};
+		var len = $("textarea[data-type=editor]").length;		
+		for(var i=0;i<len;i++){
+			var editor_name = $("textarea[data-type=editor]").eq(i).attr('name');			
+			test.editor_name = UE.getEditor(editor_name,{
+				initialFrameWidth : 1000,
+				initialFrameHeight: 400
+			});	
+							 
+		}
+        $('#dosubmit').live('click',function() {		
+			for(var i=0;i<len;i++){
+				editor_name = $("textarea[data-type=editor]").eq(i).attr('name');				
+				//UE.getEditor(editor_name).sync();
+			}
+            var options = {
+                url: "/ad/ad_add",
+                type:"post",
+                data: {},
+                success: function (data) {
+                    data=jQuery.parseJSON(data);
+                    if(data.code==1){
+                        layer.msg(data.msg, {icon:6,time:1000}, function () {
+							 var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+							 parent.location.reload()
+							 parent.layer.close(index);
+						}); 
+                        return false; 
+                    }else{
+                        layer.msg(data.msg, {icon:5,time:1000});
+                        return false;
+                    }
+                    
+                },
+                error:function () {
+                    layer.msg('未知错误', {icon:5,time:1000});
+                },
+            };  
+				
+            $("form").ajaxSubmit(options);      
+        });
+    })
+	
+	function closelayr(){
+			var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+			parent.layer.close(index);
+	}
+</script>
