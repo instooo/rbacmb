@@ -29,6 +29,7 @@
                 <table class="huitable">
                     <thead>
                     <tr align="left">
+						<th>广告类型</th>
 						<volist name="fileds" id="vo">
 							<if condition="$vo[4] eq 1">
 							<th><{$vo.1}></th>
@@ -41,6 +42,7 @@
                     <if condition="$list">
                         <volist name="list" id="vo">
                             <tr data-id="<{$vo.id}>" align="center">
+								<td><{$vo.typename}></td>
 								<volist name="fileds" id="v">
 									<if condition="$v[4] eq 1">
 									<td><{$vo["$v[0]"]}></td>

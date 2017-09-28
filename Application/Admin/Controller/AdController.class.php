@@ -168,14 +168,24 @@ class AdController extends CommonController {
 		$count = $content	
 				->where($contentmap)					
 				->count();	
-		$page = new \Think\Page($count, 5);
+		$page = new \Think\Page($count, 20);
 		
 		$list = $content
 				->where($contentmap)
 				->limit($page->firstRow.','.$page->listRows)
 				->order('weight desc,id desc')
-				->select();		
-		$this->assign('list',$list);
+				->select();	
+		//显示栏目类型
+		$lanmu = M('adtype')->select();
+		foreach($lanmu as $key=>$val){
+			$lanmulist[$val['id']] = $val;			
+		}
+		foreach($list as $key=>$val){
+			$listnew[$key] = $val;
+			$listnew[$key]['typename'] = $lanmulist[$val['typeid']]['title'];
+		}
+		
+		$this->assign('list',$listnew);
 		$this->assign ( 'page', $page->show () );
 		$this->assign('fileds',$fileds);
 		$this->display('ad/ad/ad_list');		
@@ -250,6 +260,7 @@ class AdController extends CommonController {
 					break;	
 				}
 				$map['id'] = $data['id'];
+				
 				$st = $content->where($map)->save($data);					
 				if($st===false){
 					$ret['code'] = 0;
