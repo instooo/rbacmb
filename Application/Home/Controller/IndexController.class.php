@@ -14,7 +14,12 @@ class IndexController extends CommonController {
     public function index(){
 		$typeid = 13;
 		$list = $this->get_list($typeid);
+		
+		$tid = 5;
+		$banner_list = $this->get_model_list('ad',$tid);
+		
 		$this->assign('list',$list);
+		$this->assign('banner_list',$banner_list);
         $this->display();
     }
 }

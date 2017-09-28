@@ -77,4 +77,14 @@ class CommonController extends Controller {
 				->find();		
 		return $info;
     }
+	
+	//获取指定模型数据
+	public function get_model_list($class,$typeid){			
+		//获取文章列表
+		$list = M($class)
+				->where('typeid='.$typeid)
+				->order('weight desc,id desc')
+				->select();
+		return $list;
+    }
 }
