@@ -12,6 +12,10 @@ class ContactController extends Controller {
 		$webinfo = M('webconfig')->where('id=1')->find();
 	}
     public function index(){
+		$tid = 11;
+		$banner_list = $this->get_model_list('ad',$tid,1);
+		$this->assign('banner_list',$banner_list);
+		
         $this->display();
     }
 }

@@ -22,6 +22,10 @@ class CommonwealController extends CommonController {
 		$this->assign('list',$list);		
 		$this->assign('des',$des);	
 		
+		$tid = 9;
+		$banner_list = $this->get_model_list('ad',$tid,1);
+		$this->assign('banner_list',$banner_list);
+		
         $this->display();
     }
 }

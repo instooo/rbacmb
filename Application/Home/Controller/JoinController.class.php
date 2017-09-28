@@ -10,6 +10,10 @@ class JoinController extends CommonController {
 		$this->assign ( 'smalltitle', '加入我们' );
 		//查找关键字和描述
 		$webinfo = M('webconfig')->where('id=1')->find();
+		
+		$tid = 10;
+		$banner_list = $this->get_model_list('ad',$tid,1);
+		$this->assign('banner_list',$banner_list);
 	}
     public function index(){
        

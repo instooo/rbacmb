@@ -448,8 +448,7 @@ body .news-box {
   padding-bottom: 50px;
   border-bottom: #ddd 1px solid; }
   body .news-box .left {
-    width: 402px;
-    height: 657px;
+    width: 402px;    
     float: left;
     margin-right: 64px;
     background: #efefef url("../images/new1.jpg") no-repeat 15px 15px; }
@@ -661,6 +660,7 @@ left: 440px;
         text-align: center;
         font-size: 18px;
         color: #c99a79;
+		background:#f4f4f4;
         margin-left: 423px; }
     body .product .product-update img {
       display: block; }
@@ -737,14 +737,20 @@ body .join-detail {
   body .join-detail .bottom {
     width: 1200px;
     overflow: hidden; }
-    body .join-detail .bottom .left {
-      width: 433px;
-      height: 404px;
+   
+    body .join-detail .bottom .right {
       float: left;
-      background: url("../images/join5.jpg") no-repeat;
+      width: 1200px;
+      height: 404px; }
+    body .join-detail  .bottom .right .left {
+      width: 426px;
+      height: 534px;
+      float: left;
+      background: #f28d01;
       color: #fefefe;
       position: relative; }
-      body .join-detail .bottom .left div.font-box {
+	  
+      body .join-detail .bottom .right .left .font-box {
         width: 317px;
         height: 72px;
         background: #4051aa;
@@ -752,16 +758,13 @@ body .join-detail {
         color: #fefefe;
         padding: 28px 0 0 40px;
         position: absolute;
-        top: 102px;
+        top: 160px;
         left: 26px;
         z-index: 2; }
-        body .join-detail .bottom .left div.font-box p {
+        body .join-detail .bottom .right .left .font-box p {
+			 font-size: 18px;
           display: block;
           letter-spacing: 10px; }
-    body .join-detail .bottom .right {
-      float: left;
-      width: 767px;
-      height: 404px; }
 body .join-detail .bottom .right .swiper-button-next  {
 width:50px;
 height:50px;
@@ -774,7 +777,7 @@ width:50px;
 height:50px;
 background: url(../images/rd-leftbtn.png) no-repeat;
 background-size: contain;
-left: 30px; 
+left: 460px; 
 }
 body .join-detail .bottom .right .swiper-button-next:hover {
 width:50px;
@@ -788,7 +791,7 @@ width:50px;
 height:50px;
 background: url(../images/rd-leftbtn-hover.png) no-repeat;
 background-size: contain;
-left: 30px; 
+left: 460px; 
 }
       body .join-detail .bottom .right .swiper-pagination-bullet {
         width: 8px;
