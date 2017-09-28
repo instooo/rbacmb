@@ -38,7 +38,7 @@
                     <div class="content">
                         <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
                         <div class="author">发布者：东关集团</div>
-                        <p><a href="news-content.html"><{$vo.description|substr=0,222}></a></p>
+                        <p><a href="news-content.html"><{$vo.description}></a></p>
                     </div>
                 </li>               
 				</volist>
@@ -46,7 +46,7 @@
         </div>
         <div class="right">
             <div class="header-news bg-none">
-                <div class="time"><{$info.addtime|date="M d,Y",###}>JUL 20,2017</div>
+                <div class="time"><{$info.addtime|date="M d,Y",###}></div>
                 <div class="title"><{$info.title}></div>
                 <div class="author">发布者：东关集团  <{$info.addtime|date="Y年m月d日",###}></div>
             </div>
