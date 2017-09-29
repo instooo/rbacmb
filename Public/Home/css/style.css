@@ -1299,11 +1299,11 @@ body .index-content {
         float: left;
         background: #7b7b7b; }
   body .index-content .right {
-    width: 520px;
+    width: 610px;
     height: 280px;
     float: right; }
     body .index-content .right ul {
-      width: 520px;
+      width: 610px;
       height: 338px;
       position: relative; }
       body .index-content .right ul li {
@@ -1324,16 +1324,16 @@ body .index-content {
         z-index: 2; }
       body .index-content .right ul .active1 {
         display: none;
-        left: -50px; }
+        left: 0px; }
       body .index-content .right ul .active2 {
         display: none;
-        left: -50px; }
+        left: 0px; }
       body .index-content .right ul .active3 {
         display: none;
-        left: -50px; }
+        left: 0px; }
       body .index-content .right ul .active4 {
         display: none;
-        left: -96px; }
+        left: 0px; }
 body .footer {
   width: 1200px;
   margin: 0 auto;

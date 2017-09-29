@@ -52,7 +52,10 @@
         </div>
         <div class="right">
             <ul>
-                <li class="active1-1"><a href="/product.html"><img src="__IMAGE__/index-1.jpg" alt=""></a><div class="active1 active-hover" style="display:block"><a href="/product.html"><img src="__IMAGE__/index-1h.jpg" alt=""></a></div></li>
+                <li class="active1-1" style="width:220px;">
+				<a href="/product.html"><img src="__IMAGE__/index-1.jpg" alt=""></a>
+				<div class="active1 active-hover" style="display:block"><a href="/product.html"><img src="__IMAGE__/index-1h.jpg" alt=""></a></div>
+				</li>
                 <li class="active1-2"><a href="/product/update.html"><img src="__IMAGE__/index-2.jpg" alt=""></a><div class="active2 active-hover"><a href="/product/update.html"><img src="__IMAGE__/index-2h.jpg" alt=""></a></div></li>
                 <li class="active1-3"><a href="/product/invest.html"><img src="__IMAGE__/index-3.jpg" alt=""></a><div class="active3 active-hover"><a href="/product/invest.html"><img src="__IMAGE__/index-3h.jpg" alt=""></a></div></li>
                 <li class="active1-4"><a href="/product/service.html"><img src="__IMAGE__/index-4.jpg" alt=""></a><div class="active4 active-hover"><a href="/product/service.html"><img src="__IMAGE__/index-4h.jpg" alt=""></a></div></li>
@@ -80,6 +83,8 @@ var swiper1 = new Swiper('.swiper-container2', {
     direction: 'vertical'
 });
 $(".index-content .right li").hover(function(){
+	$(this).css({width:"220px"});
+	$(this).siblings("li").css({width:"130px"});
     $(this).find(".active-hover").fadeIn(100).parents('li').siblings().find('.active-hover').fadeOut(100);
 })
 </script>   
