@@ -157,7 +157,7 @@ class Content{
 						$html.=$script;
 						break;					
 					case 'date':
-						$html.="<tr><td>".$val['1']."</td><td><input type='text' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' value='".date('Y-m-d H:i:s',time())."' style='width:300px' readonly/></td></tr>";						
+						$html.="<tr><td>".$val['1']."</td><td><input type='text' class='manager-input s-input' name='".$val['0']."' id='".$val['0']."' value='".$info[$val['0']]."' style='width:300px' readonly/></td></tr>";						
 						$script = '<script type="text/javascript">
 								laydate.render({
 								  elem: '.$val["0"].',
