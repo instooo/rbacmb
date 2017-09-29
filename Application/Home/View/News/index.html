@@ -46,6 +46,7 @@
 			</volist>
             <ul>
 				<volist name="list" id="vo">
+				<if condition="$vo['aid'] neq $topdata[0]['aid']">
                 <li>
                     <div class="time">
                         <div class="day"><{$vo.addtime|date='d',###}></div>
@@ -57,7 +58,8 @@
                         <div class="author">发布者：东关集团</div>
                         <p><a href="news-content.html"><{$vo.des}></a></p>
                     </div>
-                </li>              
+                </li>  
+				</if>
 				</volist>
             </ul>
            <div class="page">
