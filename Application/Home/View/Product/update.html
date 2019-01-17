@@ -12,6 +12,11 @@
 <script src="__JS__/module.js"></script>
 <script src="__JS__/swiper.min.js"></script>
 </head>
+<style>
+    body .product .product-update .product-banner1 .swiper-slide{
+        background: #f4f4f4!important;
+    }
+</style>
 <body>
     <div class="common-box">
          <include file="Public/nav" />
@@ -39,31 +44,59 @@
         </div>
     </div>
     <div class="product">
-        <div class="product-text">
-        <{$des.content}>
-        </div>
-        <div class="product-update">
+        <!--         <div class="product-update">
             <div class="head">            
                 <div class="swiper-container swiper-container1 product-banner1">
                     <div class="swiper-wrapper">
-						<volist name="list" id="vo">                      
-						 <div class="swiper-slide">
+                                <volist name="list" id="vo">                      
+                                 <div class="swiper-slide">
                             <div class="text"><{$vo.des}></div>
                             <img src="<{$vo.img_duo}>" alt="">
                             <div class="font"><{$vo.title}></div>
                         </div>
-						</volist>
+                                </volist>
                     </div>
-                    <!-- Add Arrows -->
+                    Add Arrows
                     <div class="swiper-button-next swiper-button-next1"></div>
                     <div class="swiper-button-prev swiper-button-prev1"></div>   
                 </div>
-
-
-
             </div>       
+        </div>
+         -->
+        <div class="product-update">
+            <div class="head">
+                <div class="text-box">
+					<volist name="list" id="vo">
+                    <div class="text <if condition="$i eq 1">active</if>" id="project-one">
+                        <h3><{$vo.title}></h3>
+                        <div class="eng">PINGSHAN</div>
+                        <p><{$vo.des|substr=0,300}></p>
+                    </div>
+					</volist>                   
+                </div>
+				<volist name="list" id="vo" key="k">
+                <div class="swiper-container swiper-container<{$k}> product-banner1">
+                    <div class="swiper-wrapper">
+						<volist name="vo.imgarr" id='v'>
+                        <div class="swiper-slide">
+                            <img src="<{$v}>" width='711' height='349' alt="">
+                        </div>
+						</volist>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-next<{$k}>"></div>
+                    <div class="swiper-button-prev swiper-button-prev<{$k}>" style="left:30px;"></div>   
+                </div>
+				</volist>
+            </div>
+            <div class="product-text">
+            <{$des.content}>
+            </div>
+
 
         </div>
+
+
     </div>
      <include file="Public/footer" />
 <script>
@@ -75,9 +108,39 @@ var swiper = new Swiper('.swiper-container1', {
     autoplay: 5000,
     spaceBetween: 0,	
     autoplayDisableOnInteraction: false,
-    loop: true,
-	effect: 'fade',	
+    loop: true
 });
+var swiper2 = new Swiper('.swiper-container2', {
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,    
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+
+var pro = document.getElementsByClassName('text');
+var content = document.getElementsByClassName('swiper-container');
+for(var i=0; i<pro.length; i++){
+    (function(i){
+        pro[i].onclick = function(){
+            for(var j=0; j<content.length; j++){
+                if(i==j){
+                    pro[j].className = 'text active';
+                    content[j].style.display = 'block';
+                }else{
+                    pro[j].className = 'text';
+                    content[j].style.display = 'none';
+                }
+            }
+        }
+    })(i)
+}
+
+
+
 </script>   
 </body>
 </html>

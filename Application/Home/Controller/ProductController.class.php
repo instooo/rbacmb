@@ -43,7 +43,7 @@ class ProductController extends CommonController {
 		foreach($list as $key=>$val){
 			$listnew[$key]=$val;
 			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
-		}		
+		}			
 		$this->assign('list',$listnew);		
 		$this->assign('des',$des);	
 		$this->display();

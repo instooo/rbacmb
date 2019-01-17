@@ -12,6 +12,33 @@
 <script src="__JS__/module.js"></script>
 <script src="__JS__/swiper.min.js"></script>
 </head>
+<style>
+.index-content .right li img{
+    display: inline-block;
+    float: right;
+} 
+#text-animation{
+    display: block;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#text-animation .swiper-slide{
+    display: block;
+    height: 160px;
+}
+.swiper-pagination2 {
+    position: absolute;
+    right: 0;
+    top: 30%;
+}
+.swiper-pagination2 .swiper-pagination-bullet{
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+</style>
 <body>
 	<div class="common-box">
 	<include file="Public/nav" />  
@@ -34,24 +61,25 @@
                 <h3>集团新闻</h3>
                 <p>GROUP NEWS</p>
             </div>
-            <div class="swiper-container swiper-container2 content">
-                <div class="swiper-wrapper">
+            <div class="swiper-container swiper-container2 content" id="text-animation-box">
+                <div class="swiper-wrapper" id="text-animation">
 					<volist name="list" id="vo" offset="0" length='3'>
                     <div class="swiper-slide">
                         <h3><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></h3>
                         <div class="line-bottom"></div>
-                        <p><a href="news-content.html"><{$vo.description}></a></p>
+                        <p><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.description}></a></p>
                     </div>
                     </volist>
                 </div>
                 <!-- Add Pagination -->
-                <div class="swiper-pagination swiper-pagination2"></div>
+                <div class="swiper-pagination swiper-pagination2">
+                </div>
             </div>
 
 
         </div>
-        <div class="right">
-            <ul>
+        <div class="right" style="width: 610px;">
+            <ul  style="width: 610px;">
                 <li class="active1-1" style="width:220px;">
 				<a href="/product.html"><img src="__IMAGE__/index-1.jpg" alt=""></a>
 				<div class="active1 active-hover" style="display:block"><a href="/product.html"><img src="__IMAGE__/index-1h.jpg" alt=""></a></div>
@@ -76,17 +104,46 @@ var swiper = new Swiper('.swiper-container1', {
     autoplayDisableOnInteraction: false,
     loop: true
 });
-
-var swiper1 = new Swiper('.swiper-container2', {
-    pagination: '.swiper-pagination2',
-    paginationClickable: true,
-    direction: 'vertical'
+var leng = $("#text-animation .swiper-slide").length;
+$("#text-animation").height(leng*160+'px')
+var str='';
+for (var i = 0; i < leng; i++) {
+    if(i==0){
+        str+= '<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>';
+    }else{
+        str+= '<span class="swiper-pagination-bullet"></span>';
+    }
+}
+$(".swiper-pagination2").html(str);                                        
+$(".swiper-pagination2").on('mouseover', '.swiper-pagination-bullet', function(event) {
+    console.log(this);
+    var index = $(this).index();
+     $(this).addClass('swiper-pagination-bullet-active').siblings().removeClass('swiper-pagination-bullet-active')
+    $("#text-animation").stop().animate({
+        'top' : (-160*index)+'px'
+    });
 });
 $(".index-content .right li").hover(function(){
 	$(this).css({width:"220px"});
 	$(this).siblings("li").css({width:"130px"});
     $(this).find(".active-hover").fadeIn(100).parents('li').siblings().find('.active-hover').fadeOut(100);
 })
+
+$(".index-banner").mouseover(function(event) {
+    $(".swiper-button-next1").stop().animate({
+        right: 283+'px'
+    },300);
+    $(".swiper-button-prev1").stop().animate({
+        left: 283+'px'
+    },300);
+}).mouseout(function(event) {
+    $(".swiper-button-next1").stop().animate({
+        right: -100+'px'
+    },300);
+    $(".swiper-button-prev1").stop().animate({
+        left: -100+'px'
+    },300);
+});
 </script>   
 </body>
 </html>

@@ -12,6 +12,11 @@
 <script src="__JS__/module.js"></script>
 <script src="__JS__/swiper.min.js"></script>
 </head>
+<style>
+    .footer{
+        border-top: 1px solid #e1e1e1;
+    }
+</style>
 <body>
     <div class="common-box">
         <include file="Public/nav" />
@@ -39,17 +44,15 @@
         </div>
     </div>
     <div class="product invest-box">
-        <div class="product-text">
-            <div class="red-box"></div>
-			<div>
-			<{$des.content}>
-			</div>
-        </div>
+
         <div class="invest">
             <div class="left">
+                <div class="invest-text">
+                    <{$des.content}>
+                </div>
                 <ul>
 					<volist name="list" id="vo">
-                    <li <if condition="$key eq 0">class="active"</if>><{$vo.title}></li>                  
+                    <li <if condition="$key eq 0">class="active"</if>><p><{$vo.title}></p></li>                  
 					</volist>
                 </ul>
             </div>
@@ -61,8 +64,8 @@
 					<div class="swiper-slide"><img src="<{$v}>" alt=""></div>							
 					</volist>
                     </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination swiper-pagination<{$key+1}>"></div>
+                    <!-- Add Pagination
+                    <div class="swiper-pagination swiper-pagination<{$key+1}>"></div> -->
                 </div>
 				</volist>
             </div>
@@ -70,7 +73,7 @@
     </div>
     <include file="Public/footer" />
 	<volist name="list" id="vo">
-	<script>
+	<!--<script>
 	var swiper1 = new Swiper('.swiper-container<{$key+1}>', {
 		pagination: '.swiper-pagination<{$key+1}>',
 		slidesPerView: 1,
@@ -80,7 +83,7 @@
 		autoplayDisableOnInteraction: false,
 		loop: true
 	});
-	</script>
+	</script>-->
 	</volist>
 <script>
 var obj = new Obj();

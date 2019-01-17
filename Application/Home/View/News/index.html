@@ -9,6 +9,71 @@
 <link rel="stylesheet" href="__CSS__/style.css">
 <script src="__JS__/jquery.min.js"></script>
 <script src="__JS__/module.js"></script>
+<script>
+var obj = new Obj();
+obj.addNew(".more",".right ul");
+function format_time_M(timestr){
+    var oldTime = (new Date(timestr)).getTime();
+	var curTime = new Date(oldTime).getMonth()+1;
+	if(curTime<10){
+		curTime = "0"+curTime;
+	}
+	document.write(curTime);
+}
+
+function format_time_ME(timestr){
+    var oldTime = (new Date(timestr)).getTime();
+	var curTime = new Date(oldTime).getMonth()+1;	
+	if(curTime==1){
+		mon = 'Jan';
+	}else if(curTime==2){
+		mon = 'Feb';
+	}else if(curTime==3){
+		mon = 'Mar';
+	}else if(curTime==4){
+		mon = 'Apr';
+	}else if(curTime==5){
+		mon = 'May';
+	}else if(curTime==6){
+		mon = 'Jun';
+	}else if(curTime==7){
+		mon = 'Jul';
+	}else if(curTime==8){
+		mon = 'Aug';
+	}else if(curTime==9){
+		mon = 'Sep';
+	}else if(curTime==10){
+		mon = 'Oct';
+	}else if(curTime==11){
+		mon = 'Nov';
+	}else if(curTime==12){
+		mon = 'Dec';
+	}
+	
+	document.write(mon);
+}
+
+function format_time_Y(timestr){
+    var oldTime = (new Date(timestr)).getTime();
+	var curTime = new Date(oldTime).getFullYear();	
+	document.write(curTime);
+}
+function format_time_D(timestr){
+    var oldTime = (new Date(timestr)).getTime();
+	var curTime = new Date(oldTime).getDate();	
+	if(curTime<10){
+		curTime = "0"+curTime;
+	}
+	document.write(curTime);
+}
+</script>   
+<style>
+.page{clear: both; text-align: left; font-size: 0; padding: 14px 0 50px;}
+.page a{display: inline-block; padding: 0 13px; height: 31px; line-height: 31px; border: 1px solid #c4c4c4; text-align: center; margin-right: 2px; color: #606060; font-size: 14px; text-decoration: none;}
+.page a.on{color: #2b6f37; font-size: 16px; height: 33px; line-height: 33px; border: 0;}
+.page a:hover{background: #a40000; color: #fff; border-color: #a40000;}
+
+</style>
 </head>
 <body>
     <div class="common-box">
@@ -37,10 +102,10 @@
         <div class="right">
 			<volist name="topdata" id="vo" offset="0" length='1'>
             <div class="header-news">
-                <div class="time"><{$vo.addtime|date='M d,Y',###}></div>
+                <div class="time"><script>format_time_ME("<{$vo.updatetime}>")</script> <script>format_time_D("<{$vo.updatetime}>")</script>,<script>format_time_Y("<{$vo.updatetime}>")</script></div>
                 <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
-                <p><a href="news-content.html"><{$vo.addtime|date='Y年m月d日',###}></a></p>
-                <p><a href="news-content.html"><{$vo.des}></a></p>
+                <p><a href="news-content.html"><script>format_time_Y("<{$vo.updatetime}>")</script>年<script>format_time_M("<{$vo.updatetime}>")</script>月<script>format_time_D("<{$vo.updatetime}>")</script>日</a></p>
+                <p style="width:450px;"><a href="news-content.html"><{$vo.description}></a></p>
                 <div class="view"><a href="/news/content.html?id=<{$vo.aid}>"></a></div>
             </div>
 			</volist>
@@ -49,14 +114,14 @@
 				<if condition="$vo['aid'] neq $topdata[0]['aid']">
                 <li>
                     <div class="time">
-                        <div class="day"><{$vo.addtime|date='d',###}></div>
-                        <p><{$vo.addtime|date='M',###}></p>
-                        <p><{$vo.addtime|date='Y',###}></p>
+                        <div class="day"><script>format_time_D("<{$vo.updatetime}>")</script></div>
+                        <p><script>format_time_ME("<{$vo.updatetime}>")</script></p>
+                        <p><script>format_time_Y("<{$vo.updatetime}>")</script></p>
                     </div>
                     <div class="content">
                         <div class="title"><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}></a></div>
                         <div class="author">发布者：东关集团</div>
-                        <p><a href="news-content.html"><{$vo.des}></a></p>
+                        <p><a href="/news/content.html?id=<{$vo.aid}>"><{$vo.description}></a></p>
                     </div>
                 </li>  
 				</if>
@@ -69,9 +134,6 @@
 
     </div>
     <include file="Public/footer" />
-<script>
-var obj = new Obj();
-obj.addNew(".more",".right ul");
-</script>   
+
 </body>
 </html>

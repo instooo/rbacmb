@@ -21,7 +21,7 @@
     <div class="inside-box">
         <div class="left">
             <div class="position">
-                新闻中心 <span>></span> 新闻
+                <a href="/news/">新闻中心 <span>></span> 新闻
             </div>
         </div>
         <div class="right">
@@ -46,7 +46,7 @@
         </div>
         <div class="right">
             <div class="header-news bg-none">
-                <div class="time"><{$info.addtime|date="M d,Y",###}></div>
+                <div class="time"><{$info.updatetime|substr=0,10}></div>
                 <div class="title"><{$info.title}></div>
                 <div class="author">发布者：东关集团  <{$info.addtime|date="Y年m月d日",###}></div>
             </div>

@@ -17,7 +17,7 @@ class NewsController extends CommonController {
 	}
     public function index(){
 		$typeid = 13;
-		$data = $this->get_list_page($typeid,10);
+		$data = $this->get_list_page($typeid,4);
 		$topdata = $this->get_top_list($typeid,1);
 		$this->assign('list',$data['list']);
 		$this->assign('page',$data['page']);	

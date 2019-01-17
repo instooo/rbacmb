@@ -10,6 +10,11 @@
 <script src="__JS__/jquery.min.js"></script>
 <script src="__JS__/module.js"></script>
 </head>
+<style>
+    .footer{
+        border-top: 1px solid #ddd;
+    }
+</style>
 <body>
     <div class="common-box">
        <include file="Public/nav" />
@@ -42,7 +47,7 @@
             <div class="content">
                 <div class="title1">
                     <h3>东关集团</h3>
-                    <p>GDONGGUAN GROUP</p>
+                    <p>DONGGUAN GROUP</p>
                 </div>
                 <div>
 				<{$dgjt.content}>
@@ -64,6 +69,8 @@
         </div>
     </div>
    <include file="Public/footer" />
-
+<script>
+    $(".about-us .left .left-content").height($(".about-us .right").height()-84+'px');
+</script>
 </body>
 </html>

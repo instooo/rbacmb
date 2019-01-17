@@ -54,33 +54,59 @@
 							<div class="swiper-slide "><img src="<{$v}>" alt=""></div>
                         </volist>                       
                     </div>
-                    <!-- Add Arrows -->
+                    <!-- Add Arrows -->					
                     <div class="swiper-button-next swiper-button-next2"></div>
-                    <div class="swiper-button-prev swiper-button-prev2"></div>   
+                    <div class="swiper-button-prev swiper-button-prev2"></div> 							
                 </div>
                 <div class="red">
                     <h3><{$vo.title}></h3>
-                    <p class="font-red">占地面积（m2）:  <{$vo.zdmianji}></p>
-                    <p class="font-red">建筑面积（m2）: <{$vo.jzmianji}> </p>
+                    <p class="font-red">占地面积（m<sup>2</sup>）:  <{$vo.zdmianji}></p>
+                    <p class="font-red">建筑面积（m<sup>2</sup>）: <{$vo.jzmianji}> </p>
                     <p class="font-red">容积率 : <{$vo.rongji}> </p>   
 					<p class="font-red"> 总户数 : <{$vo.count}>户 </p>
-                    <p class="font-red">开发时间 : <{$vo.kftime|date="Y-m-d",###}></p>
+                    <p class="font-red">开发时间 : <{$vo.kftime|substr=0,10}></p>
                     <h3>项目概述：</h3>
                     <div>
 					<{$vo.content}>
 					</div>
                 </div>
             </div>
-			</volist>           
-            <div class="content"><img src="__IMAGE__/map.jpg" style="width:100%" alt=""></div>
+			</volist>
+			<if condition="$typeid eq 33">
+			<div class="content">
+				<a href="__IMAGE__/maprx.jpg"  class="margin0" style=" height:auto;">
+					<img src="__IMAGE__/maprx.jpg" style="width:845px; height:600px;" alt="">
+				</a>
+			</div>
+			</if>
+			<if condition="$typeid eq 34">           
+			<div class="content">
+				<a href="__IMAGE__/mapzj.jpg"  class="margin0" style=" height:auto;">
+					<img src="__IMAGE__/mapzj.jpg" style="width:845px; height:600px;" alt="">
+				</a>
+			</div>
+			</if>
+			<if condition="$typeid eq 35">
+            <div class="content">
+				<a href="__IMAGE__/mapyj.jpg"  class="margin0" style=" height:auto;">
+					<img src="__IMAGE__/mapyj.jpg" style="width:845px; height:600px;" alt="">
+				</a>
+			</div>		
+			</if>
 			<div class="page">
 				<{$page}>
 			</div>
         </div>
     </div>
     <include file="Public/footer" />
-
+<script type="text/javascript" src="__JS__/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="__CSS__/jquery.lightbox-0.5.css" media="screen" />
 <script>
+$(function() {
+	$('.content a').lightBox({
+		containerResizeSpeed:10,		
+	});
+});
 var swiper = new Swiper('.swiper-container1', {
     pagination: '.swiper-pagination1',
     slidesPerView: 1,

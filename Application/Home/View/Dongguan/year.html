@@ -10,8 +10,8 @@
 <script src="__JS__/jquery.min.js"></script>
 <script src="__JS__/module.js"></script>
 </head>
-<body>
-    <div class="common-box">
+<body style="background: #f4f4f4">
+    <div class="common-box" style="background: #fff">
         <include file="Public/nav" />
         <div class="sub-nav">
             <ul>
@@ -38,9 +38,7 @@
     </div>
     <div class="year-book">
         <div class="year">
-            <div class="start right">
-               
-            </div>
+
             <ul>
 				<volist name="list" id="vo" mod='2'>
                 <li <eq name='mod' value='1'>class="left"<else/>class="right"</eq>>
@@ -49,7 +47,6 @@
                 </li>
 				</volist>                
             </ul>
-            <div class="end"></div>
         </div>
 
     </div>

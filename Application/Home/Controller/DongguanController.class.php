@@ -38,14 +38,16 @@ class DongguanController extends CommonController {
 	//企业年志
 	public function year(){
 		 $typeid = 24;
-		 $list = $this->get_list($typeid);		
+		 $list = $this->get_list($typeid);
+		 $this->assign('count',count($list));
 		 $this->assign('list',$list);		 
 		 $this->display();
 	}
 	//企业荣誉
 	public function honor(){
 		 $typeid = 25;
-		 $list = $this->get_list($typeid);		
+		 $list = $this->get_list($typeid);
+		 $this->assign('count',count($list));	
 		 $this->assign('list',$list);
 		 $this->display();
 	}

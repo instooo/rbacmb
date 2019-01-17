@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class ContactController extends Controller {
+class ContactController extends CommonController {
 	public function __construct() {	
 		parent::__construct();		
 		$webinfo = M('webconfig')->where('id=1')->find();		
