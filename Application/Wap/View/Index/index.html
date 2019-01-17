@@ -1,0 +1,114 @@
+<include file="Public/header" />
+<body>
+<div class="swiper-container" id="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide content swiper-slide-one">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="top">
+                <a href="index.html"><img src="__IMAGE__/logo.png" alt="" class="logo" /></a>
+            </div>
+            <div class="swiper-container2" id="swiper-container2">
+                <div class="swiper-wrapper">
+                    <volist name="banner_list" id="vo">
+                        <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt="<{$vo.title}>"></div>
+                    </volist>
+                </div>
+            </div>
+            <div class="Product-classification">
+                <p class="bt">集团产业</p>
+                <p class="eng-bt">GROUP BUSINESS</p>
+                <a href="industry.html?type=0">
+                    <div class="productList list1">
+                        <p class="cont-tit">房地产开发</p>
+                        <p class="eng-cont-tit">REAL ESTATE <br />DEVELOPMENT</p>
+                    </div>
+                </a>
+                <a href="industry.html?type=1">
+                    <div class="productList list2">
+                        <p class="cont-tit">城市更新</p>
+                        <p class="eng-cont-tit">URBAN RENEWAL</p>
+                    </div>
+                </a>
+                <a href="industry.html?type=2">
+                    <div class="productList list3">
+                        <p class="cont-tit">置业投资</p>
+                        <p class="eng-cont-tit">REAL ESTATE <br />INVESTMENT</p>
+                    </div>
+                </a>
+                <a href="industry.html?type=3">
+                    <div class="productList list4">
+                        <p class="cont-tit">物业管理</p>
+                        <p class="eng-cont-tit">THE PROPERTY <br />MANAGEMENT</p>
+                    </div>
+                </a>
+            </div>
+            <div class="news">
+                <div class="bt">新闻中心</div>
+                <div class="eng-bt">NEWS</div>
+                <div class="newsOne">
+                    <volist name="list" id="vo" offset="0" length='1'>
+                        <a href="/news/content.html?id=<{$vo.aid}>">
+                            <img src="images/banner.jpg" class="exhibition" alt="" />
+                            <div class="details">
+                                <p class="title"><{$vo.title}></p>
+                                <p class="time"><{$vo.addtime|date="Y-m-d"}></p>
+                                <p class="abstract">
+                                    <{$vo.description}>
+                                </p>
+                            </div>
+                        </a>
+                    </volist>
+                </div>
+                <volist name="list" id="vo" offset="0" length='3'>
+                    <div class="newslist">
+                        <a href="/news/content.html?id=<{$vo.aid}>"><{$vo.title}>
+                            <span class="time"><{$vo.addtime|date="Y-m-d"}></span></a>
+                    </div>
+                </volist>
+                <a href="news.html" class="more">更多</a>
+            </div>
+            <div class="swiper-container2" id="swiper-container3">
+                <div class="swiper-wrapper">
+                    <volist name="banner_list" id="vo">
+                        <div class="swiper-slide">
+                            <img src="<{$vo.img_duo}>" alt="" />
+                            <div class="rightContent">
+                                <h1><{$vo.title}></h1>
+                                <h2><img src="__IMAGE__/mediaPhone.png" alt="<{$vo.title}>"><a href="tel:0769-123">0769-123</a></h2>
+                                <!-- a标签放电话号码 -->
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <include file="Public/footer" />
+        </div>
+        <include file="Public/nav" />
+    </div>
+</div>
+
+<script src="__JS__/swiper.min.js"></script>
+<script src="__JS__/currency.js"></script>
+<script>
+    var mySwiper2 = new Swiper("#swiper-container2", {
+        loop: true, // 循环模式选项
+        speed: 300,
+        autoplay: {
+            delay: 3000
+        }
+    });
+    var mySwiper3 = new Swiper("#swiper-container3", {
+        loop: true, // 循环模式选项
+        speed: 300,
+        autoplay: {
+            delay: 3000
+        }
+    });
+</script>
+</body>
+
+</html>

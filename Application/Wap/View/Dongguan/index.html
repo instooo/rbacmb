@@ -1,0 +1,119 @@
+<include file="Public/header" />
+
+<body>
+<div class="swiper-container" id="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide content swiper-slide-one">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="top">
+                <a href="index.html"><img src="images/logo.png" alt="" class="logo" /></a>
+            </div>
+            <img src="__IMAGE__/banner2.jpg" class="banner" alt="">
+            <ul class="qiehuan">
+                <li class="on">企业介绍</li>
+                <li>企业理念</li>
+                <li>企业年志</li>
+                <li>企业荣耀</li>
+                <li>企业伙伴</li>
+            </ul>
+
+            <div class="intr_content intr_bg li on">
+                <p class="cont_eng_bt">SINCE 1995</p>
+                <p class="cont_bt">东关集团</p>
+                <div class="text">
+                    <{$dgjt.content}>
+                    <video src="http://www.dongguan-group.com/Public/Home/SWF/xc.mp4" controls="controls" class="video"></video>
+
+                    <p class="cont_bt">集团掌舵人</p>
+                    <p class="time_bt">THE LEADER</p>
+                    <img src="/Public/Home/images/about5.jpg" style="width:90%;margin-left:5%" alt="">
+                    <{$jtzdr.content}>
+                </div>
+            </div>
+            <div class="intr_content li">
+                <p class="cont_eng_bt">BRAND CONCEPT</p>
+                <p class="cont_bt">企业理念</p>
+                <volist name="list" id="vo">
+                    <img src="<{$vo.img_wap}>" class="pingzhi" alt="">
+                </volist>
+            </div>
+            <div class="intr_content intr_bg li">
+                <p class="cont_eng_bt">CORPORATE HISTORY</p>
+                <p class="cont_bt">企业年志</p>
+                <p class="time_bt">2019-NOW</p>
+                <volist name="listnz" id="vo" mod='2'>
+                    <li>
+                        <div class="p_list">
+                            <p class="p_time"><span class="quanqun"></span> <span class="jt">></span><span><{$vo.htime}></span></p>
+                            <p class="p_shijian"><{$vo.des}></p>
+                        </div>
+                    </li>
+                </volist>
+            </div>
+            <div class="intr_content intr_bg li">
+                <p class="cont_eng_bt">CORPORATE HONOR</p>
+                <p class="cont_bt">企业荣誉</p>
+                <volist name="listry" id="vo" mod='2'>
+                    <div class="p_list">
+                        <p class="p_time"><span class="quanqun"></span> <span class="jt">></span><span><{$vo.title}></span></p>
+                        <p class="p_shijian"><{$vo.des}></p>
+                    </div>
+
+                </volist>
+
+            </div>
+            <div class="intr_content li">
+                <p class="cont_eng_bt">ALLIANCE</p>
+                <p class="cont_bt">企业伙伴</p>
+                <div class="hz_list">
+                    <volist name="listp" id="vo">
+                        <div class="hzqy">
+                            <img src="<{$vo.img_wap}>" alt="">
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <include file="Public/footer" />
+        </div>
+        <include file="Public/nav" />
+    </div>
+</div>
+
+<script src="__JS__/swiper.min.js"></script>
+<script src="__JS__/currency.js"></script>
+<script>
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = GetRequest();
+
+    var par = Request['type'] || 0
+
+    addon($('.qiehuan li'), $('.qiehuan li').eq(par), $('.intr_content'), par)
+
+    $('.qiehuan li').click(function () {
+        addon($('.qiehuan li'), $(this), $('.intr_content'), $(this).index())
+    })
+
+    function addon(remOn, addOn, thatOn, index) {
+        remOn.removeClass('on');
+        addOn.addClass('on')
+        thatOn.removeClass('on').eq(index).addClass('on')
+    }
+</script>
+</body>
+
+</html>

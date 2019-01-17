@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<link rel="stylesheet" href="__CSS__/swiper.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+<script src="__JS__/swiper.min.js"></script>
+</head>
+<style>
+    .footer{
+        margin: 15px auto 0!important;
+        border-top: 1px solid #ddd;
+    }
+</style>
+<body>
+    <div class="common-box">
+         <include file="Public/nav" />
+        <div class="sub-nav">
+            <div class="sub-nav">
+            <ul>
+                <a href="/dongguan.html"><li>企业介绍</li></a>
+                <a href="/dongguan/idea.html"><li class="active">企业理念</li></a>
+                <a href="/dongguan/year.html"><li>企业年志</li></a>
+                <a href="/dongguan/honor.html"><li>企业荣誉</li></a>
+                <a href="/dongguan/partner.html"><li >合作伙伴</li></a>
+            </ul>
+        </div>
+        </div>
+    </div>
+   <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                走进东关<span>＞</span>企业理念
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>企业理念<span>ENTERPRISE PHILOSOPHY</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-container swiper-container1 idea-banner">
+		<volist name="list" id="vo">
+		<a href="javascript:void()" style="margin-top:-4px;"><img src="<{$vo.img_duo}>" alt=""></a>
+		</volist>
+    </div>
+
+    <include file="Public/footer" />
+<script>
+var swiper = new Swiper('.swiper-container1', {
+    nextButton: '.swiper-button-next1',
+    prevButton: '.swiper-button-prev1',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+
+</script>   
+</body>
+</html>

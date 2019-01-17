@@ -1,0 +1,67 @@
+<include file="Public/header" />
+<body>
+<div class="swiper-container" id="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide content swiper-slide-one">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="top">
+                <a href="index.html"><img src="__IMAGE__/logo.png" alt="" class="logo" /></a>
+            </div>
+            <img src="images/banner2.jpg" class="banner" alt="">
+            <div class="news_content">
+                <p class="cont_eng_bt">GROUP NEWS</p>
+                <p class="cont_bt">集团新闻</p>
+                <div class="inputBox clearfix">
+                    <div class="selBox">
+                        <span>发布时间</span><img src="__IMAGE__/down.png" alt=""><img src="__IMAGE__/up.png" alt="" class="up">
+                        <div class="pullList">
+                            <ul>
+                                <li id="all">所有</li>
+                                <li id="day">最近一天</li>
+                                <li id="week">最近一周</li>
+                                <li id="month">最近一月</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="searchBox">
+                        <input id="keyword" type="text" placeholder="搜索">
+                        <a href="javascript:;">
+                            <img src="__IMAGE__/search.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="news_li" style="margin-top: 5px">
+                    <img src="images/banner2.jpg" alt="">
+                    <volist name="list" id="vo">
+                    <div class="zhuti">
+                        <a href="/news/content.html?id=<{$vo.aid}>"><h1>2018.11.30</h1>
+                            <h3><{$vo.title}></h3>
+                            <p><{$vo.description}></p></a>
+                    </div>
+                    </volist>
+                </div>
+            </div>
+            <include file="Public/footer" />
+        </div>
+        <include file="Public/nav" />
+    </div>
+</div>
+
+<script src="__JS__/swiper.min.js"></script>
+<script src="__JS__/currency.js"></script>
+<script>
+    $('.inputBox .selBox').click(function() {
+        $(this).children('.pullList').slideToggle()
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active')
+        }
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<include file="Public/header" />
+
+<body>
+<div class="swiper-container" id="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide content swiper-slide-one">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="top">
+                <a href="index.html"><img src="__IMAGE__/logo.png" alt="" class="logo" /></a>
+            </div>
+            <img src="__IMAGE__/banner2.jpg" class="banner" alt="">
+
+            <div class="newsCont">
+                <p class="cont_eng_bt">新闻中心</p>
+                <p class="cont_bt">NEWS</p>
+                <div class="newstext">
+                    <h1><{$info.updatetime|substr=0,10}></h1>
+                    <h2><{$info.title}></h2>
+                    <{$info.content}>
+                    <img src="__IMAGE__/banner.jpg" alt="">
+                </div>
+            </div>
+
+            <include file="Public/footer" />
+        </div>
+        <include file="Public/nav" />
+    </div>
+</div>
+
+<script src="js/swiper.min.js"></script>
+<script src="js/currency.js"></script>
+<script>
+    var mySwiper5 = new Swiper("#swiper-container5", {
+        loop: true, // 循环模式选项
+        speed: 300,
+        autoplay: {
+            delay: 3000
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = GetRequest();
+
+    var par = Request['type'] || 0
+
+    addon($('.qiehuan li'), $('.qiehuan li').eq(par), $('.industryNr>li'), par)
+
+    $('.qiehuan li').click(function () {
+        addon($('.qiehuan li'), $(this), $('.industryNr>li'), $(this).index())
+    })
+
+    $('.in_qiehuan li').click(function () {
+        addon($('.in_qiehuan li'), $(this), $('.nr_ul>li'), $(this).index())
+    })
+
+    function addon(remOn, addOn, thatOn, index) {
+        remOn.removeClass('on');
+        addOn.addClass('on')
+        thatOn.removeClass('on').eq(index).addClass('on')
+    }
+</script>
+</body>
+
+</html>

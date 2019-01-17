@@ -217,7 +217,13 @@ class ContentController extends CommonController {
 		if ($_POST) {
 			$ret = array("code"=>-1,"msg"=>'',"data"=>"");
             do{ 
-				$data = $_POST;
+				$datanew = $_POST;
+				if(get_magic_quotes_gpc()){
+					foreach($datanew as $key=>$val){
+						$data[$key] = stripslashes($val);
+					}
+				}
+				
 				//检查数据
 				$checkresult = $class->checkData($data);				
 				if($checkresult['code']!=1){
@@ -276,7 +282,12 @@ class ContentController extends CommonController {
 		if($_POST){
 			$return = array("state"=>-1,"msg"=>'',"data"=>"");
 			do{	
-				$data = $_POST;
+				$datanew = $_POST;
+				//if(get_magic_quotes_gpc()){
+					foreach($datanew as $key=>$val){
+						$data[$key] = stripslashes($val);
+					}
+				//}
 				//检查数据
 				$checkresult = $class->checkData($data);				
 				if($checkresult['code']!=1){

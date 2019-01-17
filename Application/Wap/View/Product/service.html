@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<link rel="stylesheet" href="__CSS__/swiper.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+<script src="__JS__/swiper.min.js"></script>
+</head>
+<body>
+    <div class="common-box">
+        <include file="Public/nav" />
+        <div class="sub-nav">
+             <ul>
+                <li style="margin-right:70px;"></li>
+                <a href="/product.html"><li>房地产开发</li></a>
+                <a href="/product/update.html"><li>城市更新</li></a>
+                <a href="/product/invest.html"><li>置业投资</li></a>
+                <a href="/product/service.html"><li class="active">物业服务</li></a>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left">
+            <div class="position">
+                集团产业<span>＞</span>物业服务
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">
+            </div>
+        </div>
+    </div>
+    <div class="service">
+            <div class="swiper-container swiper-container2 ">
+                <div class="swiper-wrapper">
+				<volist name="toplist" id="vo">
+                    <div class="swiper-slide"><img src="<{$vo.img_duo}>" alt=""></div>
+                </volist>
+                </div>
+                <!-- Add Pagination
+                <div class="swiper-pagination swiper-pagination2"></div>               
+                <div class="swiper-button-next swiper-button-next2"></div>
+                <div class="swiper-button-prev swiper-button-prev2"></div>  
+				-->				
+            </div>
+
+            <div class="top">
+                <div class="left">物业服务</div>
+                <div class="right">
+                   <{$des.content}>
+                </div>
+            </div>
+            <div class="bottom"> 
+                <div class="swiper-container swiper-container1 ">
+                    <div class="swiper-wrapper">
+						<volist name="botlist" id="vo">
+						<div class="swiper-slide">
+						<div class="bg"></div>
+						<div class="bg1">
+						<h3><{$vo.title}></h3>
+						<span>ONE-STOP</span>
+						<span>BUTLER SERVICE</span>
+						<p><{$vo.des}></p>
+						</div>
+						<img src="<{$vo.img_duo}>" alt="">
+						</div>
+						</volist>                       
+                    </div>
+                    <!-- Add Pagination
+					<div class="swiper-pagination swiper-pagination1"></div>
+                     Add Arrows 
+                    <div class="swiper-button-next swiper-button-next1"></div>
+                    <div class="swiper-button-prev swiper-button-prev1"></div> 
+					-->
+                </div>
+            </div>
+    </div>
+    <include file="Public/footer" />
+//<script>
+//var swiper = new Swiper('.swiper-container1', {
+//    pagination: '.swiper-pagination1',
+//    nextButton: '.swiper-button-next1',
+//    prevButton: '.swiper-button-prev1',
+//    slidesPerView: 1,
+//    paginationClickable: true,
+//    autoplay: 3000,
+//    spaceBetween: 0,
+//    autoplayDisableOnInteraction: false,
+//    loop: true	
+//});
+//var swiper1 = new Swiper('.swiper-container2', {
+//    pagination: '.swiper-pagination2',
+//    nextButton: '.swiper-button-next2',
+//    prevButton: '.swiper-button-prev2',
+//    slidesPerView: 1,
+//    paginationClickable: true,
+//    autoplay: 5000,
+//    spaceBetween: 0,
+//    autoplayDisableOnInteraction: false,
+//    loop: true
+//});
+//</script>   
+</body>
+</html>

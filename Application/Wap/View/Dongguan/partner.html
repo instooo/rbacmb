@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+</head>
+<body>
+    <div class="common-box">
+        <include file="Public/nav" />
+        <div class="sub-nav">
+            <ul>
+                <a href="/dongguan.html"><li>企业介绍</li></a>
+                <a href="/dongguan/idea.html"><li>企业理念</li></a>
+                <a href="/dongguan/year.html"><li>企业年志</li></a>
+                <a href="/dongguan/honor.html"><li>企业荣誉</li></a>
+                <a href="/dongguan/partner.html"><li class="active">合作伙伴</li></a>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                走进东关<span>＞</span>合作伙伴
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>合作伙伴<span>PARTNERS</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="partners">
+	<ul>
+			<volist name="list" id="vo" mod='2'>
+            <li><img src="<{$vo.img_duo}>" alt="<{$vo.title}>"></li>
+            </volist>                
+        </ul>
+    </div>
+    <include file="Public/footer" />
+<script>
+
+</script>   
+</body>
+</html>

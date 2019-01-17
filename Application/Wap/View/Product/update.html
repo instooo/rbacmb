@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<link rel="stylesheet" href="__CSS__/swiper.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+<script src="__JS__/swiper.min.js"></script>
+</head>
+<style>
+    body .product .product-update .product-banner1 .swiper-slide{
+        background: #f4f4f4!important;
+    }
+</style>
+<body>
+    <div class="common-box">
+         <include file="Public/nav" />
+        <div class="sub-nav">
+            <ul>
+                <li style="margin-right:70px;"></li>
+                <a href="/product.html"><li>房地产开发</li></a>
+                <a href="/product/update.html"><li class="active">城市更新</li></a>
+                <a href="/product/invest.html"><li>置业投资</li></a>
+                <a href="/product/service.html"><li>物业服务</li></a>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                集团产业<span>＞</span>城市更新
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>城市更新<span>URBAN RENEWAL</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <!--         <div class="product-update">
+            <div class="head">            
+                <div class="swiper-container swiper-container1 product-banner1">
+                    <div class="swiper-wrapper">
+                                <volist name="list" id="vo">                      
+                                 <div class="swiper-slide">
+                            <div class="text"><{$vo.des}></div>
+                            <img src="<{$vo.img_duo}>" alt="">
+                            <div class="font"><{$vo.title}></div>
+                        </div>
+                                </volist>
+                    </div>
+                    Add Arrows
+                    <div class="swiper-button-next swiper-button-next1"></div>
+                    <div class="swiper-button-prev swiper-button-prev1"></div>   
+                </div>
+            </div>       
+        </div>
+         -->
+        <div class="product-update">
+            <div class="head">
+                <div class="text-box">
+					<volist name="list" id="vo">
+                    <div class="text <if condition="$i eq 1">active</if>" id="project-one">
+                        <h3><{$vo.title}></h3>
+                        <div class="eng">PINGSHAN</div>
+                        <p><{$vo.des|substr=0,300}></p>
+                    </div>
+					</volist>                   
+                </div>
+				<volist name="list" id="vo" key="k">
+                <div class="swiper-container swiper-container<{$k}> product-banner1">
+                    <div class="swiper-wrapper">
+						<volist name="vo.imgarr" id='v'>
+                        <div class="swiper-slide">
+                            <img src="<{$v}>" width='711' height='349' alt="">
+                        </div>
+						</volist>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-next<{$k}>"></div>
+                    <div class="swiper-button-prev swiper-button-prev<{$k}>" style="left:30px;"></div>   
+                </div>
+				</volist>
+            </div>
+            <div class="product-text">
+            <{$des.content}>
+            </div>
+
+
+        </div>
+
+
+    </div>
+     <include file="Public/footer" />
+<script>
+var swiper = new Swiper('.swiper-container1', {
+    nextButton: '.swiper-button-next1',
+    prevButton: '.swiper-button-prev1',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,	
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+var swiper2 = new Swiper('.swiper-container2', {
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,    
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+
+var pro = document.getElementsByClassName('text');
+var content = document.getElementsByClassName('swiper-container');
+for(var i=0; i<pro.length; i++){
+    (function(i){
+        pro[i].onclick = function(){
+            for(var j=0; j<content.length; j++){
+                if(i==j){
+                    pro[j].className = 'text active';
+                    content[j].style.display = 'block';
+                }else{
+                    pro[j].className = 'text';
+                    content[j].style.display = 'none';
+                }
+            }
+        }
+    })(i)
+}
+
+
+
+</script>   
+</body>
+</html>

@@ -18,8 +18,9 @@ $config = array(
 		'APP_SUB_DOMAIN_DEPLOY'=>1, // 开启子域名配置
 		'APP_SUB_DOMAIN_RULES'    =>    array(   
 			'admin.dongguan.me'  => 'Admin',
-			'www.dongguan.me'  => 'Home',	
-		),	
+			'www.dongguan.me'  => 'Home',
+            'wap.dongguan.me'  => 'Wap',
+        ),
 
 );
 return $newconfig = array_merge ( $db, $config );

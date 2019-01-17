@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<link rel="stylesheet" href="__CSS__/swiper.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+<script src="__JS__/swiper.min.js"></script>
+</head>
+<body>
+    <div class="common-box">
+        <include file="Public/nav" />
+        <div class="sub-nav">
+            <ul>
+                <li style="margin-right:350px;"></li>
+                <a href="/join.html"><li>人在东关</li></a>
+                <a href="/join/us.html"><li class="active">东关招聘</li></a>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                加入我们 <span>></span> 东关招聘
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>东关招聘<span>RECRUIT</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="join-box">
+        <ul>
+		<volist name="list" id="vo">
+            <li>
+                <div class="title"><{$vo.english}> <span>[<{$vo.title}>]</span></div>
+				<div>
+                <{$vo.content}>
+				</div>
+            </li>           
+		</volist>
+        </ul>
+    </div>
+    <include file="Public/footer" />
+<script>
+
+</script>   
+</body>
+</html>

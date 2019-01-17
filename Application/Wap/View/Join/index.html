@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="东关集团">
+<meta name="keywords" content="东关集团">
+<meta name="description" content="东关集团">
+<title>东关集团</title>
+<link rel="stylesheet" href="__CSS__/style.css">
+<link rel="stylesheet" href="__CSS__/swiper.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/module.js"></script>
+<script src="__JS__/swiper.min.js"></script>
+</head>
+<style>
+.swiper-bg{
+    background: #a70f0f;
+    opacity: 0.5;
+    bottom: 0!important;
+    width: 767px!important;
+    position: absolute;;
+    left: 433px;
+    height: 86px;
+    padding-top: 12px;
+    z-index: 2;
+}
+.swiper-pagination-box{
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    height: 73px;
+    width: 496px;
+    left: 573px;
+}
+
+.swiper-pagination-prev,.swiper-pagination-next{
+    width: 18px;
+    height: 32px;
+    background: url(__IMAGE__/prev2.png) no-repeat;
+    position: absolute;
+    bottom: 31px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.swiper-pagination-prev{
+    left: 517px;
+}
+.swiper-pagination-next{
+    background: url(__IMAGE__/next2.png) no-repeat;
+    right: 97px;
+}
+
+.swiper-pagination-bullet{
+    width: 104px!important;
+    height: 73px!important;
+    margin-right: 20px;
+}
+.swiper-pagination-bullet img{
+    border:5px solid #fff!important;
+    border-radius:3px!important; 
+    width:94px!important;
+     height:63px!important; 
+}
+.swiper-pagination-bullet-active img{
+    border:5px solid #ffed00!important;
+}
+</style>
+<body>
+    <div class="common-box">
+        <include file="Public/nav" />
+        <div class="sub-nav">
+            <ul>
+                <li style="margin-right:350px;"></li>
+                <a href="/join.html"><li class="active">人在东关</li></a>
+                <a href="/join/us.html"><li>东关招聘</li></a>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/banner" />
+    <div class="inside-box">
+        <div class="left1">
+            <div class="position">
+                加入我们<span>＞</span>人在东关
+            </div>
+        </div>
+        <div class="right1">
+            <div class="title">
+                <h3>人在东关<span>PEOPLE IN DONGGUAN</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="join-detail">
+            <div class="top">
+                <div class="left"><img src="__IMAGE__/join3.jpg" alt=""></div>
+                <div class="right">人在东关</div>
+            </div>
+            <div class="bottom">             
+                <div class="right">
+                    <div class="swiper-container swiper-container1 ">
+                        <div class="swiper-wrapper">
+                           <volist name="list" id="vo">
+						   <div class="swiper-slide">
+                                <div class="left">
+                                    <div class="font-box">
+										<h3>共同成长在东关</h3>										
+                                        <h5 style="margin-top: 10px;"><{$vo.title}></h5>
+                                        <span></span>
+                                        <p><{$vo.des}></p>
+                                    </div>
+                                </div>  
+								<div class="img">
+                                    <img src="<{$vo.img_duo}>" alt="">
+                                </div>		
+                            </div>			                           		
+							</volist>  
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-bg"></div>
+                        <div class="swiper-pagination-prev"></div>
+                        <div class="swiper-pagination-box">
+                            <div class="swiper-pagination swiper-pagination1"></div>
+                        </div>
+                        <div class="swiper-pagination-next"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-next1"></div>
+                        <div class="swiper-button-prev swiper-button-prev1"></div>   
+                    </div>
+                </div>
+            </div>
+    </div>
+    <include file="Public/footer" />
+<script>
+var count = 0;
+
+var swiper = new Swiper('.swiper-container1', {
+    pagination: '.swiper-pagination1',
+    nextButton: '.swiper-button-next1',
+    prevButton: '.swiper-button-prev1',
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplay: 5000,
+    spaceBetween: 0,
+    autoplayDisableOnInteraction: false,
+    effect: 'fade',
+    onImagesReady: function(swiper){      
+	    img();
+    }
+});
+
+var len = $(".swiper-pagination-bullet").length;
+var total = Math.ceil(len/4);
+$(".swiper-pagination").width(len*124)
+$(".swiper-pagination-prev").click(function(event) {
+    if(count==0){
+       // console.log("第一页了了");
+    }else{
+        count--;
+        $(".swiper-pagination").stop().animate({
+            left: (124*-4)*count+'px'
+        },10);
+    }
+});
+$(".swiper-pagination-next").click(function(event) {
+    if(count==total-1){
+       // console.log("最后一页啦啦啦");
+    }else{
+        count++;
+        $(".swiper-pagination").stop().animate({
+            left: (124*-4)*count+'px'
+        },10);
+    }
+});
+function img(){
+    $(".swiper-slide").each(function(index, el) {
+        var img = $(this).find(".img").html();
+        $(".swiper-pagination span").eq(index).html(img);   
+    });    
+}
+$(window).resize(function() {
+    img()
+});
+</script>   
+</body>
+</html>

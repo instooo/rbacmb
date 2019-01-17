@@ -1,0 +1,83 @@
+<?php
+namespace Wap\Controller;
+use Think\Controller;
+class ProductController extends CommonController {
+	public function __construct() {	
+		parent::__construct();		
+		$webinfo = M('webconfig')->where('id=1')->find();		
+		$this->assign('webinfo',$webinfo);
+		$this->assign ( 'pos', 'product' );
+		$this->assign ( 'smalltitle', '集团产业' );
+		//查找关键字和描述
+		$webinfo = M('webconfig')->where('id=1')->find();
+		
+		$tid = 8;
+		$banner_list = $this->get_model_list('ad',$tid,1);
+		$this->assign('banner_list',$banner_list);
+
+	}
+	//首页
+    public function index(){
+		$typeid = $_GET['id'];
+		$typeid = $typeid?$typeid:33;
+		$this->assign ( 'typeid', $typeid );
+		$list = $this->get_list($typeid);	
+		foreach($list as $key=>$val){
+			$listnew[$key]=$val;
+			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
+		}		
+		$typeid =15;
+		$des = $this->get_cate_info($typeid);	
+		$this->assign('des',$des);		
+		$this->assign('list',$listnew);		
+		
+        $this->display();
+    }
+	//城市更新
+	public function update(){
+		$typeid =38;
+		$des = $this->get_cate_info($typeid);
+		
+		$typeid =29;
+		$list = $this->get_list($typeid);	
+		foreach($list as $key=>$val){
+			$listnew[$key]=$val;
+			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
+		}			
+		$this->assign('list',$listnew);		
+		$this->assign('des',$des);	
+		$this->display();
+	}
+	//置业投资
+	public function invest(){
+		$typeid =39;
+		$des = $this->get_cate_info($typeid);
+		
+		$typeid =19;
+		$list = $this->get_list($typeid);	
+		foreach($list as $key=>$val){
+			$listnew[$key]=$val;
+			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
+		}		
+		$this->assign('list',$listnew);		
+		$this->assign('des',$des);	
+		$this->display();
+	}
+	//置业投资
+	public function service(){
+		$typeid =20;
+		$des = $this->get_cate_info($typeid);
+		
+		$typeid =40;
+		$list = $this->get_list($typeid);			
+		$this->assign('toplist',$list);
+
+		$typeid =41;
+		$list = $this->get_list($typeid);			
+		$this->assign('botlist',$list);
+		
+		$this->assign('des',$des);	
+		$this->display();
+	}
+	
+}
