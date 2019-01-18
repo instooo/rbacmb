@@ -1,132 +1,171 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="title" content="东关集团">
-<meta name="keywords" content="东关集团">
-<meta name="description" content="东关集团">
-<title>东关集团</title>
-<link rel="stylesheet" href="__CSS__/style.css">
-<link rel="stylesheet" href="__CSS__/swiper.min.css">
-<script src="__JS__/jquery.min.js"></script>
-<script src="__JS__/module.js"></script>
-<script src="__JS__/swiper.min.js"></script>
-</head>
-<body>
-    <div class="common-box">
-        <include file="Public/nav" />
-        <div class="sub-nav">
-            <ul>
-                <li style="margin-right:70px;"></li>
-                <a href="/product.html"><li class="active">房地产开发</li></a>
-                <a href="/product/update.html"><li>城市更新</li></a>
-                <a href="/product/invest.html"><li>置业投资</li></a>
-                <a href="/product/service.html"><li>物业服务</li></a>
-            </ul>
-        </div>
-    </div>
-    <include file="Public/banner" />
-    <div class="inside-box build-box">
-        <div class="left">
-            <div class="position">
-                集团产业<span>＞</span>房地产开发
-            </div>
-            <div class="left-content">
-                <div class="font-bg">
-                      <{$des.content}>
-                </div>
-                <ul class="nav">
-                    <li <if condition="$typeid eq 33">class="active"</if>><a href="/product.html?id=33"><h3>热销项目</h3><span>HOT PROJECTS</span></a></li>
-                    <li <if condition="$typeid eq 34">class="active"</if>><a href="/product.html?id=34"><h3>在建项目</h3><span>BUILDING</span></a></li>
-                    <li <if condition="$typeid eq 35">class="active"</if>><a href="/product.html?id=35"><h3>已建项目</h3><span>HAS BEEN BUILT</span></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="right">
-            <div class="title">
-                <h3>房地产开发<span>REAL ESTATE DEVELOPMENT</span></h3>
-            </div>
-			<volist name="list" id="vo">
-            <div class="content">
-                <div class="swiper-container swiper-container2 bulid-banner">
-                    <div class="swiper-wrapper">
-						<volist name='vo.imgarr' id='v'>
-							<div class="swiper-slide "><img src="<{$v}>" alt=""></div>
-                        </volist>                       
-                    </div>
-                    <!-- Add Arrows -->					
-                    <div class="swiper-button-next swiper-button-next2"></div>
-                    <div class="swiper-button-prev swiper-button-prev2"></div> 							
-                </div>
-                <div class="red">
-                    <h3><{$vo.title}></h3>
-                    <p class="font-red">占地面积（m<sup>2</sup>）:  <{$vo.zdmianji}></p>
-                    <p class="font-red">建筑面积（m<sup>2</sup>）: <{$vo.jzmianji}> </p>
-                    <p class="font-red">容积率 : <{$vo.rongji}> </p>   
-					<p class="font-red"> 总户数 : <{$vo.count}>户 </p>
-                    <p class="font-red">开发时间 : <{$vo.kftime|substr=0,10}></p>
-                    <h3>项目概述：</h3>
-                    <div>
-					<{$vo.content}>
-					</div>
-                </div>
-            </div>
-			</volist>
-			<if condition="$typeid eq 33">
-			<div class="content">
-				<a href="__IMAGE__/maprx.jpg"  class="margin0" style=" height:auto;">
-					<img src="__IMAGE__/maprx.jpg" style="width:845px; height:600px;" alt="">
-				</a>
-			</div>
-			</if>
-			<if condition="$typeid eq 34">           
-			<div class="content">
-				<a href="__IMAGE__/mapzj.jpg"  class="margin0" style=" height:auto;">
-					<img src="__IMAGE__/mapzj.jpg" style="width:845px; height:600px;" alt="">
-				</a>
-			</div>
-			</if>
-			<if condition="$typeid eq 35">
-            <div class="content">
-				<a href="__IMAGE__/mapyj.jpg"  class="margin0" style=" height:auto;">
-					<img src="__IMAGE__/mapyj.jpg" style="width:845px; height:600px;" alt="">
-				</a>
-			</div>		
-			</if>
-			<div class="page">
-				<{$page}>
-			</div>
-        </div>
-    </div>
-    <include file="Public/footer" />
-<script type="text/javascript" src="__JS__/jquery.lightbox-0.5.js"></script>
-<link rel="stylesheet" type="text/css" href="__CSS__/jquery.lightbox-0.5.css" media="screen" />
-<script>
-$(function() {
-	$('.content a').lightBox({
-		containerResizeSpeed:10,		
-	});
-});
-var swiper = new Swiper('.swiper-container1', {
-    pagination: '.swiper-pagination1',
-    slidesPerView: 1,
-    paginationClickable: true,
-    autoplay: 5000,
-    spaceBetween: 0,
-    autoplayDisableOnInteraction: false,
-    loop: true
-});
+<include file="Public/header" />
 
-var swiper = new Swiper('.swiper-container2', {
-    nextButton: '.swiper-button-next2',
-    prevButton: '.swiper-button-prev2',
-    slidesPerView: 1,
-    paginationClickable: true,
-    //autoplay: 5000,
-    spaceBetween: 0,
-    //autoplayDisableOnInteraction: false,
-    loop: true
-});
-</script>  
+<body>
+<div class="swiper-container" id="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide content swiper-slide-one">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="top">
+                <a href="/index.html"><img src="__IMAGE__/logo.png" alt="" class="logo" /></a>
+            </div>
+            <img src="__IMAGE__/banner2.jpg" class="banner" alt="">
+            <ul class="qiehuan">
+                <li class="on">房地产开发</li>
+                <li>城市更新</li>
+                <li>置业投资</li>
+                <li>物业服务</li>
+            </ul>
+
+            <ul class="industryNr">
+                <li class="on">
+                    <p class="bt">房地产开发</p>
+                    <p class="eng_bt">REAL ESTATE DEVELOPMENT</p>
+                    <img src="__IMAGE__/ditu.jpg" alt="">
+                    <p class="jianjie"><{$des.content}></p>
+                    <ul class="in_qiehuan">
+                        <li class="on">热销项目</li>
+                        <li>在建项目</li>
+                        <li>已建项目</li>
+                    </ul>
+                    <ul class="nr_ul">
+                        <volist name="list" id="vo">
+                        <li class="on">
+                            <!-- <p class="bt_2">项目数据：</p>
+                            <p class="xiangqing">占地面积: 18677㎡ 建筑面积: 96693㎡ 容积率: 3.67 总户数: 584户 开发时间: 2017-01-01</p> -->
+                            <div class="wpxq">
+                                <a href="projectDisplay.html"><img src="<{$vo.imgarr[0]}>" alt="">
+                                    <p class="title">东关·乐尚林居</p>
+                                </a>
+                            </div>
+                        </li>
+                        </volist>
+                        <li>
+                            <!-- <p class="bt_2">项目数据：</p>
+                            <p class="xiangqing">占地面积: 18677㎡ 建筑面积: 96693㎡ 容积率: 3.67 总户数: 584户 开发时间: 2017-01-01</p> -->
+                            <div class="wpxq">
+                                <img src="images/banner2.jpg" alt="">
+                                <p class="title">东关·乐尚林居2</p>
+
+                            </div>
+                        </li>
+                        <li>
+                            <!-- <p class="bt_2">项目数据：</p>
+                            <p class="xiangqing">占地面积: 18677㎡ 建筑面积: 96693㎡ 容积率: 3.67 总户数: 584户 开发时间: 2017-01-01</p> -->
+                            <div class="wpxq">
+                                <img src="images/banner2.jpg" alt="">
+                                <p class="title">东关·乐尚林居3</p>
+
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="bt">城市更新</p>
+                    <p class="eng_bt">URBAN RENEWAL</p>
+                    <p class="jianjie"><{$desup.content}></p>
+                    <volist name="listup" id="vo" key="k">
+                    <div class="wpxq">
+                        <a href="projectDisplay.html">
+                            <volist name="vo.imgarr" id='v' offset="0" length='1'>
+                            <img src="<{$v}>" alt="">
+                            </volist>
+                            <p class="title"><{$vo.title}></p>
+                        </a>
+                    </div>
+                    </volist>
+                    </volist>
+
+                </li>
+                <li class="on">
+                    <p class="bt">置业投资</p>
+                    <p class="eng_bt">INVESTMENT</p>
+                    <p class="jianjie"><{$deszy.content}></p>
+
+                    <div class="swiper-container4 zytz" id="swiper-container4">
+                        <div class="swiper-wrapper">
+                            <volist name="listzy" id="vo">
+                            <div class="swiper-slide">
+                                <div class="rightContent">
+                                    <volist name='vo.imgarr' id='v'>
+                                    <img src="<{$v}>" alt="">
+                                    </volist>
+                                    <h3><{$vo.title}></h3>
+                                </div>
+                            </div>
+                            </volist>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                </li>
+                <li>
+                    <p class="bt">万家好物业</p>
+                    <p class="eng_bt">PROPERTY</p>
+                    <h1>贴心服务 永无止境</h1>
+                    <p class="text"><{$desfw.content}></p>
+                    <a href="">进入万家好集团官网>>></a>
+                    <img src="images/banner2.jpg" alt="">
+                </li>
+            </ul>
+
+            <include file="Public/footer" />
+        </div>
+        <include file="Public/nav" />
+    </div>
+</div>
+
+<script src="__JS__/swiper.min.js"></script>
+<script src="__JS__/currency.js"></script>
+<script>
+    var mySwiper4 = new Swiper("#swiper-container4", {
+        loop: true, // 循环模式选项
+        speed: 300,
+        autoplay: {
+            delay: 3000
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = GetRequest();
+
+    var par = Request['type'] || 0
+
+    addon($('.qiehuan li'), $('.qiehuan li').eq(par), $('.industryNr>li'), par)
+
+    $('.qiehuan li').click(function () {
+        addon($('.qiehuan li'), $(this), $('.industryNr>li'), $(this).index())
+    })
+
+    $('.in_qiehuan li').click(function () {
+        addon($('.in_qiehuan li'), $(this), $('.nr_ul>li'), $(this).index())
+    })
+
+    function addon(remOn, addOn, thatOn, index) {
+        remOn.removeClass('on');
+        addOn.addClass('on')
+        thatOn.removeClass('on').eq(index).addClass('on')
+    }
+</script>
 </body>
+
 </html>

@@ -52,17 +52,17 @@
                     <div class="swiper-wrapper">
 						<volist name='vo.imgarr' id='v'>
 							<div class="swiper-slide "><img src="<{$v}>" alt=""></div>
-                        </volist>                       
+                        </volist>
                     </div>
-                    <!-- Add Arrows -->					
+                    <!-- Add Arrows -->
                     <div class="swiper-button-next swiper-button-next2"></div>
-                    <div class="swiper-button-prev swiper-button-prev2"></div> 							
+                    <div class="swiper-button-prev swiper-button-prev2"></div>
                 </div>
                 <div class="red">
                     <h3><{$vo.title}></h3>
                     <p class="font-red">占地面积（m<sup>2</sup>）:  <{$vo.zdmianji}></p>
                     <p class="font-red">建筑面积（m<sup>2</sup>）: <{$vo.jzmianji}> </p>
-                    <p class="font-red">容积率 : <{$vo.rongji}> </p>   
+                    <p class="font-red">容积率 : <{$vo.rongji}> </p>
 					<p class="font-red"> 总户数 : <{$vo.count}>户 </p>
                     <p class="font-red">开发时间 : <{$vo.kftime|substr=0,10}></p>
                     <h3>项目概述：</h3>
@@ -79,7 +79,7 @@
 				</a>
 			</div>
 			</if>
-			<if condition="$typeid eq 34">           
+			<if condition="$typeid eq 34">
 			<div class="content">
 				<a href="__IMAGE__/mapzj.jpg"  class="margin0" style=" height:auto;">
 					<img src="__IMAGE__/mapzj.jpg" style="width:845px; height:600px;" alt="">
@@ -91,7 +91,7 @@
 				<a href="__IMAGE__/mapyj.jpg"  class="margin0" style=" height:auto;">
 					<img src="__IMAGE__/mapyj.jpg" style="width:845px; height:600px;" alt="">
 				</a>
-			</div>		
+			</div>
 			</if>
 			<div class="page">
 				<{$page}>
@@ -104,7 +104,7 @@
 <script>
 $(function() {
 	$('.content a').lightBox({
-		containerResizeSpeed:10,		
+		containerResizeSpeed:10,
 	});
 });
 var swiper = new Swiper('.swiper-container1', {
@@ -127,6 +127,6 @@ var swiper = new Swiper('.swiper-container2', {
     //autoplayDisableOnInteraction: false,
     loop: true
 });
-</script>  
+</script>
 </body>
 </html>

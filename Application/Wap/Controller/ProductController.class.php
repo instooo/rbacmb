@@ -18,65 +18,81 @@ class ProductController extends CommonController {
 	}
 	//首页
     public function index(){
-		$typeid = $_GET['id'];
-		$typeid = $typeid?$typeid:33;
-		$this->assign ( 'typeid', $typeid );
-		$list = $this->get_list($typeid);	
+        //得到模型
+        $result = M('cate a')
+            ->join('youzhan_model b on a.m_id = b.id')
+            ->where('typeid=33')
+            ->find();
+        //获取文章列表
+        $map['typeid']=array('in',array(33,34,35));
+        $list = M($result['form'])
+            ->where($map)
+            ->order('weight desc,aid desc')
+            ->select();
+
 		foreach($list as $key=>$val){
 			$listnew[$key]=$val;
 			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
-		}		
+		}
 		$typeid =15;
 		$des = $this->get_cate_info($typeid);	
 		$this->assign('des',$des);		
 		$this->assign('list',$listnew);		
-		
+
+
+		//城市更新
+        $typeid =38;
+        $desup = $this->get_cate_info($typeid);
+
+        $typeid =29;
+        $listup = $this->get_list($typeid);
+        $listnew=array();
+        foreach($listup as $key=>$val){
+            $listnew[$key]=$val;
+            $listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
+        }
+        $this->assign('listup',$listnew);
+        $this->assign('desup',$desup);
+
+        //置业投资
+        $typeid =39;
+        $deszy = $this->get_cate_info($typeid);
+
+        $typeid =19;
+        $listzy = $this->get_list($typeid);
+        $listnew=array();
+        foreach($listzy as $key=>$val){
+            $listnew[$key]=$val;
+            $listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
+        }
+        $this->assign('listzy',$listnew);
+        $this->assign('deszy',$deszy);
+
+        $typeid =20;
+        $desfw = $this->get_cate_info($typeid);
+
+        $typeid =40;
+        $listfw = $this->get_list($typeid);
+        $this->assign('toplist',$listfw);
+
+        $typeid =41;
+        $list = $this->get_list($typeid);
+        $this->assign('botlist',$list);
+
+        $this->assign('desfw',$desfw);
+
         $this->display();
     }
 	//城市更新
 	public function update(){
-		$typeid =38;
-		$des = $this->get_cate_info($typeid);
-		
-		$typeid =29;
-		$list = $this->get_list($typeid);	
-		foreach($list as $key=>$val){
-			$listnew[$key]=$val;
-			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
-		}			
-		$this->assign('list',$listnew);		
-		$this->assign('des',$des);	
 		$this->display();
 	}
 	//置业投资
 	public function invest(){
-		$typeid =39;
-		$des = $this->get_cate_info($typeid);
-		
-		$typeid =19;
-		$list = $this->get_list($typeid);	
-		foreach($list as $key=>$val){
-			$listnew[$key]=$val;
-			$listnew[$key]['imgarr'] = explode("|",trim($val['img_duo'],"|"));
-		}		
-		$this->assign('list',$listnew);		
-		$this->assign('des',$des);	
 		$this->display();
 	}
 	//置业投资
 	public function service(){
-		$typeid =20;
-		$des = $this->get_cate_info($typeid);
-		
-		$typeid =40;
-		$list = $this->get_list($typeid);			
-		$this->assign('toplist',$list);
-
-		$typeid =41;
-		$list = $this->get_list($typeid);			
-		$this->assign('botlist',$list);
-		
-		$this->assign('des',$des);	
 		$this->display();
 	}
 	
